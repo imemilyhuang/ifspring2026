@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Emily Huang | Raleway | Type Styles</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --dark-text: #2a1410;
+        --page: #fffcfb;
+        --card: #ffe2d9;
+        --coral: #b93b2a;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Raleway", sans-serif;
+        font-size: 24px;
+        line-height: 1.5;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 4rem 2rem;
+        color: var(--dark-text);
+        background: var(--page);
+      }
+      .summary {
+        text-align: center;
+        margin-bottom: 4rem;
+      }
+      .summary h1 {
+        margin: 0 0 1rem 0;
+        font-size: 2.4rem;
+        font-weight: 700;
+        color: var(--coral);
+      }
+      .summary p {
+        font-size: 1.2rem;
+        margin: 0;
+      }
+      section {
+        margin-bottom: 4rem;
+        padding: 1.5rem 2rem;
+        background: var(--card);
+        color: var(--dark-text);
+        border-radius: 12px;
+        overflow: hidden;
+      }
+      section h2 {
+        margin: -1.5rem -2rem 1.5rem -2rem;
+        font-size: 1rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: #ffffff;
+        background: var(--coral);
+        padding: 1rem 2rem;
+        letter-spacing: 0.2rem;
+      }
+      .sample:not(:last-child) {
+        margin-bottom: 2rem;
+      }
+      .label {
+        display: block;
+        font-size: 0.75rem;
+        font-family: monospace;
+        color: var(--coral);
+        letter-spacing: 0.1em;
+        font-weight: 700;
+        margin-bottom: 0.3rem;
+      }
+      .sample-text {
+        display: block;
+      }
+      footer {
+        text-align: center;
+        margin-top: 4rem;
+        font-size: 1rem;
+        color: var(--dark-text);
+      }
+    </style>
+  </head>
+  <body>
+    <header class="summary">
+      <h1>Type Styles</h1>
+      <p><strong>font-family:</strong> Raleway;</p>
+      <p><strong>font-size:</strong> 24px;</p>
+    </header>
+
+    <section>
+      <h2>Font Weight</h2>
+      <div class="sample">
+        <span class="label">font-weight: normal;</span>
+        <span class="sample-text" style="font-weight: normal">
+          The quick brown fox jumps over the lazy dog.
+        </span>
+      </div>
+      <div class="sample">
+        <span class="label">font-weight: bold;</span>
+        <span class="sample-text" style="font-weight: bold">
+          The quick brown fox jumps over the lazy dog.
+        </span>
+      </div>
+    </section>
+
+    <section>
+      <h2>Font Style</h2>
+      <div class="sample">
+        <span class="label">font-style: normal;</span>
+        <span class="sample-text" style="font-style: normal">
+          The quick brown fox jumps over the lazy dog.
+        </span>
+      </div>
+      <div class="sample">
+        <span class="label">font-style: italic;</span>
+        <span class="sample-text" style="font-style: italic">
+          The quick brown fox jumps over the lazy dog.
+        </span>
+      </div>
+    </section>
+
+    <section>
+      <h2>Letter Spacing</h2>
+      <div class="sample">
+        <span class="label">letter-spacing: normal;</span>
+        <span class="sample-text" style="letter-spacing: normal">
+          The quick brown fox jumps over the lazy dog.
+        </span>
+      </div>
+      <div class="sample">
+        <span class="label">letter-spacing: .3em;</span>
+        <span class="sample-text" style="letter-spacing: 0.3em">
+          The quick brown fox jumps over the lazy dog.
+        </span>
+      </div>
+      <div class="sample">
+        <span class="label">letter-spacing: -.06em;</span>
+        <span class="sample-text" style="letter-spacing: -0.06em">
+          The quick brown fox jumps over the lazy dog.
+        </span>
+      </div>
+    </section>
+
+    <section>
+      <h2>Text Decoration</h2>
+      <div class="sample">
+        <span class="label">text-decoration: none;</span>
+        <span class="sample-text" style="text-decoration: none">
+          The quick brown fox jumps over the lazy dog.
+        </span>
+      </div>
+      <div class="sample">
+        <span class="label">text-decoration: underline;</span>
+        <span class="sample-text" style="text-decoration: underline">
+          The quick brown fox jumps over the lazy dog.
+        </span>
+      </div>
+      <div class="sample">
+        <span class="label">text-decoration: line-through;</span>
+        <span class="sample-text" style="text-decoration: line-through">
+          The quick brown fox jumps over the lazy dog.
+        </span>
+      </div>
+      <div class="sample">
+        <span class="label">text-decoration: overline;</span>
+        <span class="sample-text" style="text-decoration: overline">
+          The quick brown fox jumps over the lazy dog.
+        </span>
+      </div>
+    </section>
+
+    <section>
+      <h2>Text Transform</h2>
+      <div class="sample">
+        <span class="label">text-transform: none;</span>
+        <span class="sample-text" style="text-transform: none">
+          The quick brown fox jumps over the lazy dog.
+        </span>
+      </div>
+      <div class="sample">
+        <span class="label">text-transform: uppercase;</span>
+        <span class="sample-text" style="text-transform: uppercase">
+          The quick brown fox jumps over the lazy dog.
+        </span>
+      </div>
+      <div class="sample">
+        <span class="label">text-transform: lowercase;</span>
+        <span class="sample-text" style="text-transform: lowercase">
+          The quick brown fox jumps over the lazy dog.
+        </span>
+      </div>
+      <div class="sample">
+        <span class="label">text-transform: capitalize;</span>
+        <span class="sample-text" style="text-transform: capitalize">
+          The quick brown fox jumps over the lazy dog.
+        </span>
+      </div>
+    </section>
+
+    <footer>
+      <p>Made by Emily Huang | 2026</p>
+    </footer>
+  </body>
+</html>
