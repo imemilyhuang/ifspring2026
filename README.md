@@ -1,2 +1,2 @@
 # ifspring2026
-For Interaction Fonundations Assignments
+For Interaction Foundations Assignments
