@@ -5,41 +5,120 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Emily Huang - Recipe page - research</title>
     <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0 auto;
+        max-width: 850px;
+        line-height: 1.4;
+        font-size: 1rem;
+        color: #444;
+        padding: 2rem;
+      }
+
+      header {
+        margin-bottom: 3rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid #ddd;
+      }
+
+      nav {
+        display: flex;
+        gap: 2rem;
+        margin: 0;
+        padding: 0;
+      }
+
+      section {
+        margin-bottom: 6rem;
+      }
+
+      li {
+        margin-bottom: 0.5rem;
+      }
+
+      ol, ul {
+        margin: 0 0 1.5rem 0;
+        padding-left: 1.5rem;
+      }
+
       .recipe-image-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        grid-template-columns: repeat(4, 1fr);
         gap: 1.5rem;
+        margin-top: 1rem;
       }
+
+      .recipe-image-grid figure {
+        margin: 0;
+      }
+
       .recipe-image-grid img {
         width: 100%;
         height: auto;
         display: block;
+        margin-bottom: 0.5rem;
+      }
+
+      .recipe-image-grid figcaption {
+        margin-bottom: 0.25rem;
+        font-size: 0.9rem;
+      }
+
+      .recipe-image-grid small {
+        display: block;
+        font-size: 0.8rem;
+      }
+
+      a {
+        color: #2458c8;
       }
     </style>
   </head>
   <body>
     <header>
       <div>
-        <h1>Foolproof Macaron Recipe</h1>
+        <h1>Macarons</h1>
         <nav>
-          <li><a href="#recipe-content">Recipe content</a></li>
-          <li><a href="#recipe-images">Sample imagery</a></li>
-          <li><a href="#recipe-website-references">Recipe website references/critique</a></li>
-          <li><a href="#website-references">Non-recipeebsite references/critique</a></li>
+          <a href="#recipe-content">Recipe Content</a>
+          <a href="#recipe-images">Imagery</a>
+          <a href="#recipe-website-references">Recipe Website References</a>
+          <a href="#website-references">Non-Recipe Website References</a>
         </nav>
       </div>
     </header>
 
     <main>
       <section id="recipe-content">
-        <h1>Recipe content</h1>
+        <h1>Recipe Content</h1>
         <h2>Title: Foolproof Macaron Recipe</h2>
 
         <h3>Description:</h3>
         <p>French macarons are delicate almond meringue cookies with crisp shells and soft, chewy centers. While they're known for being tricky, using a Swiss meringue makes the batter more stable and reliable. This method simplifies the process and gives perfectly smooth, chewy macarons every time. </p>
         
+        <ul>
+          <li><strong>Category:</strong> Dessert</li>
+          <li><strong>Cuisine:</strong> French</li>
+          <li><strong>Method:</strong> Oven</li>
+          <li><strong>Prep Time:</strong> 30 minutes</li>
+          <li><strong>Cook Time:</strong> 15 minutes</li>
+          <li><strong>Total Time:</strong> 2 hours</li>
+          <li><strong>Yield:</strong> 20 macarons</li>
+        </ul>
+        
+        <h3>Equipment:</h3>
+        <ul>
+          <li>Stand mixer</li>
+          <li>Kitchen scale</li>
+          <li>Sifter</li>
+          <li>Parchment paper</li>
+          <li>Cookie sheet</li>
+          <li>Piping bag</li>
+        </ul>
         <h3>Ingredients:</h3>
-        <p><strong>For the macarons</strong></p>
+        <p><strong>For the Macarons:</strong></p>
         <ul>
           <li>100g egg whites</li>
           <li>100g granulated sugar</li>
@@ -48,7 +127,7 @@
           <li>Pinch of salt</li>
           <li>Food coloring (optional)</li>
         </ul>
-        <p><strong>For the filling</strong></p>
+        <p><strong>For the Filling:</strong></p>
         <ul>
           <li>6 tablespoons unsalted butter, room temperature</li>
           <li>2 cups powdered sugar</li>
@@ -73,116 +152,116 @@
           <li>Once the macarons are completely cool to the touch, pipe the filling onto a macaron and sandwich with another macaron. Repeat with all macarons.</li>
         </ol>
 
-        <p>Source attribution: <a href="https://bromabakery.com/foolproof-macaron-recipe-step-by-step/">Broma Bakery</a></p>
+        <p>Source Attribution: <a href="https://bromabakery.com/foolproof-macaron-recipe-step-by-step/">Broma Bakery</a></p>
       </section>
 
       <section id="recipe-images">
-        <h1>Sample imagery</h1>
+        <h1>Sample Imagery</h1>
         <div class="recipe-image-grid">
           <figure>
             <img src="add-food-coloring.jpg" alt="Adding food coloring to the meringue" />
             <figcaption>Adding food coloring to the meringue for colored macarons.</figcaption>
-            <small>Image source: <a href="https://bromabakery.com/foolproof-macaron-recipe-step-by-step/">Broma Bakery</a></small>
+            <small>Image Source: <a href="https://bromabakery.com/foolproof-macaron-recipe-step-by-step/">Broma Bakery</a></small>
           </figure>
           <figure>
             <img src="add-powdered-sugar.jpg" alt="Adding powdered sugar" />
             <figcaption>Adding powdered sugar to the meringue mixture.</figcaption>
-            <small>Image source: <a href="https://bromabakery.com/foolproof-macaron-recipe-step-by-step/">Broma Bakery</a></small>
+            <small>Image Source: <a href="https://bromabakery.com/foolproof-macaron-recipe-step-by-step/">Broma Bakery</a></small>
           </figure>
           <figure>
             <img src="bake.jpg" alt="Macarons baking in the oven" />
             <figcaption>Macarons baking in the oven.</figcaption>
-            <small>Image source: <a href="https://bromabakery.com/foolproof-macaron-recipe-step-by-step/">Broma Bakery</a></small>
+            <small>Image Source: <a href="https://bromabakery.com/foolproof-macaron-recipe-step-by-step/">Broma Bakery</a></small>
           </figure>
           <figure>
             <img src="beat.jpg" alt="Beating the mixture" />
             <figcaption>Beating the meringue or filling mixture.</figcaption>
-            <small>Image source: <a href="https://bromabakery.com/foolproof-macaron-recipe-step-by-step/">Broma Bakery</a></small>
+            <small>Image Source: <a href="https://bromabakery.com/foolproof-macaron-recipe-step-by-step/">Broma Bakery</a></small>
           </figure>
           <figure>
             <img src="measure-ingredients-egg-whites.jpg" alt="Measuring egg whites" />
             <figcaption>Measuring egg whites for the recipe.</figcaption>
-            <small>Image source: <a href="https://bromabakery.com/foolproof-macaron-recipe-step-by-step/">Broma Bakery</a></small>
+            <small>Image Source: <a href="https://bromabakery.com/foolproof-macaron-recipe-step-by-step/">Broma Bakery</a></small>
           </figure>
           <figure>
             <img src="measure-ingredients.jpg" alt="Measuring ingredients" />
             <figcaption>Measuring dry ingredients for the macarons.</figcaption>
-            <small>Image source: <a href="https://bromabakery.com/foolproof-macaron-recipe-step-by-step/">Broma Bakery</a></small>
+            <small>Image Source: <a href="https://bromabakery.com/foolproof-macaron-recipe-step-by-step/">Broma Bakery</a></small>
           </figure>
           <figure>
             <img src="on-stove.jpg" alt="Bowl on the stove" />
             <figcaption>Heating the egg white mixture on the stove in a double boiler.</figcaption>
-            <small>Image source: <a href="https://bromabakery.com/foolproof-macaron-recipe-step-by-step/">Broma Bakery</a></small>
+            <small>Image Source: <a href="https://bromabakery.com/foolproof-macaron-recipe-step-by-step/">Broma Bakery</a></small>
           </figure>
           <figure>
             <img src="whisk-egg-whites-frothy.jpg" alt="Egg whites whisked frothy" />
             <figcaption>Egg whites whisked until white and frothy over the double boiler.</figcaption>
-            <small>Image source: <a href="https://bromabakery.com/foolproof-macaron-recipe-step-by-step/">Broma Bakery</a></small>
+            <small>Image Source: <a href="https://bromabakery.com/foolproof-macaron-recipe-step-by-step/">Broma Bakery</a></small>
           </figure>
           <figure>
             <img src="whisk-egg-whites.jpg" alt="Whisking egg whites" />
             <figcaption>Whisking egg whites at the start of the Swiss meringue.</figcaption>
-            <small>Image source: <a href="https://bromabakery.com/foolproof-macaron-recipe-step-by-step/">Broma Bakery</a></small>
+            <small>Image Source: <a href="https://bromabakery.com/foolproof-macaron-recipe-step-by-step/">Broma Bakery</a></small>
           </figure>
           <figure>
             <img src="pipe-onto-sheet.jpg" alt="Piping onto baking sheet" />
             <figcaption>Piping macaron batter onto the baking sheet.</figcaption>
-            <small>Image source: <a href="https://bromabakery.com/foolproof-macaron-recipe-step-by-step/">Broma Bakery</a></small>
+            <small>Image Source: <a href="https://bromabakery.com/foolproof-macaron-recipe-step-by-step/">Broma Bakery</a></small>
           </figure>
           <figure>
             <img src="scrape-down-bowl-and-fold.jpg" alt="Scraping down bowl and folding" />
             <figcaption>Scraping down the bowl and folding the batter.</figcaption>
-            <small>Image source: <a href="https://bromabakery.com/foolproof-macaron-recipe-step-by-step/">Broma Bakery</a></small>
+            <small>Image Source: <a href="https://bromabakery.com/foolproof-macaron-recipe-step-by-step/">Broma Bakery</a></small>
           </figure>
           <figure>
             <img src="sift-sugar-and-flour.jpg" alt="Sifting sugar and flour" />
             <figcaption>Sifting sugar and almond flour together.</figcaption>
-            <small>Image source: <a href="https://bromabakery.com/foolproof-macaron-recipe-step-by-step/">Broma Bakery</a></small>
+            <small>Image Source: <a href="https://bromabakery.com/foolproof-macaron-recipe-step-by-step/">Broma Bakery</a></small>
           </figure>
           <figure>
             <img src="sifted-sugar-and-flour.jpg" alt="Sifted sugar and flour" />
             <figcaption>Sifted sugar and flour mixture ready to add to the meringue.</figcaption>
-            <small>Image source: <a href="https://bromabakery.com/foolproof-macaron-recipe-step-by-step/">Broma Bakery</a></small>
+            <small>Image Source: <a href="https://bromabakery.com/foolproof-macaron-recipe-step-by-step/">Broma Bakery</a></small>
           </figure>
           <figure>
             <img src="stiff-peaks-test-2.jpg" alt="Stiff peaks test alternate view" />
             <figcaption>Testing the meringue for stiff peaks, alternate view.</figcaption>
-            <small>Image source: <a href="https://bromabakery.com/foolproof-macaron-recipe-step-by-step/">Broma Bakery</a></small>
+            <small>Image Source: <a href="https://bromabakery.com/foolproof-macaron-recipe-step-by-step/">Broma Bakery</a></small>
           </figure>
           <figure>
             <img src="stiff-peaks-test.jpg" alt="Stiff peaks test" />
             <figcaption>Testing the meringue for stiff peaks.</figcaption>
-            <small>Image source: <a href="https://bromabakery.com/foolproof-macaron-recipe-step-by-step/">Broma Bakery</a></small>
+            <small>Image Source: <a href="https://bromabakery.com/foolproof-macaron-recipe-step-by-step/">Broma Bakery</a></small>
           </figure>
           <figure>
             <img src="transfer-to-stand-mixer.jpg" alt="Transfer to stand mixer" />
             <figcaption>Transferring the bowl to the stand mixer.</figcaption>
-            <small>Image source: <a href="https://bromabakery.com/foolproof-macaron-recipe-step-by-step/">Broma Bakery</a></small>
+            <small>Image Source: <a href="https://bromabakery.com/foolproof-macaron-recipe-step-by-step/">Broma Bakery</a></small>
           </figure>
           <figure>
             <img src="final-macarons-scattered.jpg" alt="Final macarons scattered" />
             <figcaption>Finished macarons scattered on a surface.</figcaption>
-            <small>Image source: <a href="https://bromabakery.com/foolproof-macaron-recipe-step-by-step/">Broma Bakery</a></small>
+            <small>Image Source: <a href="https://bromabakery.com/foolproof-macaron-recipe-step-by-step/">Broma Bakery</a></small>
           </figure>
           <figure>
             <img src="final-macarons-stacked-higher-view.jpg" alt="Final macarons stacked, higher view" />
             <figcaption>Finished macarons stacked, shown from a higher angle.</figcaption>
-            <small>Image source: <a href="https://bromabakery.com/foolproof-macaron-recipe-step-by-step/">Broma Bakery</a></small>
+            <small>Image Source: <a href="https://bromabakery.com/foolproof-macaron-recipe-step-by-step/">Broma Bakery</a></small>
           </figure>
           <figure>
             <img src="final-macarons-stacked.jpg" alt="Final macarons stacked" />
             <figcaption>Finished macarons stacked together.</figcaption>
-            <small>Image source: <a href="https://bromabakery.com/foolproof-macaron-recipe-step-by-step/">Broma Bakery</a></small>
+            <small>Image Source: <a href="https://bromabakery.com/foolproof-macaron-recipe-step-by-step/">Broma Bakery</a></small>
           </figure>
         </div>
       </section>
 
       <section id="recipe-website-references">
-        <h1>Recipe website references/critique</h1>
+        <h1>Recipe Website References & Critique</h1>
         <h2><a href="https://www.allrecipes.com/recipe/8144/mardi-gras-king-cake/">Mardi Gras King Cake - All Recipes</a></h2>
         <ul>
           <li>Images provide an appealing visual, and the website uses images to clearly lay out the ingredients needed for the recipe and to walk you through each step</li>
-          <li>The "Jump to recipe" button takes you straight to the recipe and past the introductory paragraphs for anyone who wants to skip, and there is a video at the top to walk you through how to make the cake</li>
+          <li>The "Jump to Recipe" button takes you straight to the recipe and past the introductory paragraphs for anyone who wants to skip, and there is a video at the top to walk you through how to make the cake</li>
           <li>The "Keep Screen Awake" toggle prevents the device from going to sleep while your hands are messy, and the 1/2x, 1x, and 2x toggle helps you quickly adjust how many servings you want to make</li>
           <li>Critique — The page is pretty long due to the images spacing out all the steps, so it's easy to lose track of where you are</li>
           <li>Critique — The ingredients are all at the top, while the steps are below that in one column, so to go back and forth between the ingredients and the steps, you have to scroll</li>
@@ -191,7 +270,7 @@
         <ul>
           <li>Red tags at the top make it clear exactly what categories the recipe falls into, so the user gets a general sense of the vibe of the recipe, and the brief but descriptive overview of the recipe gives the user context</li>
           <li>There are quick options to share or print the recipe, and the two column layout of ingredients on the left and steps on the right is effective, ensuring all the important information is visible on one screen without having to scroll</li>
-          <li>The "Add items to My Cart" button removes the pain of having to find all the ingredients yourself</li>
+          <li>The "Add Items to My Cart" button removes the pain of having to find all the ingredients yourself</li>
           <li>Critique — No images/lack of visual to guide you through the steps</li>
           <li>Critique — After reading the recipe instructions more closely, I realized that some of the steps are pretty long, and they could probably be broken up so that it's easier to follow</li>
         </ul>
@@ -199,33 +278,43 @@
         <ul>
           <li>Great visuals, the images help you visualize what each step is supposed to look like</li>
           <li>I like how the ingredients list has checkboxes next to each ingredient so you can keep track of everything as you're preparing the cake batter/ganache/whipped cream</li>
-          <li>Critique — The "jump to recipe" button is at the top right below the title and didn't stick out to me as much as the other websites I looked at, and I think this feature is pretty important for anyone who wants to skip the intro and get right into making the recipe</li>
+          <li>Critique — The "Jump to Recipe" button is at the top right below the title and didn't stick out to me as much as the other websites I looked at, and I think this feature is pretty important for anyone who wants to skip the intro and get right into making the recipe</li>
           <li>Critique — Didn't space out the visuals and the instructions — some of the visuals show the preparation of the cake, and it would've been nice to see the image that corresponds to each step</li>
         </ul>
       </section>
 
       <section id="website-references">
-        <h1>Non-recipe website references/critique</h1>
+        <h1>Non-Recipe Website References & Rationale</h1>
         <h2><a href="https://www.nationalgeographic.com/">National Geographic</a></h2>
         <ul>
-          <li>Image-forward design</li>
-          <li>Good contrast of black and white with yellow accents</li>
-          <li>Use of repeating elements like the layout of articles featured under the "today's picks" section make the website easy to scan</li>
-          <li>Sans-serif font is very readable</li>
+          <li>The design places a lot of emphasis on the visually appealing images</li>
+          <li>Strong black-and-white palette creates clear contrast, and yellow accents direct attention to key content</li>
+          <li>The use of repeating elements, such as the article card layouts featured under the "Today's Picks" section, establishes consistency and makes the website easy to scan</li>
+          <li>Related elements like the image, headline, and description are grouped closely together, which immediately makes it clear what content goes together</li>
+          <li>The grid-based alignment keeps the images and text structured across all sections</li>
+          <li>Sans-serif font is very readable for the screen</li>
+          <li><strong>Application to my website:</strong> I can use repeated recipe section layouts and strong contrast to help users quickly scan the ingredients, steps, and other notes.</li>
         </ul>
         <h2><a href="https://phia.com/about/">Phia</a></h2>
         <ul>
-          <li>Good use of white space; gives the website lots of breathing room</li>
+          <li>Generous use of white space gives the website lots of breathing room</li>
           <li>Very polished look</li>
-          <li>Conveys the Phia brand, and I want my recipe website to have a vibe that matches the dish/dessert the recipe is for</li>
-          <li>The alignment is effective—the website uses the two column image + text side-by-side layout very effective, and it uses centered text to capture the user's attention</li>
+          <li>Uses italics to create emphasis and make the user pause on certain words, and uses different font sizes to create hierarchy</li>
+          <li>Consistent spacing, typography, and the styles of the visuals reinforce the Phia brand and create a cohesive look and feel</li>
+          <li>Effective use of two-column image and text layouts creates balance, while the use of centered text helps capture the user's attention</li>
           <li>Small pops of color to make the website visually interesting and hold the user's attention without being overwhelming</li>
+          <li><strong>Application to my website:</strong> I want my page's visual style to match the vibe of the dish or dessert the recipe is for, and I'll use white space and intentional alignment to create a polished feel.</li>
+
         </ul>
         <h2><a href="https://medium.com/">Medium</a></h2>
         <ul>
-          <li>Clean typography and article layout, good use of repetition</li>
+          <li>Clean choice of typography</li>
+          <li>The clear hierarchy between headlines, subheadings, and body text distinguishes levels of information</li>
           <li>Shows a lot of information on the screen at once without being too overwhelming for the user to look at/scan</li>
           <li>Side bar is helpful for navigation</li>
+          <li>Related content is grouped logically, and the repeated article layout makes it easy to scan the content</li>
+          <li>Left-aligned text improves readability</li>
+          <li><strong>Application to my website:</strong> I can apply similar hierarchy and grouping to present the recipe information clearly without overwhelming the user, and I could put the ingredients list in the same position as the left navbar on the Medium website so users can easily find the ingredients list without scrolling.</li>
         </ul>
       </section>
       
