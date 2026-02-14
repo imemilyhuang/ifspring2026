@@ -1,0 +1,711 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Emily Huang | Content Collection | Recipe Page Research</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0 auto;
+        max-width: 850px;
+        line-height: 1.4;
+        font-size: 1rem;
+        color: #444;
+        padding: 2rem;
+      }
+
+      header {
+        margin-bottom: 3rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid #ddd;
+      }
+
+      nav {
+        display: flex;
+        gap: 2rem;
+        margin: 0;
+        padding: 0;
+      }
+
+      section {
+        margin-bottom: 6rem;
+      }
+
+      li {
+        margin-bottom: 0.5rem;
+      }
+
+      ol,
+      ul {
+        margin: 0 0 1.5rem 0;
+        padding-left: 1.5rem;
+      }
+
+      .recipe-image-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.5rem;
+        margin-top: 1rem;
+      }
+
+      .recipe-image-grid figure {
+        margin: 0;
+      }
+
+      .recipe-image-grid img {
+        width: 100%;
+        height: auto;
+        display: block;
+        margin-bottom: 0.5rem;
+      }
+
+      .recipe-image-grid figcaption {
+        margin-bottom: 0.25rem;
+        font-size: 0.9rem;
+      }
+
+      .recipe-image-grid small {
+        display: block;
+        font-size: 0.8rem;
+      }
+
+      a {
+        color: #2458c8;
+      }
+
+      .instruction-step {
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+        padding: 1.5rem;
+        margin-bottom: 2.5rem;
+        border: 1px solid #ddd;
+        background: #fafafa;
+      }
+
+      .instruction-step .step-content {
+        display: flex;
+        gap: 0.5rem;
+        align-items: flex-start;
+      }
+
+      .instruction-step .step-content .step-number {
+        flex-shrink: 0;
+        font-weight: bold;
+        font-size: 1.1rem;
+      }
+
+      .instruction-step .step-text {
+        margin: 0;
+        flex: 1;
+      }
+
+      .instruction-step .step-figures {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-top: 0.25rem;
+      }
+
+      .instruction-step .step-figures:empty {
+        display: none;
+      }
+
+      .instruction-step .step-figures figure {
+        margin: 0;
+        flex: 0 0 calc((100% - 3rem) / 4);
+      }
+
+      .instruction-step .step-figures img {
+        width: 100%;
+        aspect-ratio: 1;
+        object-fit: cover;
+        display: block;
+      }
+
+      .instruction-step .step-figures figcaption {
+        font-size: 0.8rem;
+        margin-top: 0.35rem;
+        line-height: 1.3;
+      }
+
+      .phase-heading {
+        margin-top: 3rem;
+        margin-bottom: 1rem;
+        font-size: 1.1rem;
+      }
+
+      .phase-heading:first-of-type {
+        margin-top: 0;
+      }
+
+      #instructions-with-images .ingredient {
+        text-decoration: underline;
+      }
+
+      .instruction-step .step-text p {
+        margin: 0 0 0.75rem 0;
+      }
+
+      .instruction-step .step-text p:last-child {
+        margin-bottom: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <p>
+        <a
+          href="https://docs.google.com/document/d/1Fjow0takupE__8CiO_6Xz-Yzl8gems2akz7V3csXPaI/edit?tab=t.0"
+        >
+          Recipe Research Evaluation (Google Doc)
+        </a>
+      </p>
+      <div>
+        <h1>Macarons</h1>
+        <nav>
+          <a href="#recipe-content">Recipe Content</a>
+          <a href="#instructions-with-images">Instructions with Images</a>
+          <a href="#recipe-website-references">Recipe Website References</a>
+          <a href="#website-references">Non-Recipe Website References</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section id="recipe-content">
+        <h1>Recipe Overview</h1>
+        <h2>Title: Foolproof Macaron Recipe</h2>
+
+        <p>
+          <strong>Source Attribution:</strong>
+          <a href="https://bromabakery.com/foolproof-macaron-recipe-step-by-step/">Broma Bakery</a>
+        </p>
+
+        <h3>Description:</h3>
+        <p>
+          French macarons are delicate almond meringue cookies with crisp shells and soft, chewy centers.
+          While they're known for being tricky, using a Swiss meringue makes the batter more stable and
+          reliable than a traditional French meringue. This method simplifies the process and gives perfectly smooth, chewy macarons every time.
+        </p>
+
+        <ul>
+          <li><strong>Category:</strong> Dessert</li>
+          <li><strong>Cuisine:</strong> French</li>
+          <li><strong>Method:</strong> Oven</li>
+          <li><strong>Prep Time:</strong> 30 minutes</li>
+          <li><strong>Cook Time:</strong> 15 minutes</li>
+          <li><strong>Total Time:</strong> 2 hours</li>
+          <li><strong>Yield/Servings:</strong> 20 macarons</li>
+          <li><strong>Difficulty:</strong> Intermediate</li>
+        </ul>
+
+        <h3>Equipment:</h3>
+        <ul>
+          <li>Stand mixer</li>
+          <li>Kitchen scale</li>
+          <li>Sifter</li>
+          <li>Parchment paper</li>
+          <li>Cookie sheet</li>
+          <li>Piping bag</li>
+        </ul>
+        <h3>Ingredients:</h3>
+        <p><strong>For the Macarons:</strong></p>
+        <ul>
+          <li>100g egg whites</li>
+          <li>100g granulated sugar</li>
+          <li>100g almond flour</li>
+          <li>100g powdered sugar</li>
+          <li>Pinch of salt</li>
+          <li>Food coloring (optional)</li>
+        </ul>
+        <p><strong>For the Filling:</strong></p>
+        <ul>
+          <li>6 tablespoons unsalted butter, room temperature</li>
+          <li>2 cups powdered sugar</li>
+          <li>1 tablespoon milk</li>
+          <li>1 teaspoon vanilla extract</li>
+          <li>Pinch of salt</li>
+        </ul>
+
+        <h3>Allergen Information:</h3>
+        <p>
+          Contains egg, dairy (milk, unsalted butter), and almonds (almond flour). This recipe may be subject
+          to cross-contamination from wheat/gluten, soy, and peanuts depending on your kitchen and
+          ingredients.
+        </p>
+
+        <h3>Storage:</h3>
+        <p>
+          Store macarons in an airtight container in the refrigerator for 4-7 days to maintain texture,
+          allowing them to mature for 24 hours first for best taste. For long-term storage, freeze assembled
+          macarons in an airtight container for up to 1-3 months. Always thaw frozen macarons in the fridge to
+          prevent condensation.
+        </p>
+      </section>
+
+      <section id="instructions-with-images">
+        <h1>Instructions with Images</h1>
+        <p class="instruction-intro">
+          Follow the steps below with visuals for each stage of preparation. <strong>Image Source:</strong>
+          <a href="https://bromabakery.com/foolproof-macaron-recipe-step-by-step/">Broma Bakery</a>.
+        </p>
+
+        <h2 class="phase-heading">Phase 1: Prep &amp; Dry Ingredients</h2>
+
+        <div class="instruction-step">
+          <div class="step-content">
+            <span class="step-number">1.</span>
+            <div class="step-text">
+              <p>
+                <strong>Measure Ingredients:</strong> Measure out all your ingredients using a kitchen scale
+                before you begin — <span class="ingredient">egg whites</span>, <span class="ingredient">granulated sugar</span>, <span class="ingredient">almond flour</span>,
+                <span class="ingredient">powdered sugar</span>, and <span class="ingredient">salt</span> for the shells, plus filling ingredients when you get to that step. This keeps the process smooth and accurate.
+              </p>
+            </div>
+          </div>
+          <div class="step-figures">
+            <figure>
+              <img src="../images/measure-ingredients.jpg" alt="Measuring dry ingredients" />
+              <figcaption>Measuring dry ingredients.</figcaption>
+            </figure>
+            <figure>
+              <img src="../images/measure-ingredients-egg-whites.jpg" alt="Measuring egg whites" />
+              <figcaption>Measuring egg whites.</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="instruction-step">
+          <div class="step-content">
+            <span class="step-number">2.</span>
+            <div class="step-text">
+              <p>
+                <strong>Preheat and Line:</strong> Preheat your oven to 300°F. Line two large baking sheets
+                with <span class="ingredient">parchment paper</span>.
+              </p>
+            </div>
+          </div>
+          <div class="step-figures"></div>
+        </div>
+
+        <div class="instruction-step">
+          <div class="step-content">
+            <span class="step-number">3.</span>
+            <div class="step-text">
+              <p>
+                <strong>Sift:</strong> Sift the <span class="ingredient">almond flour</span>, <span class="ingredient">powdered sugar</span>, and <span class="ingredient">salt</span> together. Sift these ingredients three times to ensure a perfectly smooth shell. Set this mixture aside.
+              </p>
+            </div>
+          </div>
+          <div class="step-figures">
+            <figure>
+              <img src="../images/sift-sugar-and-flour.jpg" alt="Sifting sugar and flour" />
+              <figcaption>Sifting together.</figcaption>
+            </figure>
+            <figure>
+              <img src="../images/sifted-sugar-and-flour.jpg" alt="Sifted mixture" />
+              <figcaption>Sifted mixture, no clumps.</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <h2 class="phase-heading">Phase 2: Making the Swiss Meringue</h2>
+
+        <div class="instruction-step">
+          <div class="step-content">
+            <span class="step-number">4.</span>
+            <div class="step-text">
+              <p>
+                <strong>Double Boiler Setup:</strong> Heat a small pot of water over medium-low heat until it
+                begins to steam.
+              </p>
+            </div>
+          </div>
+          <div class="step-figures">
+            <figure>
+              <img src="../images/on-stove.jpg" alt="Double boiler setup" />
+              <figcaption>Double boiler on the stove.</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="instruction-step">
+          <div class="step-content">
+            <span class="step-number">5.</span>
+            <div class="step-text">
+              <p>
+                <strong>Warm the Egg Whites:</strong> In your stand mixer bowl, combine the <span class="ingredient">egg whites</span> and
+                roughly 3 tablespoons of the <span class="ingredient">granulated sugar</span>. Place the bowl over the steaming pot (creating
+                a double boiler) and whisk continuously until the <span class="ingredient">sugar</span> is completely melted and the mixture
+                is white and frothy (about 1 minute).
+              </p>
+            </div>
+          </div>
+          <div class="step-figures">
+            <figure>
+              <img src="../images/whisk-egg-whites.jpg" alt="Whisking egg whites" />
+              <figcaption>Whisking at the start.</figcaption>
+            </figure>
+            <figure>
+              <img src="../images/whisk-egg-whites-frothy.jpg" alt="Egg whites whisked frothy" />
+              <figcaption>Egg whites white and frothy.</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="instruction-step">
+          <div class="step-content">
+            <span class="step-number">6.</span>
+            <div class="step-text">
+              <p>
+                <strong>Whip to Stiff Peaks:</strong> Move the bowl to the stand mixer with the whisk
+                attachment. Whisk on high speed while slowly adding the remaining <span class="ingredient">granulated sugar</span> and <span class="ingredient">food coloring</span>. Beat for 3-4 minutes until the meringue is glossy and forms stiff peaks.
+              </p>
+            </div>
+          </div>
+          <div class="step-figures">
+            <figure>
+              <img src="../images/transfer-to-stand-mixer.jpg" alt="Transfer to stand mixer" />
+              <figcaption>Add remaining granulated sugar to egg whites.</figcaption>
+            </figure>
+            <figure>
+              <img src="../images/stiff-peaks-test.jpg" alt="Stiff peaks test" />
+              <figcaption>Stiff peaks and glossy.</figcaption>
+            </figure>
+            <figure>
+              <img src="../images/stiff-peaks-test-2.jpg" alt="Stiff peaks test, alternate view" />
+              <figcaption>Stiff peaks, alternate view.</figcaption>
+            </figure>
+            <figure>
+              <img src="../images/add-food-coloring.jpg" alt="Adding food coloring" />
+              <figcaption>Food coloring (optional).</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <h2 class="phase-heading">Phase 3: Macaronage</h2>
+
+        <div class="instruction-step">
+          <div class="step-content">
+            <span class="step-number">7.</span>
+            <div class="step-text">
+              <p>
+                <strong>Initial Combine:</strong> Pour the pre-sifted <span class="ingredient">dry ingredients</span> into the meringue bowl.
+                Turn the mixer to medium speed for exactly 5 seconds just to incorporate, then stop
+                immediately.
+              </p>
+            </div>
+          </div>
+          <div class="step-figures">
+            <figure>
+              <img src="../images/sifted-sugar-and-flour.jpg" alt="Sifted dry ingredients" />
+              <figcaption>Dry ingredients ready to add.</figcaption>
+            </figure>
+            <figure>
+              <img src="../images/add-powdered-sugar.jpg" alt="Adding sugar" />
+              <figcaption>Adding dry ingredients to meringue.</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="instruction-step">
+          <div class="step-content">
+            <span class="step-number">8.</span>
+            <div class="step-text">
+              <p>
+                <strong>Fold with Spatula:</strong> Switch to a rubber spatula. Scrape the bowl and fold by
+                hand using a circular motion (scooping the outside and twisting into the center).
+              </p>
+              <p>
+                <strong>The Figure-8 Test:</strong> Stop folding when the batter reaches a "slow-moving lava"
+                consistency. You should be able to draw a figure-8 with the batter dripping off the spatula
+                without the stream breaking.
+              </p>
+            </div>
+          </div>
+          <div class="step-figures">
+            <figure>
+              <img src="../images/scrape-down-bowl-and-fold.jpg" alt="Scraping down bowl and folding" />
+              <figcaption>Folding to lava consistency.</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <h2 class="phase-heading">Phase 4: Piping &amp; Baking</h2>
+
+        <div class="instruction-step">
+          <div class="step-content">
+            <span class="step-number">9.</span>
+            <div class="step-text">
+              <p>
+                <strong>Pipe:</strong> Transfer the batter to a pastry bag with a ½ inch (or 1 inch) tip. Pipe
+                1-inch circles onto your prepared sheets, leaving 1.5 inches of space between them.
+              </p>
+              <p>
+                <strong>Release Air &amp; Rest:</strong> Bang the baking sheets firmly on the counter twice to
+                pop air bubbles. Let them sit at room temperature for 15-30 minutes until they are dry to the
+                touch (this prevents cracking).
+              </p>
+            </div>
+          </div>
+          <div class="step-figures">
+            <figure>
+              <img src="../images/pipe-onto-sheet.jpg" alt="Piping onto baking sheet" />
+              <figcaption>Piping onto cookie sheet.</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="instruction-step">
+          <div class="step-content">
+            <span class="step-number">10.</span>
+            <div class="step-text">
+              <p><strong>Bake:</strong> Bake for 13-15 minutes, rotating the pan halfway through.</p>
+            </div>
+          </div>
+          <div class="step-figures">
+            <figure>
+              <img src="../images/bake.jpg" alt="Macarons baking in the oven" />
+              <figcaption>Baking in the oven.</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <h2 class="phase-heading">Phase 5: Filling &amp; Assembly</h2>
+
+        <div class="instruction-step">
+          <div class="step-content">
+            <span class="step-number">11.</span>
+            <div class="step-text">
+              <p>
+                <strong>Cool:</strong> Let the shells cool completely on the baking sheet before attempting to
+                remove them.
+              </p>
+            </div>
+          </div>
+          <div class="step-figures"></div>
+        </div>
+
+        <div class="instruction-step">
+          <div class="step-content">
+            <span class="step-number">12.</span>
+            <div class="step-text">
+              <p>
+                <strong>Make Filling:</strong> While they cool, beat your <span class="ingredient">butter</span>, <span class="ingredient">powdered sugar</span>, <span class="ingredient">milk</span>,
+                <span class="ingredient">vanilla</span>, and <span class="ingredient">salt</span> until fluffy (about 2 minutes).
+              </p>
+            </div>
+          </div>
+          <div class="step-figures">
+            <figure>
+              <img src="../images/beat.jpg" alt="Beating the filling" />
+              <figcaption>Beating the filling.</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="instruction-step">
+          <div class="step-content">
+            <span class="step-number">13.</span>
+            <div class="step-text">
+              <p>
+                <strong>Sandwich:</strong> Pipe a dollop of filling onto the flat side of one shell and press
+                a second shell on top.
+              </p>
+            </div>
+          </div>
+          <div class="step-figures">
+            <figure>
+              <img src="../images/final-macarons-stacked.jpg" alt="Final macarons stacked" />
+              <figcaption>Finished macarons stacked together.</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="instruction-step">
+          <div class="step-content">
+            <span class="step-number">14.</span>
+            <div class="step-text">
+              <p>
+                <strong>Mature &amp; Eat:</strong> While you can eat them immediately, macarons actually
+                improve in texture if "matured" in the fridge overnight!
+              </p>
+            </div>
+          </div>
+          <div class="step-figures">
+            <figure>
+              <img src="../images/final-macarons-scattered.jpg" alt="Final macarons scattered" />
+              <figcaption>Finished macarons scattered on a surface.</figcaption>
+            </figure>
+            <figure>
+              <img
+                src="../images/final-macarons-stacked-higher-view.jpg"
+                alt="Final macarons stacked, higher view"
+              />
+              <figcaption>Finished macarons stacked, shown from a higher angle.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section id="recipe-website-references">
+        <h1>Recipe Website References & Critique</h1>
+        <h2>
+          <a href="https://www.allrecipes.com/recipe/8144/mardi-gras-king-cake/"
+            >Mardi Gras King Cake - All Recipes</a
+          >
+        </h2>
+        <ul>
+          <li>
+            Images provide an appealing visual, and the website uses images to clearly lay out the ingredients
+            needed for the recipe and to walk you through each step
+          </li>
+          <li>
+            The "Jump to Recipe" button takes you straight to the recipe and past the introductory paragraphs
+            for anyone who wants to skip, and there is a video at the top to walk you through how to make the
+            cake
+          </li>
+          <li>
+            The "Keep Screen Awake" toggle prevents the device from going to sleep while your hands are messy,
+            and the 1/2x, 1x, and 2x toggle helps you quickly adjust how many servings you want to make
+          </li>
+          <li>
+            Critique — The page is pretty long due to the images spacing out all the steps, so it's easy to
+            lose track of where you are
+          </li>
+          <li>
+            Critique — The ingredients are all at the top, while the steps are below that in one column, so to
+            go back and forth between the ingredients and the steps, you have to scroll
+          </li>
+        </ul>
+        <h2>
+          <a href="https://tasty.co/recipe/taiwanese-night-market-style-pork-and-chive-dumplings"
+            >Taiwanese Night Market Style Pork and Chive Dumplings - Tasty</a
+          >
+        </h2>
+        <ul>
+          <li>
+            Red tags at the top make it clear exactly what categories the recipe falls into, so the user gets
+            a general sense of the vibe of the recipe, and the brief but descriptive overview of the recipe
+            gives the user context
+          </li>
+          <li>
+            There are quick options to share or print the recipe, and the two column layout of ingredients on
+            the left and steps on the right is effective, ensuring all the important information is visible on
+            one screen without having to scroll
+          </li>
+          <li>
+            The "Add Items to My Cart" button removes the pain of having to find all the ingredients yourself
+          </li>
+          <li>Critique — No images/lack of visual to guide you through the steps</li>
+          <li>
+            Critique — After reading the recipe instructions more closely, I realized that some of the steps
+            are pretty long, and they could probably be broken up so that it's easier to follow
+          </li>
+        </ul>
+        <h2>
+          <a href="https://sallysbakingaddiction.com/black-forest-cake/"
+            >Black Forest Cake - Sally's Baking Addiction</a
+          >
+        </h2>
+        <ul>
+          <li>Great visuals, the images help you visualize what each step is supposed to look like</li>
+          <li>
+            I like how the ingredients list has checkboxes next to each ingredient so you can keep track of
+            everything as you're preparing the cake batter/ganache/whipped cream
+          </li>
+          <li>
+            Critique — The "Jump to Recipe" button is at the top right below the title and didn't stick out to
+            me as much as the other websites I looked at, and I think this feature is pretty important for
+            anyone who wants to skip the intro and get right into making the recipe
+          </li>
+          <li>
+            Critique — Didn't space out the visuals and the instructions — some of the visuals show the
+            preparation of the cake, and it would've been nice to see the image that corresponds to each step
+          </li>
+        </ul>
+      </section>
+
+      <section id="website-references">
+        <h1>Non-Recipe Website References & Rationale</h1>
+        <h2><a href="https://www.nationalgeographic.com/">National Geographic</a></h2>
+        <ul>
+          <li>The design places a lot of emphasis on the visually appealing images</li>
+          <li>
+            Strong black-and-white palette creates clear contrast, and yellow accents direct attention to key
+            content
+          </li>
+          <li>
+            The use of repeating elements, such as the article card layouts featured under the "Today's Picks"
+            section, establishes consistency and makes the website easy to scan
+          </li>
+          <li>
+            Related elements like the image, headline, and description are grouped closely together, which
+            immediately makes it clear what content goes together
+          </li>
+          <li>The grid-based alignment keeps the images and text structured across all sections</li>
+          <li>Sans-serif font is very readable for the screen</li>
+          <li>
+            <strong>Application to my website:</strong> I can use repeated recipe section layouts and strong
+            contrast to help users quickly scan the ingredients, steps, and other notes.
+          </li>
+        </ul>
+        <h2><a href="https://phia.com/about/">Phia</a></h2>
+        <ul>
+          <li>Generous use of white space gives the website lots of breathing room</li>
+          <li>Very polished look</li>
+          <li>
+            Uses italics to create emphasis and make the user pause on certain words, and uses different font
+            sizes to create hierarchy
+          </li>
+          <li>
+            Consistent spacing, typography, and the styles of the visuals reinforce the Phia brand and create
+            a cohesive look and feel
+          </li>
+          <li>
+            Effective use of two-column image and text layouts creates balance, while the use of centered text
+            helps capture the user's attention
+          </li>
+          <li>
+            Small pops of color to make the website visually interesting and hold the user's attention without
+            being overwhelming
+          </li>
+          <li>
+            <strong>Application to my website:</strong> I want my page's visual style to match the vibe of the
+            dish or dessert the recipe is for, and I'll use white space and intentional alignment to create a
+            polished feel.
+          </li>
+        </ul>
+        <h2><a href="https://medium.com/">Medium</a></h2>
+        <ul>
+          <li>Clean choice of typography</li>
+          <li>
+            The clear hierarchy between headlines, subheadings, and body text distinguishes levels of
+            information
+          </li>
+          <li>
+            Shows a lot of information on the screen at once without being too overwhelming for the user to
+            look at/scan
+          </li>
+          <li>Side bar is helpful for navigation</li>
+          <li>
+            Related content is grouped logically, and the repeated article layout makes it easy to scan the
+            content
+          </li>
+          <li>Left-aligned text improves readability</li>
+          <li>
+            <strong>Application to my website:</strong> I can apply similar hierarchy and grouping to present
+            the recipe information clearly without overwhelming the user, and I could put the ingredients list
+            in the same position as the left navbar on the Medium website so users can easily find the
+            ingredients list without scrolling.
+          </li>
+        </ul>
+      </section>
+    </main>
+  </body>
+</html>
