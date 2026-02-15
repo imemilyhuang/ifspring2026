@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Emily Huang | Low-Fidelity Recipe Page Prototypes</title>
+    <style>
+      body {
+        font-family: "Trebuchet MS", sans-serif;
+        line-height: 1.6;
+        color: #111;
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 4rem;
+      }
+
+      header {
+        text-align: center;
+        margin-bottom: 4rem;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+        margin: 0;
+        letter-spacing: -1px;
+      }
+
+      .label {
+        display: block;
+        font-weight: 900;
+        color: #d32f2f;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        margin-bottom: 1rem;
+        font-size: 1.25rem;
+        border-bottom: 2px solid #d32f2f;
+        padding-bottom: 0.25rem;
+      }
+
+      .prototype-section {
+        margin-bottom: 5rem;
+      }
+
+      .description {
+        margin-bottom: 1.5rem;
+        padding: 1.5rem;
+        background-color: #f4f4f4;
+        font-size: 1rem;
+      }
+
+      img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
+      .mobile-container {
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
+      }
+
+      .mobile-variation .mobile-container {
+        margin-left: 0;
+        margin-right: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <p>Emily Huang, Interaction Foundations, Spring 2026</p>
+      <h1>Recipe Page Low Fidelity Prototypes</h1>
+    </header>
+
+    <main>
+      <section class="prototype-section">
+        <span class="label">Desktop Variation 1</span>
+        <div class="description">
+          This desktop layout begins with a prominent image of the finished macarons spanning the width of the
+          screen, followed by the title "foolproof macaron recipe" and a brief description. Below this, three
+          distinct boxes provide a recipe overview, allergen information, and storage instructions. The main
+          body of the page is split into two columns. The left column is a sticky sidebar that remains visible
+          as the user scrolls, containing a "keep screen awake" toggle, a serving size adjuster, and
+          checklist-style sections for both ingredients and equipment. The right column is a scrollable list
+          of numbered, step-by-step instructions. Each step includes a heading, detailed descriptive text, and
+          one or more associated images, all contained within a rectangular panel.
+        </div>
+        <img
+          src="../images/lowfi/lowfi-v1.jpeg"
+          alt="Desktop wireframe sketch showing a split-pane layout with a fixed ingredients sidebar on the left and scrolling steps on the right."
+        />
+      </section>
+
+      <section class="prototype-section mobile-variation">
+        <span class="label">Mobile Variation 1</span>
+        <div class="description">
+          The mobile layout starts with a large, full-width background image of macarons with the title
+          overlaid. Below this, compact informational boxes display recipe details like time, yield, and
+          difficulty, followed by a overall description of the recipe, allergen info, and storage info. Just
+          below the "keep screen awake" toggle and serving size adjuster, the page has two collapsible
+          accordion sections for ingredients and equipment, which saves vertical space. When either of these
+          accordion sections is expanded, a checklist will appear. The cooking instructions are presented as a
+          scrolling list of numbered steps. To improve readability on a smaller screen, every other step's
+          section is shaded gray, helping to visually distinguish them. Each step includes a heading,
+          instructions, and relevant images.
+        </div>
+        <div class="mobile-container">
+          <img
+            src="../images/lowfi/lowfi-v2.jpeg"
+            alt="Mobile wireframe sketch showing a vertical stack where large, full-width images are prioritized and sit directly above their corresponding instruction text."
+          />
+        </div>
+      </section>
+
+      <section class="prototype-section">
+        <span class="label">Desktop Variation 2</span>
+        <div class="description">
+          This desktop design features a central image at the top, followed by the recipe title and a "jump to
+          recipe" button. Below the description of the overall recipe, there is a horizontal bar detailing
+          recipe times, yield, and difficulty. This is followed by allergen and storage information, a serving
+          size adjuster, and a "keep screen awake" toggle. Ingredients and equipment are listed in two
+          side-by-side checklist boxes. A progress bar indicates the five stages of the recipe: prep, Swiss
+          meringue, macaronage, pipe/bake, and assemble. The main instructions are presented in a carousel
+          format. Users can navigate through numbered steps using back and forward arrows, with each step
+          displaying its heading, images, and detailed description on a single screen.
+        </div>
+        <img
+          src="../images/lowfi/lowfi-v3.jpeg"
+          alt="Desktop wireframe sketch showing a horizontal layout with recipe phases and step navigation."
+        />
+      </section>
+
+      <section class="prototype-section mobile-variation">
+        <span class="label">Mobile Variation 2</span>
+        <div class="description">
+          This mobile layout mirrors its desktop counterpart with a top-centered image, title, and "jump to
+          recipe" button. Following a description of the recipe, there is a grid panel with recipe time,
+          yield, and other details. Below this are sections for allergy info, storage, a "keep screen awake"
+          toggle, and a serving size adjuster. Ingredients and equipment are listed sequentially in a checkbox
+          list. The instructions are presented in a card-like carousel with navigation arrows and a progress
+          indicator that tells you what step you're on, such as "Step 2/15". Each step is shown individually,
+          including its heading, detailed instructions, and associated images, allowing the user to focus on
+          one task at a time. The user will also be able to swipe through each step to get to the next one.
+        </div>
+        <div class="mobile-container">
+          <img
+            src="../images/lowfi/lowfi-v4.jpeg"
+            alt="Mobile wireframe sketch showing a card-style carousel for step-by-step instructions."
+          />
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
