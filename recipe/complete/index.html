@@ -100,7 +100,7 @@
       }
 
       .recipe-end-message {
-        margin: 2.5rem 0 0.75rem;
+        margin: 6rem 0 0.75rem;
         font-family: "Playfair Display", serif;
         font-size: 1.75rem;
         font-weight: 600;
@@ -168,7 +168,7 @@
       .pre-instructions {
         max-width: 900px;
         margin: 0 auto;
-        padding: 1.5rem 1.5rem 0.5rem;
+        padding: 1.5rem 1.5rem 4rem;
         display: flex;
         flex-direction: column;
         gap: 1.5rem;
@@ -221,7 +221,6 @@
         font-size: 1rem;
         text-transform: uppercase;
         letter-spacing: 0.05em;
-        color: #555;
       }
 
       .info-box p,
@@ -234,6 +233,11 @@
       .info-box ul {
         padding-left: 1.25rem;
         list-style: disc;
+      }
+
+      .info-box ul.checklist {
+        padding-left: 0;
+        list-style: none;
       }
 
       .info-box li {
@@ -270,10 +274,52 @@
         font-size: 0.9rem;
       }
 
-      .serving-control input {
-        width: 4rem;
-        padding: 0.35rem 0.5rem;
-        font-size: 0.95rem;
+      .units-toggle,
+      .scale-toggle {
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+      }
+
+      .units-toggle button,
+      .scale-toggle button {
+        padding: 0.25rem 0.5rem;
+        font-size: 0.85rem;
+        cursor: pointer;
+        border: none;
+        background: #fff;
+        color: #555;
+      }
+
+      .units-toggle button.active,
+      .scale-toggle button.active {
+        background: #b8345e;
+        color: #fff;
+        border-color: #b8345e;
+      }
+
+      .units-toggle button:not(.active):hover,
+      .scale-toggle button:not(.active):hover {
+        background: #fff9fa;
+      }
+
+      .serving-reset-wrap {
+        margin-top: 0.35rem;
+        margin-left: 0;
+        display: none;
+      }
+
+      .serving-reset-wrap.visible {
+        display: block;
+      }
+
+      .serving-reset {
+        color: #999;
+        font-size: 0.85rem;
+      }
+
+      .serving-reset:hover {
+        color: #666;
       }
 
       .checklist {
@@ -290,11 +336,59 @@
         font-size: 0.9rem;
       }
 
-      .checklist input[type="checkbox"] {
+      .checklist .ingredient-qty {
+        font-weight: 700;
+      }
+
+      .checklist li.ingredient-section-head {
+        margin-left: 0;
+        margin-bottom: 0.35rem;
+      }
+
+      .equipment-control .equipment-control-indent {
+        margin-left: 1.25rem;
+      }
+
+      .units-row {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-bottom: 0.75rem;
+      }
+
+      .units-label {
+        font-size: 0.9rem;
+        color: #555;
+      }
+
+      input[type="checkbox"] {
         margin-top: 0.2rem;
         flex-shrink: 0;
         cursor: pointer;
         accent-color: #b8345e;
+        -webkit-appearance: none;
+        appearance: none;
+        width: 1rem;
+        height: 1rem;
+        border: 1px solid #ccc;
+        background: #fff;
+        cursor: pointer;
+        position: relative;
+      }
+
+      input[type="checkbox"]:checked {
+        background: #b8345e;
+        border-color: #b8345e;
+      }
+      input[type="checkbox"]:checked::after {
+        content: "✓";
+        font-size: 0.8rem;
+        font-weight: 700;
+        color: #fff;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
       }
 
       .checklist li.checked {
@@ -319,9 +413,9 @@
       }
 
       .instructions-col .phase-heading {
-        margin: 2rem 0 1rem;
+        margin: 4rem 0 1rem;
         font-size: 1.1rem;
-        color: #444;
+        color: #b8345e;
       }
 
       .instructions-col .phase-heading:first-child {
@@ -339,12 +433,6 @@
         margin: 0 0 0.5rem;
         font-size: 1.05rem;
         font-weight: 600;
-      }
-
-      .step-panel .step-number {
-        color: #666;
-        font-weight: 700;
-        margin-right: 0.25rem;
       }
 
       .step-panel .step-text {
@@ -375,6 +463,7 @@
         transform: translateX(-50%);
         white-space: nowrap;
         border: 1px solid #b8345e;
+        background: #fff;
         color: #333;
         padding: 0.25rem 0.5rem;
         font-size: 0.8rem;
@@ -388,6 +477,10 @@
       .step-panel .step-text .ingredient:hover::after {
         opacity: 1;
         visibility: visible;
+      }
+
+      .step-panel .step-text .ingredient.ingredient-no-tooltip::after {
+        display: none;
       }
 
       .step-panel .step-figures {
@@ -418,7 +511,7 @@
       }
 
       .instruction-intro {
-        margin: 0 0 1.5rem;
+        margin: 0 0 1rem;
         font-size: 0.9rem;
         color: #555;
       }
@@ -490,6 +583,25 @@
           display: none;
         }
 
+        .phase-step::before {
+          content: attr(data-phase);
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          min-width: 1.75rem;
+          height: 1.75rem;
+          padding: 0 0.35rem;
+          font-weight: 700;
+          font-size: 0.9rem;
+          color: #333;
+          background: transparent;
+        }
+
+        .phase-step.active::before {
+          color: #fff;
+          background: #b8345e;
+        }
+
         .phase-stepper {
           justify-content: space-between;
           padding: 0 0.5rem;
@@ -497,23 +609,6 @@
 
         .phase-step {
           gap: 0;
-        }
-
-        .phase-step-num {
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-          width: 2rem;
-          height: 2rem;
-          border-radius: 999px;
-          background: #b8345e;
-          color: #fff;
-          font-size: 0.95rem;
-          line-height: 1;
-        }
-
-        .phase-step.active .phase-step-num {
-          background: #8f2950;
         }
       }
 
@@ -525,13 +620,29 @@
         position: sticky;
         top: 0;
         z-index: 100;
-        margin: 0 auto 1.5rem;
+        margin: 0 auto 1rem;
         width: 100%;
         max-width: 900px;
         box-sizing: border-box;
-        padding: 0.5rem 0;
+        padding: 0.75rem 0;
+        background: #f8ebed;
+      }
+
+      .phase-progress-bar.stuck {
+        background: transparent;
+      }
+
+      .phase-progress-bar.stuck::before {
+        content: "";
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100vw;
+        top: 0;
+        bottom: 0;
         background: rgba(255,255,255,0.75);
         box-shadow: 0 8px 18px rgba(0,0,0,0.08);
+        z-index: -1;
       }
 
       .phase-stepper {
@@ -541,6 +652,9 @@
         gap: 0;
         position: relative;
         width: 100%;
+        max-width: 900px;
+        margin: 0 auto;
+        box-sizing: border-box;
       }
 
       .phase-step {
@@ -550,13 +664,6 @@
         font-weight: 700;
         position: relative;
         z-index: 1;
-      }
-
-      .phase-step-num {
-        display: inline-flex;
-        font-family: "Playfair Display", serif;
-        font-weight: 700;
-        font-size: 0.9rem;
       }
 
       .phase-step-label {
@@ -622,26 +729,34 @@
 
     <div class="pre-instructions">
       <div class="info-lines">
-        <p><strong>Allergen information:</strong> Contains egg, dairy (milk, butter), and almonds.</p>
-        <p><strong>Storage:</strong> Store in an airtight container in the refrigerator for 4–7 days (mature 24 hours first for best taste). Freeze assembled macarons for up to 1–3 months; thaw in the fridge to prevent condensation.</p>
+        <p><strong>Allergen Information:</strong> Contains egg, dairy (milk, butter), and almonds.</p>
+        <p><strong>Storage:</strong> Store in an airtight container in the refrigerator for 4-7 days (mature 24 hours first for best taste). Freeze assembled macarons for up to 1-3 months; thaw in the fridge to prevent condensation.</p>
       </div>
 
       <div class="pink-row">
         <div class="info-box">
           <h3>Ingredients</h3>
+          <div class="units-row equipment-control-indent">
+            <span class="units-label">Units</span>
+            <div class="units-toggle">
+              <button type="button" class="units-btn active" data-unit="us">US</button>
+              <button type="button" class="units-btn" data-unit="metric">M</button>
+            </div>
+          </div>
           <ul class="checklist" id="ingredients-list">
-            <li><input type="checkbox" aria-label="100g egg whites" /><span data-base="100">100g egg whites</span></li>
-            <li><input type="checkbox" aria-label="100g granulated sugar" /><span data-base="100">100g granulated sugar</span></li>
-            <li><input type="checkbox" aria-label="100g almond flour" /><span data-base="100">100g almond flour</span></li>
-            <li><input type="checkbox" aria-label="100g powdered sugar" /><span data-base="100">100g powdered sugar</span></li>
-            <li><input type="checkbox" aria-label="Pinch of salt" /><span>Pinch of salt</span></li>
-            <li><input type="checkbox" aria-label="Food coloring optional" /><span>Food coloring (optional)</span></li>
-            <li><strong>Filling:</strong></li>
-            <li><input type="checkbox" aria-label="Butter" /><span data-base="6">6 tbsp unsalted butter, room temp</span></li>
-            <li><input type="checkbox" aria-label="Powdered sugar" /><span data-base="2">2 cups powdered sugar</span></li>
-            <li><input type="checkbox" aria-label="Milk" /><span data-base="1">1 tbsp milk</span></li>
-            <li><input type="checkbox" aria-label="Vanilla" /><span data-base="1">1 tsp vanilla extract</span></li>
-            <li><input type="checkbox" aria-label="Pinch of salt filling" /><span>Pinch of salt</span></li>
+            <li class="ingredient-section-head"><strong>For the Macarons</strong></li>
+            <li><input type="checkbox" aria-label="Egg whites" /><span class="ingredient-line" data-key="shell-egg-whites"></span></li>
+            <li><input type="checkbox" aria-label="Granulated sugar" /><span class="ingredient-line" data-key="shell-sugar"></span></li>
+            <li><input type="checkbox" aria-label="Almond flour" /><span class="ingredient-line" data-key="shell-almond"></span></li>
+            <li><input type="checkbox" aria-label="Powdered sugar" /><span class="ingredient-line" data-key="shell-powdered-sugar"></span></li>
+            <li><input type="checkbox" aria-label="Salt" /><span class="ingredient-line" data-key="shell-salt"></span></li>
+            <li><input type="checkbox" aria-label="Food coloring optional" /><span class="ingredient-line" data-key="shell-coloring">Food coloring (optional)</span></li>
+            <li class="ingredient-section-head"><strong>For the Filling</strong></li>
+            <li><input type="checkbox" aria-label="Butter" /><span class="ingredient-line" data-key="filling-butter"></span></li>
+            <li><input type="checkbox" aria-label="Powdered sugar" /><span class="ingredient-line" data-key="filling-powdered-sugar"></span></li>
+            <li><input type="checkbox" aria-label="Milk" /><span class="ingredient-line" data-key="filling-milk"></span></li>
+            <li><input type="checkbox" aria-label="Vanilla" /><span class="ingredient-line" data-key="filling-vanilla"></span></li>
+            <li><input type="checkbox" aria-label="Salt" /><span class="ingredient-line" data-key="filling-salt"></span></li>
           </ul>
         </div>
 
@@ -667,8 +782,15 @@
             <div class="equipment-control">
               <h3>Serving size</h3>
               <div class="serving-control">
-                <label for="servings">Servings:</label>
-                <input type="number" id="servings" min="1" max="99" value="20" />
+                <div class="scale-toggle">
+                  <button type="button" class="scale-btn" data-scale="0.5">0.5x</button>
+                  <button type="button" class="scale-btn active" data-scale="1">1x</button>
+                  <button type="button" class="scale-btn" data-scale="2">2x</button>
+                  <button type="button" class="scale-btn" data-scale="3">3x</button>
+                </div>
+              </div>
+              <div class="serving-reset-wrap" id="servings-reset-wrap">
+                <a href="#" class="serving-reset" id="servings-reset">Reset to 1x</a>
               </div>
             </div>
           </div>
@@ -678,35 +800,29 @@
 
     <div class="main-body">
       <div class="instructions-col" id="recipe-instructions">
-        <nav class="phase-progress-bar" id="phase-progress-bar" aria-label="Recipe progress">
-          <div class="phase-stepper">
-            <a class="phase-step phase-link" href="#phase-1" data-phase="1" aria-label="Phase 1: Prep & Dry Ingredients">
-              <span class="phase-step-label">
-                <span class="phase-step-num">1</span> Prep Ingredients</span></a>
-            <a class="phase-step phase-link" href="#phase-2" data-phase="2" aria-label="Phase 2: Swiss Meringue">
-              <span class="phase-step-label">
-                <span class="phase-step-num">2</span> Swiss Meringue</span></a>
-            <a class="phase-step phase-link" href="#phase-3" data-phase="3" aria-label="Phase 3: Macaronage">
-              <span class="phase-step-label">
-                <span class="phase-step-num">3</span> Macaronage</span></a>
-            <a class="phase-step phase-link" href="#phase-4" data-phase="4" aria-label="Phase 4: Pipe & Bake">
-              <span class="phase-step-label">
-                <span class="phase-step-num">4</span> Pipe &amp; Bake</span></a>
-            <a class="phase-step phase-link" href="#phase-5" data-phase="5" aria-label="Phase 5: Assemble">
-              <span class="phase-step-label">
-                <span class="phase-step-num">5</span> Assemble</span></a>
-          </div>
-        </nav>
-
         <p class="instruction-intro">
           Follow the steps below with visuals for each stage. <strong>Images:</strong> <a href="https://bromabakery.com/foolproof-macaron-recipe-step-by-step/">Broma Bakery</a>.
         </p>
 
+        <nav class="phase-progress-bar" id="phase-progress-bar" aria-label="Recipe progress">
+          <div class="phase-stepper">
+            <a class="phase-step phase-link" href="#phase-1" data-phase="1" aria-label="Phase 1: Prep & Dry Ingredients">
+              <span class="phase-step-label">Phase 1. Prep</span></a>
+            <a class="phase-step phase-link" href="#phase-2" data-phase="2" aria-label="Phase 2: Swiss Meringue">
+              <span class="phase-step-label">Phase 2. Meringue</span></a>
+            <a class="phase-step phase-link" href="#phase-3" data-phase="3" aria-label="Phase 3: Macaronage">
+              <span class="phase-step-label">Phase 3. Macaronage</span></a>
+            <a class="phase-step phase-link" href="#phase-4" data-phase="4" aria-label="Phase 4: Pipe & Bake">
+              <span class="phase-step-label">Phase 4. Pipe &amp; Bake</span></a>
+            <a class="phase-step phase-link" href="#phase-5" data-phase="5" aria-label="Phase 5: Assemble">
+              <span class="phase-step-label">Phase 5. Assemble</span></a>
+          </div>
+        </nav>
 
         <h2 class="phase-heading" id="phase-1">Phase 1: Prep &amp; Dry Ingredients</h2>
 
         <div class="step-panel">
-          <h3 class="step-heading"><span class="step-number">1.</span> Measure Ingredients</h3>
+          <h3 class="step-heading">Step 1. Measure Ingredients</h3>
           <div class="step-text">
             <p>Measure out all your ingredients using a kitchen scale before you begin — <span class="ingredient">egg whites</span>, <span class="ingredient">granulated sugar</span>, <span class="ingredient">almond flour</span>, <span class="ingredient">powdered sugar</span>, and <span class="ingredient">salt</span> for the shells, plus filling ingredients when you get to that step. This keeps the process smooth and accurate.</p>
           </div>
@@ -723,15 +839,15 @@
         </div>
 
         <div class="step-panel">
-          <h3 class="step-heading"><span class="step-number">2.</span> Preheat and Line</h3>
+          <h3 class="step-heading">Step 2. Preheat and Line</h3>
           <div class="step-text">
-            <p>Preheat your oven to 300°F. Line two large baking sheets with <span class="ingredient">parchment paper</span>.</p>
+            <p>Preheat your oven to 300°F. Line two large baking sheets with parchment paper for each batch of 20 macarons.</p>
           </div>
           <div class="step-figures"></div>
         </div>
 
         <div class="step-panel">
-          <h3 class="step-heading"><span class="step-number">3.</span> Sift</h3>
+          <h3 class="step-heading">Step 3. Sift</h3>
           <div class="step-text">
             <p>Sift the <span class="ingredient">almond flour</span>, <span class="ingredient">powdered sugar</span>, and <span class="ingredient">salt</span> together three times for a perfectly smooth shell. Set aside.</p>
           </div>
@@ -750,7 +866,7 @@
         <h2 class="phase-heading" id="phase-2">Phase 2: Making the Swiss Meringue</h2>
 
         <div class="step-panel">
-          <h3 class="step-heading"><span class="step-number">4.</span> Double Boiler Setup</h3>
+          <h3 class="step-heading">Step 4. Double Boiler Setup</h3>
           <div class="step-text">
             <p>Heat a small pot of water over medium-low heat until it begins to steam.</p>
           </div>
@@ -763,9 +879,9 @@
         </div>
 
         <div class="step-panel">
-          <h3 class="step-heading"><span class="step-number">5.</span> Warm the Egg Whites</h3>
+          <h3 class="step-heading">Step 5. Warm the Egg Whites</h3>
           <div class="step-text">
-            <p>In your stand mixer bowl, combine the <span class="ingredient">egg whites</span> and roughly 3 tablespoons of <span class="ingredient">granulated sugar</span>. Place the bowl over the steaming pot (double boiler) and whisk continuously until the sugar is melted and the mixture is white and frothy (about 1 minute).</p>
+            <p>In your stand mixer bowl, combine the <span class="ingredient">egg whites</span> and roughly <span id="step5-initial-sugar">3 tablespoons</span> of <span class="ingredient">granulated sugar</span>. Place the bowl over the steaming pot (double boiler) and whisk continuously until the sugar is melted and the mixture is white and frothy (about 1 minute).</p>
           </div>
           <div class="step-figures">
             <figure>
@@ -780,9 +896,9 @@
         </div>
 
         <div class="step-panel">
-          <h3 class="step-heading"><span class="step-number">6.</span> Whip to Stiff Peaks</h3>
+          <h3 class="step-heading">Step 6. Whip to Stiff Peaks</h3>
           <div class="step-text">
-            <p>Move the bowl to the stand mixer with the whisk attachment. Whisk on high while slowly adding the remaining <span class="ingredient">granulated sugar</span> and <span class="ingredient">food coloring</span>. Beat 3–4 minutes until glossy and stiff peaks form.</p>
+            <p>Move the bowl to the stand mixer with the whisk attachment. Whisk on high while slowly adding the remaining <span class="ingredient">granulated sugar</span> and <span class="ingredient ingredient-no-tooltip">food coloring</span>. Beat 3-4 minutes until glossy and stiff peaks form.</p>
           </div>
           <div class="step-figures">
             <figure>
@@ -807,9 +923,9 @@
         <h2 class="phase-heading" id="phase-3">Phase 3: Macaronage</h2>
 
         <div class="step-panel">
-          <h3 class="step-heading"><span class="step-number">7.</span> Initial Combine</h3>
+          <h3 class="step-heading">Step 7. Initial Combine</h3>
           <div class="step-text">
-            <p>Pour the pre-sifted <span class="ingredient">dry ingredients</span> into the meringue bowl. Turn the mixer to medium for exactly 5 seconds to incorporate, then stop immediately.</p>
+            <p>Pour the pre-sifted dry ingredients into the meringue bowl. Turn the mixer to medium for exactly 5 seconds to incorporate, then stop immediately.</p>
           </div>
           <div class="step-figures">
             <figure>
@@ -824,7 +940,7 @@
         </div>
 
         <div class="step-panel">
-          <h3 class="step-heading"><span class="step-number">8.</span> Fold with Spatula</h3>
+          <h3 class="step-heading">Step 8. Fold with Spatula</h3>
           <div class="step-text">
             <p>Switch to a rubber spatula. Scrape the bowl and fold by hand in a circular motion (scoop outside, twist into center). Stop when the batter reaches a "slow-moving lava" consistency. You should be able to draw a figure-8 with the batter dripping off the spatula without the stream breaking.</p>
           </div>
@@ -839,9 +955,9 @@
         <h2 class="phase-heading" id="phase-4">Phase 4: Piping &amp; Baking</h2>
 
         <div class="step-panel">
-          <h3 class="step-heading"><span class="step-number">9.</span> Pipe, Release Air &amp; Rest</h3>
+          <h3 class="step-heading">Step 9. Pipe, Release Air &amp; Rest</h3>
           <div class="step-text">
-            <p>Transfer the batter to a pastry bag with a ½ inch (or 1 inch) tip. Pipe 1-inch circles onto the prepared sheets, 1.5 inches apart. Bang the sheets firmly on the counter twice to pop air bubbles. Let sit at room temperature 15–30 minutes until dry to the touch (prevents cracking).</p>
+            <p>Transfer the batter to a pastry bag with a ½ inch (or 1 inch) tip. Pipe 1-inch circles onto the prepared sheets, 1.5 inches apart. Bang the sheets firmly on the counter twice to pop air bubbles. Let sit at room temperature 15-30 minutes until dry to the touch (prevents cracking).</p>
           </div>
           <div class="step-figures">
             <figure>
@@ -852,9 +968,9 @@
         </div>
 
         <div class="step-panel">
-          <h3 class="step-heading"><span class="step-number">10.</span> Bake</h3>
+          <h3 class="step-heading">Step 10. Bake</h3>
           <div class="step-text">
-            <p>Bake 13–15 minutes, rotating the pan halfway through.</p>
+            <p>Bake 13-15 minutes, rotating the pan halfway through.</p>
           </div>
           <div class="step-figures">
             <figure>
@@ -867,7 +983,7 @@
         <h2 class="phase-heading" id="phase-5">Phase 5: Filling &amp; Assembly</h2>
 
         <div class="step-panel">
-          <h3 class="step-heading"><span class="step-number">11.</span> Cool</h3>
+          <h3 class="step-heading">Step 11. Cool</h3>
           <div class="step-text">
             <p>Let the shells cool completely on the baking sheet before removing.</p>
           </div>
@@ -875,7 +991,7 @@
         </div>
 
         <div class="step-panel">
-          <h3 class="step-heading"><span class="step-number">12.</span> Make Filling</h3>
+          <h3 class="step-heading">Step 12. Make Filling</h3>
           <div class="step-text">
             <p>While they cool, beat <span class="ingredient">butter</span>, <span class="ingredient">powdered sugar</span>, <span class="ingredient">milk</span>, <span class="ingredient">vanilla</span>, and <span class="ingredient">salt</span> until fluffy (about 2 minutes).</p>
           </div>
@@ -888,7 +1004,7 @@
         </div>
 
         <div class="step-panel">
-          <h3 class="step-heading"><span class="step-number">13.</span> Sandwich</h3>
+          <h3 class="step-heading">Step 13. Sandwich</h3>
           <div class="step-text">
             <p>Pipe a dollop of filling onto the flat side of one shell and press a second shell on top.</p>
           </div>
@@ -901,7 +1017,7 @@
         </div>
 
         <div class="step-panel">
-          <h3 class="step-heading"><span class="step-number">14.</span> Mature &amp; Eat</h3>
+          <h3 class="step-heading">Step 14. Mature &amp; Eat</h3>
           <div class="step-text">
             <p>You can eat them right away, but macarons improve in texture if "matured" in the fridge overnight.</p>
           </div>
@@ -952,14 +1068,19 @@
 
         function updatePhaseBar() {
           if (!phaseBar || !phaseLinks.length) return;
-          var activePhase = 1;
-          var markOffset = 110;
-          for (var j = 0; j < phaseHeadings.length; j++) {
-            var rect = phaseHeadings[j].getBoundingClientRect();
-            if (rect.top <= markOffset) activePhase = j + 1;
+          var barRect = phaseBar.getBoundingClientRect();
+          var isStuck = barRect.top <= 0;
+          phaseBar.classList.toggle("stuck", isStuck);
+          var activePhase = 0;
+          if (isStuck) {
+            var markOffset = 110;
+            for (var j = 0; j < phaseHeadings.length; j++) {
+              var rect = phaseHeadings[j].getBoundingClientRect();
+              if (rect.top <= markOffset) activePhase = j + 1;
+            }
           }
           phaseLinks.forEach(function (link, idx) {
-            link.classList.toggle("active", idx + 1 === activePhase);
+            link.classList.toggle("active", isStuck && idx + 1 === activePhase);
           });
         }
 
@@ -1001,22 +1122,101 @@
           });
         }
 
-        var servingsInput = document.getElementById("servings");
-        var baseServings = 20;
+        var currentUnit = "us";
+        var currentScale = 1;
+
+        var INGREDIENT_DATA = {
+          us: {
+            "shell-egg-whites": { num: 3, unit: "large", suffix: "egg whites" },
+            "shell-sugar": { num: 0.5, unit: "c", suffix: "granulated sugar" },
+            "shell-almond": { num: 1, unit: "c", suffix: "almond flour" },
+            "shell-powdered-sugar": { num: 1, unit: "c", suffix: "powdered sugar" },
+            "shell-salt": { text: "Pinch of salt" },
+            "shell-coloring": { text: "Food coloring (optional)" },
+            "filling-butter": { num: 6, unit: "tablespoons", suffix: "unsalted butter, room temperature" },
+            "filling-powdered-sugar": { num: 2, unit: "cup", suffix: "powdered sugar" },
+            "filling-milk": { num: 1, unit: "tablespoon", suffix: "milk" },
+            "filling-vanilla": { num: 1, unit: "teaspoon", suffix: "vanilla extract" },
+            "filling-salt": { text: "Pinch of salt" }
+          },
+          metric: {
+            "shell-egg-whites": { num: 100, unit: "g", suffix: "egg whites" },
+            "shell-sugar": { num: 100, unit: "g", suffix: "granulated sugar" },
+            "shell-almond": { num: 100, unit: "g", suffix: "almond flour" },
+            "shell-powdered-sugar": { num: 100, unit: "g", suffix: "powdered sugar" },
+            "shell-salt": { text: "Pinch of salt" },
+            "shell-coloring": { text: "Food coloring (optional)" },
+            "filling-butter": { num: 6, unit: "tablespoons", suffix: "unsalted butter, room temperature" },
+            "filling-powdered-sugar": { num: 240, unit: "grams", suffix: "powdered sugar" },
+            "filling-milk": { num: 1, unit: "tablespoon", suffix: "milk" },
+            "filling-vanilla": { num: 1, unit: "teaspoon", suffix: "vanilla extract" },
+            "filling-salt": { text: "Pinch of salt" }
+          }
+        };
+
+        function formatQty(n) {
+          if (n === 0.5) return "1/2";
+          if (n === 0.25) return "1/4";
+          if (n === 0.75) return "3/4";
+          if (n === 1.5) return "1.5";
+          if (n % 1 === 0) return Math.round(n).toString();
+          return n.toFixed(1);
+        }
+
+        function getIngredientDisplay(key) {
+          var data = INGREDIENT_DATA[currentUnit][key];
+          if (!data) return "";
+          if (data.text) return data.text;
+          var n = data.num * currentScale;
+          var qty = formatQty(n);
+          var unit = data.unit;
+          if (n !== 1 && (data.unit === "cup" || data.unit === "tablespoon" || data.unit === "teaspoon")) {
+            unit = data.unit === "cup" ? "cups" : data.unit + "s";
+          }
+          return { qty: qty + (unit ? " " + unit : ""), rest: data.suffix };
+        }
+
+        function updateIngredientList() {
+          document.querySelectorAll(".ingredient-line[data-key]").forEach(function (span) {
+            var key = span.getAttribute("data-key");
+            var display = getIngredientDisplay(key);
+            if (key === "shell-coloring" || !display) {
+              span.textContent = key === "shell-coloring" ? "Food coloring (optional)" : "";
+              return;
+            }
+            if (typeof display === "string") {
+              span.textContent = display;
+            } else {
+              span.innerHTML = "<span class=\"ingredient-qty\">" + display.qty + "</span> " + display.rest;
+            }
+          });
+         updateStep5Sugar();
+          updateIngredientTooltips();
+        }
+
+        function updateStep5Sugar() {
+          var el = document.getElementById("step5-initial-sugar");
+          if (!el) return;
+          if (currentUnit === "us") {
+            var tbsp = 3 * currentScale;
+            el.textContent = tbsp === 1 ? "1 tablespoon" : formatQty(tbsp) + " tablespoons";
+          } else {
+            var g = Math.round(45 * currentScale);
+            el.textContent = g + " grams";
+          }
+        }
 
         function updateIngredientTooltips() {
           var list = document.getElementById("ingredients-list");
           if (!list) return;
-
           var map = {};
-          list.querySelectorAll("span").forEach(function (span) {
+          list.querySelectorAll(".ingredient-line").forEach(function (span) {
             var text = (span.textContent || "").trim();
             if (!text) return;
-
-            var m = text.match(/^([\d.]+\s*\w+)\s+(.+)$/); // "100g egg whites"
+            var m = text.match(/^([\d./]+\s*\S*)\s+(.+)$/) || text.match(/^(\S+)\s+(.+)$/);
             var qty = "";
             var name = "";
-            if (m) {
+            if (m && m[2]) {
               qty = m[1].trim();
               name = m[2].trim();
             } else {
@@ -1031,7 +1231,6 @@
             }
             map[name.toLowerCase()] = qty;
           });
-
           document.querySelectorAll(".step-panel .ingredient").forEach(function (el) {
             var key = (el.textContent || "").trim().toLowerCase();
             var qty = map[key];
@@ -1054,22 +1253,42 @@
           });
         }
 
-        function scaleIngredients() {
-          var val = parseInt(servingsInput.value, 10) || baseServings;
-          var scale = val / baseServings;
-          document.querySelectorAll(".checklist span[data-base]").forEach(function (span) {
-            var base = parseFloat(span.getAttribute("data-base"), 10);
-            if (isNaN(base)) return;
-            var num = base * scale;
-            var formatted = num % 1 === 0 ? Math.round(num).toString() : num.toFixed(1);
-            var text = span.textContent.replace(/^[\d.]+/, formatted);
-            span.textContent = text;
-          });
-          updateIngredientTooltips();
+        function updateServingsResetVisibility() {
+          var wrap = document.getElementById("servings-reset-wrap");
+          if (!wrap) return;
+          wrap.classList.toggle("visible", currentScale !== 1);
         }
-        if (servingsInput) {
-          servingsInput.addEventListener("input", scaleIngredients);
-          servingsInput.addEventListener("change", scaleIngredients);
+
+        document.querySelectorAll(".units-btn").forEach(function (btn) {
+          btn.addEventListener("click", function () {
+            document.querySelectorAll(".units-btn").forEach(function (b) { b.classList.remove("active"); });
+            this.classList.add("active");
+            currentUnit = this.getAttribute("data-unit");
+            updateIngredientList();
+          });
+        });
+
+        document.querySelectorAll(".scale-btn").forEach(function (btn) {
+          btn.addEventListener("click", function () {
+            document.querySelectorAll(".scale-btn").forEach(function (b) { b.classList.remove("active"); });
+            this.classList.add("active");
+            currentScale = parseFloat(this.getAttribute("data-scale"), 10);
+            updateIngredientList();
+            updateServingsResetVisibility();
+          });
+        });
+
+        var resetLink = document.getElementById("servings-reset");
+        if (resetLink) {
+          resetLink.addEventListener("click", function (e) {
+            e.preventDefault();
+            currentScale = 1;
+            document.querySelectorAll(".scale-btn").forEach(function (b) {
+              b.classList.toggle("active", b.getAttribute("data-scale") === "1");
+            });
+            updateIngredientList();
+            updateServingsResetVisibility();
+          });
         }
 
         function bindChecklists(listId) {
@@ -1085,7 +1304,7 @@
         bindChecklists("ingredients-list");
         bindChecklists("equipment-list");
 
-        updateIngredientTooltips();
+        updateIngredientList();
       })();
     </script>
   </body>
