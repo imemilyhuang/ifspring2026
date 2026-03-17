@@ -429,6 +429,14 @@
         box-shadow: 0 1px 3px rgba(0,0,0,0.06);
       }
 
+      .step-panel:nth-of-type(odd) {
+        background: #fff;
+      }
+
+      .step-panel:nth-of-type(even) {
+        background: #f8ebed;
+      }
+
       .step-panel .step-heading {
         margin: 0 0 0.5rem;
         font-size: 1.05rem;
@@ -563,14 +571,13 @@
 
         .step-panel {
           margin-bottom: 0.75rem;
+          margin-left: -1.5rem;
+          margin-right: -1.5rem;
+          box-shadow: none;
         }
 
         .step-panel .step-figures {
           gap: 0.75rem;
-        }
-
-        .step-panel:nth-of-type(odd) {
-          background: #f8ebed;
         }
 
         .step-panel .step-figures figure {
@@ -578,28 +585,29 @@
           max-width: none;
         }
 
-        /* Phase progress bar: numbers-only on mobile */
+        /* Phase progress bar: two-line layout on mobile */
         .phase-step-label {
-          display: none;
-        }
-
-        .phase-step::before {
-          content: attr(data-phase);
-          display: inline-flex;
+          display: flex;
+          flex-direction: column;
           align-items: center;
-          justify-content: center;
-          min-width: 1.75rem;
-          height: 1.75rem;
-          padding: 0 0.35rem;
-          font-weight: 700;
-          font-size: 0.9rem;
-          color: #333;
-          background: transparent;
+          text-align: center;
+          line-height: 1.25;
         }
 
-        .phase-step.active::before {
-          color: #fff;
-          background: #b8345e;
+        .phase-step-num {
+          display: block;
+          font-size: 0.8rem;
+        }
+
+        .phase-step-num::after {
+          content: none;
+        }
+
+        .phase-step-name {
+          display: block;
+          font-size: 0.65rem;
+          font-weight: 500;
+          opacity: 0.9;
         }
 
         .phase-stepper {
@@ -673,6 +681,10 @@
         font-family: "Montserrat", sans-serif;
         text-align: center;
         white-space: nowrap;
+      }
+
+      .phase-step-num::after {
+        content: ". ";
       }
 
       .phase-step:hover .phase-step-label {
@@ -807,15 +819,15 @@
         <nav class="phase-progress-bar" id="phase-progress-bar" aria-label="Recipe progress">
           <div class="phase-stepper">
             <a class="phase-step phase-link" href="#phase-1" data-phase="1" aria-label="Phase 1: Prep & Dry Ingredients">
-              <span class="phase-step-label">Phase 1. Prep</span></a>
+              <span class="phase-step-label"><span class="phase-step-num">Phase 1</span><span class="phase-step-name">Prep</span></span></a>
             <a class="phase-step phase-link" href="#phase-2" data-phase="2" aria-label="Phase 2: Swiss Meringue">
-              <span class="phase-step-label">Phase 2. Meringue</span></a>
+              <span class="phase-step-label"><span class="phase-step-num">Phase 2</span><span class="phase-step-name">Meringue</span></span></a>
             <a class="phase-step phase-link" href="#phase-3" data-phase="3" aria-label="Phase 3: Macaronage">
-              <span class="phase-step-label">Phase 3. Macaronage</span></a>
+              <span class="phase-step-label"><span class="phase-step-num">Phase 3</span><span class="phase-step-name">Macaronage</span></span></a>
             <a class="phase-step phase-link" href="#phase-4" data-phase="4" aria-label="Phase 4: Pipe & Bake">
-              <span class="phase-step-label">Phase 4. Pipe &amp; Bake</span></a>
+              <span class="phase-step-label"><span class="phase-step-num">Phase 4</span><span class="phase-step-name">Pipe &amp; Bake</span></span></a>
             <a class="phase-step phase-link" href="#phase-5" data-phase="5" aria-label="Phase 5: Assemble">
-              <span class="phase-step-label">Phase 5. Assemble</span></a>
+              <span class="phase-step-label"><span class="phase-step-num">Phase 5</span><span class="phase-step-name">Assemble</span></span></a>
           </div>
         </nav>
 
