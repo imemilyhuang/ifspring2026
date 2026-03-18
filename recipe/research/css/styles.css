@@ -1,0 +1,71 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0 auto;
+  max-width: 850px;
+  line-height: 1.4;
+  font-size: 1rem;
+  color: #444;
+  padding: 2rem;
+}
+
+header {
+  margin-bottom: 3rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #ddd;
+}
+
+nav {
+  display: flex;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+section {
+  margin-bottom: 6rem;
+}
+
+li {
+  margin-bottom: 0.5rem;
+}
+
+ol,
+ul {
+  margin: 0 0 1.5rem 0;
+  padding-left: 1.5rem;
+}
+
+.recipe-image-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.recipe-image-grid figure {
+  margin: 0;
+}
+
+.recipe-image-grid img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.recipe-image-grid figcaption {
+  margin-bottom: 0.25rem;
+  font-size: 0.9rem;
+}
+
+.recipe-image-grid small {
+  display: block;
+  font-size: 0.8rem;
+}
+
+a {
+  color: #2458c8;
+}
