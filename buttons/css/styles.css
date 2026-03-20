@@ -1,0 +1,445 @@
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+button a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem 1.5rem;
+  text-decoration: none;
+  color: inherit;
+  font-weight: 600;
+}
+
+/* Instagram */
+a.instagram {
+  font-family: "Lobster Two", cursive;
+  font-size: 20px;
+  font-weight: 600;
+  color: #fff;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(45deg, #feda75 0%, #fa7e1e 25%, #d62976 50%, #962fbf 75%, #4f5bd5 100%);
+  padding: 20px 40px;
+  border-radius: 12px;
+  position: relative;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(214, 41, 118, 0.25);
+}
+
+a.instagram:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 6px 18px rgba(79, 91, 213, 0.2),
+    0 8px 24px rgba(214, 41, 118, 0.22);
+}
+
+/* Tesla */
+a.tesla {
+  font-family: "Orbitron", sans-serif;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 48px;
+  padding: 1rem 1.5rem;
+  background: transparent;
+  border: 2px solid #2d2d2d;
+  border-radius: 6px;
+  color: #333;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  transition: border-color 0.25s ease;
+}
+
+a.tesla::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 0;
+  border-radius: 0 0 4px 4px;
+  background: linear-gradient(180deg, #cc0000 0%, #8b0000 100%);
+  transition: height 0.6s ease 0.2s;
+  z-index: 0;
+}
+
+a.tesla .tesla-brand {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  transition: opacity 0.3s ease;
+}
+
+a.tesla .tesla-default {
+  position: relative;
+  opacity: 1;
+  color: #2d2d2d;
+}
+
+a.tesla .tesla-hover {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  color: #fff;
+}
+
+a.tesla:hover .tesla-default {
+  opacity: 0;
+}
+
+a.tesla:hover .tesla-hover {
+  opacity: 1;
+}
+
+a.tesla .tesla-icon {
+  font-size: 1.2rem;
+}
+
+a.tesla .tesla-text {
+  font-weight: 500;
+  font-size: 1.1rem;
+  letter-spacing: 0.4em;
+  color: inherit;
+}
+
+a.tesla:hover {
+  border-color: #cc0000;
+}
+
+a.tesla:hover::before {
+  height: 100%;
+  border-radius: 4px;
+  transition-delay: 0s;
+}
+
+/* Lyft */
+a.lyft {
+  font-family: "Sora", sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  color: #fff;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 15px 50px;
+  background-color: #ff00bf;
+  border-radius: 999px;
+  position: relative;
+  transition: all 0.2s ease-out;
+  box-shadow: 0 4px 15px rgba(255, 0, 191, 0.3);
+}
+
+a.lyft::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transition: 0.5s;
+  z-index: -1;
+}
+
+a.lyft .car-icon {
+  position: absolute;
+  left: -100px;
+  font-size: 28px;
+  transition: all 0.2s ease-out;
+  opacity: 0;
+}
+
+a.lyft .btn-text {
+  transition: all 0.2s ease-out;
+}
+
+a.lyft:hover {
+  box-shadow: 0 8px 25px rgba(255, 0, 191, 0.5);
+  background-color: #ff11c5;
+}
+
+a.lyft:hover .car-icon {
+  left: 25px;
+  opacity: 1;
+}
+
+a.lyft:hover .btn-text {
+  transform: translateX(20px);
+}
+
+a.lyft:hover::before {
+  left: 100%;
+  transition: 0.7s;
+  z-index: 1;
+}
+
+a.lyft:active {
+  transform: scale(0.95);
+  background-color: #bc008d;
+  box-shadow: 0 2px 10px rgba(188, 0, 141, 0.4);
+}
+
+/* Apple */
+a.apple {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: #000;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 18px 40px;
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 999px;
+  box-shadow: 0 4px 14px 0 rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+a.apple:hover {
+  background: #000;
+  color: #fff;
+  transform: scale(1.02);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+a.apple:active {
+  transform: scale(0.95);
+}
+
+/* Hasbro */
+.hasbro-wrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hasbro-wrap .hasbro-monopoly {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 80px;
+  height: auto;
+  object-fit: contain;
+  transform: translate(-50%, 60%);
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hasbro-wrap:hover .hasbro-monopoly {
+  transform: translate(-50%, -80%);
+}
+
+a.hasbro {
+  position: relative;
+  z-index: 1;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 40px;
+  background: linear-gradient(135deg, #1883c6 0%, #209cbe 35%, #2bb1b5 65%, #80bae0 100%);
+  border: 4px solid #0d6a9e;
+  border-radius: 50px;
+  overflow: visible;
+  box-shadow:
+    0 8px 0 #0d6a9e,
+    0 15px 20px rgba(0, 0, 0, 0.2);
+  transition: all 0.1s ease;
+}
+
+a.hasbro .hasbro-logo {
+  font-family: "Caveat Brush", cursive;
+  font-size: 2.5rem;
+  color: #fff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease;
+}
+
+a.hasbro:hover {
+  transform: rotate(-5deg) translateY(2px);
+  box-shadow:
+    0 6px 0 #0d6a9e,
+    0 10px 15px rgba(0, 0, 0, 0.2);
+}
+
+a.hasbro:hover .hasbro-logo {
+  transform: scale(1.1);
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+a.hasbro:active {
+  transform: rotate(-3deg) translateY(8px);
+  box-shadow:
+    0 0 0 #0d6a9e,
+    0 5px 10px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(135deg, #0d5a8a 0%, #1269a0 35%, #1a7d99 65%, #4a85a8 100%);
+}
+
+a.hasbro:active .hasbro-logo {
+  transform: scale(0.98);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+body {
+  color: #333;
+  font-family: "Open Sans", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  margin: 40px;
+}
+
+h1 {
+  font-size: 30px;
+  margin-bottom: 40px;
+}
+
+.button_container {
+  border: 1px solid #ddd;
+  margin: 0 10px 10px 0;
+  padding: 20px;
+  width: 300px;
+  height: 300px;
+  float: left;
+  overflow: hidden;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+a#btn_spotify {
+  display: inline-block;
+  height: 50px;
+  border-radius: 25px;
+  margin: auto;
+  padding: 10px 40px 0;
+  background-color: #2ebd59;
+  border: 2px solid #2ebd59;
+  color: #fff;
+  font-size: 20px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  text-decoration: none;
+  transition: all 0.5s;
+}
+
+a#btn_spotify:hover {
+  background-color: #fff;
+  border: 2px solid #000;
+  color: #000;
+}
+
+a#btn_amazon {
+  display: block;
+  width: 100px;
+  height: 100px;
+  margin: auto;
+  padding-top: 8px;
+  background-color: #232f3e;
+  color: #fff;
+  border-radius: 50px;
+  text-align: center;
+  font-size: 60px;
+  transition: all 0.2s;
+}
+
+a#btn_amazon:hover {
+  background-color: #fc9a18;
+}
+
+a#btn_twitter {
+  display: inline-block;
+  height: 40px;
+  border-radius: 4px;
+  margin: auto;
+  padding: 10px 30px 0;
+  background-color: #56cdf1;
+  color: #fff;
+  font-size: 18px;
+  font-family: "Arial", sans-serif;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+a#btn_twitter:hover {
+  background: linear-gradient(135deg, #2ebfec 0%, #28a5cb 100%);
+}
+
+a#btn_indiegogo {
+  display: inline-block;
+  position: relative;
+  margin: auto;
+  padding: 8px 16px;
+  background-color: #fff;
+  color: #eb1478;
+  font-family: "Ubuntu", sans-serif;
+  font-size: 30px;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: -2px;
+  transition: all 0.2s;
+}
+
+a#btn_indiegogo:before {
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+  z-index: 1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background-color: #eb1478;
+  transition: all 0.5s;
+}
+
+a#btn_indiegogo:hover {
+  color: #fff;
+}
+
+a#btn_indiegogo:hover:before {
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
+
+a#btn_indiegogo span {
+  position: relative;
+  z-index: 10;
+}
