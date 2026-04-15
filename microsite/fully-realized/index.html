@@ -23,20 +23,35 @@
     >
       <div class="site-boot__panel">
         <p id="siteBootTitle" class="site-boot__title">Star Wars</p>
-        <div
-          class="site-boot__bar"
-          role="progressbar"
-          aria-valuemin="0"
-          aria-valuemax="100"
-          aria-valuenow="0"
-          aria-label="Loading progress"
-        >
-          <div class="site-boot__bar-fill" id="siteBootBarFill"></div>
+        <div class="site-boot__saber" id="siteBootSaber">
+          <div class="site-boot__hilt" aria-hidden="true">
+            <span class="site-boot__hilt-body"></span>
+            <span class="site-boot__hilt-switch"></span>
+          </div>
+          <div
+            class="site-boot__bar"
+            role="progressbar"
+            aria-valuemin="0"
+            aria-valuemax="100"
+            aria-valuenow="0"
+            aria-label="Loading progress"
+          >
+            <div class="site-boot__bar-stage">
+              <div class="site-boot__bar-inner" aria-hidden="true">
+                <div class="site-boot__bar-track"></div>
+                <div class="site-boot__bar-fill site-boot__plasma" id="siteBootBarFill"></div>
+              </div>
+              <div class="site-boot__blade-halo" aria-hidden="true"></div>
+            </div>
+          </div>
         </div>
         <p class="site-boot__status" id="siteBootStatus">Loading…</p>
-        <button type="button" class="site-boot__enter" id="siteBootEnter" hidden>
-          Enter Galaxy
-        </button>
+        <div class="site-boot__cta" id="siteBootCta" hidden>
+          <button type="button" class="map-interactive__zoom-btn map-interactive__zoom-btn--text" id="siteBootEnter">
+            Enter Galaxy
+          </button>
+          <strong class="site-boot__hint-lead">Scroll to travel through the galaxy.</strong>
+        </div>
       </div>
     </div>
 
@@ -100,6 +115,11 @@
       <div class="premise-scene">
         <div class="premise-veil" aria-hidden="true"></div>
         <div class="premise-crawl-stage">
+          <div class="premise-stars" aria-hidden="true">
+            <span class="premise-stars__layer premise-stars__layer--far"></span>
+            <span class="premise-stars__layer premise-stars__layer--mid"></span>
+            <span class="premise-stars__layer premise-stars__layer--near"></span>
+          </div>
           <article class="starwars" id="starwarsOpening" aria-label="Star Wars opening crawl">
             <div class="starwars__animation">
               <section class="starwars__titles">
@@ -167,8 +187,10 @@
           <button type="button" class="media-continuous__nav media-continuous__nav--prev" id="mediaPrev" aria-label="Previous title">
             ‹
           </button>
-          <div class="media-continuous" id="mediaContinuous" tabindex="0">
-            <div class="media-continuous__track" id="mediaContinuousTrack"></div>
+          <div class="media-continuous__viewport">
+            <div class="media-continuous" id="mediaContinuous" tabindex="0">
+              <div class="media-continuous__track" id="mediaContinuousTrack"></div>
+            </div>
           </div>
           <button type="button" class="media-continuous__nav media-continuous__nav--next" id="mediaNext" aria-label="Next title">
             ›
@@ -636,7 +658,7 @@
             class="timeline-controls__range"
             type="range"
             min="0.7"
-            max="2.6"
+            max="6.7"
             step="0.1"
             value="1.0"
             aria-label="Timeline zoom"
@@ -646,16 +668,18 @@
           </button>
           <span class="timeline-controls__value" id="timelineZoomValue" aria-hidden="true">1.0×</span>
         </div>
-        <div
-          class="timeline-scroll timeline-meter"
-          id="timelineScroll"
-          aria-label="Proportional timeline: bar length matches years; hover or focus an entry for dates and story notes"
-        >
-          <div class="timeline-meter__inner" id="timelineMeterInner">
-            <div class="timeline-meter__axis" id="timelineMeterAxis" aria-hidden="true"></div>
-            <div class="timeline-meter__track" id="timelineMeterTrack">
-              <div class="timeline-meter__markers" id="timelineMeterMarkers" aria-hidden="true"></div>
-              <div class="timeline-meter__bar-layer" id="timelineMeterBarLayer"></div>
+        <div class="timeline-meter__viewport">
+          <div
+            class="timeline-scroll timeline-meter"
+            id="timelineScroll"
+            aria-label="Proportional timeline: bar length matches years; hover or focus an entry for dates and story notes"
+          >
+            <div class="timeline-meter__inner" id="timelineMeterInner">
+              <div class="timeline-meter__axis" id="timelineMeterAxis" aria-hidden="true"></div>
+              <div class="timeline-meter__track" id="timelineMeterTrack">
+                <div class="timeline-meter__markers" id="timelineMeterMarkers" aria-hidden="true"></div>
+                <div class="timeline-meter__bar-layer" id="timelineMeterBarLayer"></div>
+              </div>
             </div>
           </div>
         </div>
@@ -1230,7 +1254,7 @@
               </div>
               <div class="themes-split__text">
                 <p class="themes-split__kicker">Joseph Campbell</p>
-                <h3 class="themes-split__title">The hero’s journey &amp; fathers</h3>
+                <h3 class="themes-split__title">The hero's journey and fathers</h3>
                 <div class="themes-split__body">
                   <p>
                     The saga draws heavily from the hero's journey, an archetypical template developed by
@@ -1391,7 +1415,11 @@
 
     <footer>
       <p>Star Wars Microsite | April 2026 | Made by Emily Huang</p>
-      <p>Content sourced from public sources including Wikipedia</p>
+      <p>
+        Content sourced from public sources including Wikipedia —
+        <a href="https://en.wikipedia.org/wiki/Star_Wars" target="_blank" rel="noopener noreferrer"
+          >Star Wars (Wikipedia)</a>.
+      </p>
     </footer>
 
     <script>
@@ -1408,10 +1436,12 @@
         // Base density inside “busy” clusters.
         const PX_PER_YEAR = 1.2;
         const MIN_BAR_PX = 5;
-        const ROW_HEIGHT = 100;
+        const ROW_HEIGHT = 44;
         // Compress very large empty year gaps so sparse eras don't dominate the scroll width.
         const MAX_GAP_PX = 420; // cap pixels for any single gap between adjacent boundaries
         const MIN_GAP_PX = 14;  // keep small separation for readability
+        /** Room so axis labels (translateX(-50%)) are not clipped by the horizontal scroller */
+        const LAYOUT_PAD_X = 52;
         /** Stronger vertical ticks at canonical era starts (BBY negative, ABY positive) */
         const ERA_START_YEARS = new Set([-25100, -25053, -500, -100, -19, 0, 5, 28, 35]);
 
@@ -1521,10 +1551,10 @@
             desc: "The Jedi fall in Revenge of the Sith; Clone Force 99 navigates the new Imperial order.",
           },
           {
-            start: -18,
+            start: -14,
             end: -14,
             label: "Jedi: Fallen Order",
-            desc: "Cal Kestis hides his powers until the Inquisitorius forces him back into the fight.",
+            desc: "Cal Kestis hides his powers until the Inquisitorius forces him back into the fight (~14 BBY).",
           },
           {
             start: -13,
@@ -1675,7 +1705,6 @@
         const pad = (maxT - minT) * 0.015;
         minT -= pad;
         maxT += pad;
-        const span = maxT - minT;
 
         const clamp = (n, a, b) => Math.max(a, Math.min(b, n));
 
@@ -1732,12 +1761,16 @@
           const zoom = getZoom();
           const scale = buildCompressedScale(events, zoom);
           const widthPx = scale.totalPx;
-          inner.style.width = `${widthPx}px`;
-          inner.style.minWidth = `${widthPx}px`;
+          const fullW = widthPx + 2 * LAYOUT_PAD_X;
+          const xAt = (t) => LAYOUT_PAD_X + scale.yearToX(t);
+          inner.style.width = `${fullW}px`;
+          inner.style.minWidth = `${fullW}px`;
+          axis.style.width = `${fullW}px`;
+          track.style.width = `${fullW}px`;
 
           if (zoomValueEl) zoomValueEl.textContent = `${zoom.toFixed(1)}×`;
 
-          const trackH = Math.max(120, numRows * ROW_HEIGHT + 8);
+          const trackH = Math.max(96, numRows * ROW_HEIGHT + 4);
           track.style.minHeight = `${trackH}px`;
 
           layer.innerHTML = "";
@@ -1745,8 +1778,8 @@
 
           events.forEach((ev) => {
             const isPoint = ev.start === ev.end;
-            const x0 = scale.yearToX(ev.start);
-            const x1 = scale.yearToX(ev.end);
+            const x0 = xAt(ev.start);
+            const x1 = xAt(ev.end);
             const leftPx = x0;
             const wPx = isPoint ? MIN_BAR_PX : Math.max(Math.abs(x1 - x0), MIN_BAR_PX);
 
@@ -1784,24 +1817,23 @@
           });
 
           markers.innerHTML = "";
+          axis.innerHTML = "";
+          /* One vertical line per boundary year; bottom label uses the same t and x as that line */
           scale.boundaries.forEach((t) => {
+            const x = xAt(t);
             const tick = document.createElement("div");
             tick.className = "timeline-meter__tick";
             if (ERA_START_YEARS.has(t)) tick.classList.add("timeline-meter__tick--era");
-            tick.style.left = `${scale.yearToX(t)}px`;
+            tick.style.left = `${x}px`;
             markers.appendChild(tick);
-          });
 
-          axis.innerHTML = "";
-          const steps = 10;
-          for (let i = 0; i <= steps; i++) {
-            const t = minT + (span * i) / steps;
             const lab = document.createElement("span");
             lab.className = "timeline-meter__axis-tick";
-            lab.style.left = `${((t - minT) / span) * 100}%`;
+            if (ERA_START_YEARS.has(t)) lab.classList.add("timeline-meter__axis-tick--era");
+            lab.style.left = `${x}px`;
             lab.textContent = formatYear(t);
             axis.appendChild(lab);
-          }
+          });
         };
 
         // Tooltip
@@ -1932,7 +1964,7 @@
         });
         zoomInBtn?.addEventListener("click", () => {
           if (!zoomEl) return;
-          zoomEl.value = String(Math.min(Number(zoomEl.max || 2.6), getZoom() + 0.1));
+          zoomEl.value = String(Math.min(Number(zoomEl.max || 6.7), getZoom() + 0.1));
           applyZoom();
         });
 
@@ -2352,8 +2384,10 @@ Grand Moff Tarkin is the Imperial commander of the Death Star and a high-ranking
         const siteBoot = document.getElementById("siteBoot");
         const siteBootBarFill = document.getElementById("siteBootBarFill");
         const siteBootStatus = document.getElementById("siteBootStatus");
+        const siteBootCta = document.getElementById("siteBootCta");
         const siteBootEnter = document.getElementById("siteBootEnter");
         const siteBootBar = document.querySelector(".site-boot__bar");
+        const siteBootSaber = document.getElementById("siteBootSaber");
         const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
         let mainTitlePlayed = false;
         let heroIntroLatched = false;
@@ -2598,7 +2632,13 @@ Grand Moff Tarkin is the Imperial commander of the Death Star and a high-ranking
           if (!siteBootBarFill || !siteBootBar) return;
           const clamped = Math.max(0, Math.min(100, pct));
           siteBootBarFill.style.width = `${clamped}%`;
+          siteBootBar.style.setProperty("--boot-pct", `${clamped}%`);
           siteBootBar.setAttribute("aria-valuenow", String(Math.round(clamped)));
+          if (siteBootSaber) {
+            siteBootSaber.setAttribute("data-progress", String(Math.round(clamped)));
+            siteBootSaber.toggleAttribute("data-blade-on", clamped > 0);
+            siteBootSaber.toggleAttribute("data-ready", clamped >= 100);
+          }
         };
 
         let bootStepsDone = 0;
@@ -2608,8 +2648,7 @@ Grand Moff Tarkin is the Imperial commander of the Death Star and a high-ranking
           setBootProgress((bootStepsDone / bootTotalSteps) * 100);
           if (bootStepsDone >= bootTotalSteps && siteBootStatus && siteBootEnter) {
             siteBootStatus.textContent = "Ready";
-            siteBootEnter.hidden = false;
-            siteBootEnter.focus();
+            if (siteBootCta) siteBootCta.hidden = false;
           }
         };
 
