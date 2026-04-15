@@ -1,0 +1,2937 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Star Wars Microsite</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Audiowide&family=News+Cycle:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/fully-realized-styles.css" />
+  </head>
+  <body class="boot-lock">
+    <div
+      id="siteBoot"
+      class="site-boot"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="siteBootTitle"
+      aria-describedby="siteBootStatus"
+    >
+      <div class="site-boot__panel">
+        <p id="siteBootTitle" class="site-boot__title">Star Wars</p>
+        <div
+          class="site-boot__bar"
+          role="progressbar"
+          aria-valuemin="0"
+          aria-valuemax="100"
+          aria-valuenow="0"
+          aria-label="Loading progress"
+        >
+          <div class="site-boot__bar-fill" id="siteBootBarFill"></div>
+        </div>
+        <p class="site-boot__status" id="siteBootStatus">Loading…</p>
+        <button type="button" class="site-boot__enter" id="siteBootEnter" hidden>
+          Enter Galaxy
+        </button>
+      </div>
+    </div>
+
+    <nav class="nav-main nav--hidden" aria-label="Primary">
+      <a href="#hero">Enter</a>
+      <a href="#premise">Premise</a>
+      <a href="#films-tv">Films &amp; TV</a>
+      <a href="#timeline">Timeline</a>
+      <a href="#characters">Characters</a>
+      <a href="#map">Map</a>
+      <a href="#themes">Themes</a>
+      <a href="#impact">Cultural Impact</a>
+    </nav>
+
+    <!-- Hero: scroll-driven “A long time ago…” → logo + Main_Title → then premise crawl -->
+    <section id="hero" class="hero" data-hero-phase="idle">
+      <audio id="mainTitleAudio" class="hero__main-title-audio" preload="auto" playsinline>
+        <source src="../assets/Main_Title.mp3" type="audio/mpeg" />
+      </audio>
+      <!-- Fixed starfield + vignette; sticky panel for logo + crawl + CTA -->
+      <div class="hero__bg" aria-hidden="true">
+        <img src="../images/hero.png" alt="" />
+      </div>
+      <div class="hero__vignette" aria-hidden="true"></div>
+      <div class="hero__sticky">
+        <div class="hero__logo-layer">
+          <div class="hero-logo-shell">
+            <img class="hero-logo" src="../images/logo.png" alt="Star Wars logo" />
+          </div>
+        </div>
+        <div class="hero__foreground">
+          <div class="hero__stage-top" aria-hidden="true"></div>
+          <p class="hero__crawl-flash" aria-live="polite">
+            A long time ago, in a galaxy far,<br />
+            far away…
+          </p>
+          <div class="hero__stage-mid" aria-hidden="true"></div>
+          <div class="hero__cta-box">
+            <p class="tagline">Enter the galaxy</p>
+            <a class="down-caret" href="#premise" aria-label="Scroll down to the premise">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M6 9l6 6 6-6" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Premise: 1977-style opening (scroll-driven; based on Tim Pietrusky / CodePen structure) -->
+    <section id="premise" class="premise">
+      <div class="premise-scene">
+        <div class="premise-veil" aria-hidden="true"></div>
+        <div class="premise-crawl-stage">
+          <article class="starwars" id="starwarsOpening" aria-label="Star Wars opening crawl">
+            <div class="starwars__animation">
+              <section class="starwars__titles">
+                <div class="starwars__titles-track">
+                  <p>
+                    Star Wars is an American media franchise created by George Lucas. The space opera saga began with
+                    the original Star Wars film (1977) and quickly became a worldwide pop culture phenomenon. It has
+                    expanded into various films and other media, including television series, video games, novels,
+                    comic books, theme park attractions, and themed areas, comprising an all-encompassing fictional
+                    universe. Star Wars is one of the highest-grossing media franchises of all time.
+                  </p>
+                  <p>
+                    The original film, later retitled Episode IV: A New Hope, was followed by the sequels Episode V:
+                    The Empire Strikes Back (1980) and Episode VI: Return of the Jedi (1983), forming the original
+                    Star Wars trilogy. Lucas later returned to the series to write and direct a prequel trilogy,
+                    consisting of Episode I: The Phantom Menace (1999), Episode II: Attack of the Clones (2002), and
+                    Episode III: Revenge of the Sith (2005). In 2012, Lucas sold his production company to Disney,
+                    relinquishing his ownership of the franchise. This led to a sequel trilogy, consisting of Episode
+                    VII: The Force Awakens (2015), Episode VIII: The Last Jedi (2017), and Episode IX: The Rise of
+                    Skywalker (2019).
+                  </p>
+                  <p>
+                    All nine films, collectively referred to as the &quot;Skywalker Saga&quot;, were nominated for Academy
+                    Awards, with Oscars going to the first three releases. Together with the spin-off films Rogue One
+                    (2016) and Solo (2018), the combined box office revenue of Star Wars theatrical live-action films
+                    equals over US$10 billion, making Star Wars the third-highest-grossing film franchise in cinematic
+                    history.
+                  </p>
+                  <p>
+                    Star Wars stories are set in a fictional galaxy in the distant past. They span multiple fictional
+                    eras, in which humans and many species of aliens (often humanoid) co-exist with droids (robots),
+                    which may be programmed for personal assistance or battle. Space travel between planets is common
+                    due to lightspeed hyperspace technology. The various planets depicted contain a range of
+                    societies, from wealthy, planet-wide cities to deserts scarcely populated by primitive tribes.
+                    Virtually any Earth biome, along with many fictional ones, has its counterpart as a Star Wars
+                    planet which, in most cases, teem with sentient and non-sentient alien life.
+                  </p>
+                  <p>
+                    The universe of Star Wars is generally similar to the real universe but its laws of physics are
+                    less strict allowing for more imaginative stories. One result of that is a mystical power known as
+                    the Force which is described in the original film as &quot;an energy field created by all living things
+                    ... [that] binds the galaxy together&quot;. Through training and meditation, those whom &quot;the Force is
+                    strong with&quot; exhibit various superpowers; these are wielded by two major knightly orders: the Jedi
+                    (light side) and the Sith (dark side).
+                  </p>
+                  <p>
+                    The franchise is set against a backdrop of galactic conflict involving rebellions, republics and
+                    empires. The Jedi and Sith prefer the lightsaber, a retractable blade of plasma. While the
+                    franchise is best known as an archetypal space opera, the combination of science fiction and
+                    fantasy elements makes Star Wars very universal, capable of telling stories of various genres.
+                  </p>
+                </div>
+              </section>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Films & TV -->
+    <section id="films-tv">
+      <div class="container">
+        <h2 class="section-title">Films &amp; TV</h2>
+        <div class="media-continuous-wrap" aria-label="All films and TV in one continuous scroll">
+          <button type="button" class="media-continuous__nav media-continuous__nav--prev" id="mediaPrev" aria-label="Previous title">
+            ‹
+          </button>
+          <div class="media-continuous" id="mediaContinuous" tabindex="0">
+            <div class="media-continuous__track" id="mediaContinuousTrack"></div>
+          </div>
+          <button type="button" class="media-continuous__nav media-continuous__nav--next" id="mediaNext" aria-label="Next title">
+            ›
+          </button>
+        </div>
+
+        <div class="media-detail" id="mediaDetail" aria-live="polite">
+          <h3 class="media-detail__title" id="mediaDetailTitle">Click a poster</h3>
+          <p class="media-detail__meta" id="mediaDetailMeta">Then its description will appear here.</p>
+          <p class="media-detail__desc" id="mediaDetailDesc"></p>
+        </div>
+
+        <div class="media-legacy" id="mediaLegacy" hidden>
+        <div class="media-part">
+          <h3 class="media-part__title">Theatrical Live-Action Films (in Release Order)</h3>
+
+          <div class="media-group">
+            <h4 class="media-group__title">Original Trilogy (1977-1983)</h4>
+            <div class="media-carousel" data-media-carousel>
+              <div class="media-carousel__toolbar">
+                <button type="button" class="media-carousel__btn media-carousel__btn--prev" aria-label="Previous titles">‹</button>
+                <div class="media-carousel__window">
+                  <div class="media-carousel__track">
+
+              <article class="media-carousel__slide">
+                <div class="media-carousel__poster">
+                  <img src="../images/films-and-tv/a-new-hope.png" alt="Episode IV: A New Hope" />
+                </div>
+                <h5 class="media-carousel__name">Episode IV: A New Hope</h5>
+                <p class="media-carousel__era"><span class="media-carousel__year">1977</span><span class="media-carousel__era-sep"> · </span><span class="media-carousel__era-label">Age of Rebellion</span></p>
+                <p class="media-carousel__synopsis" hidden>A farm boy named Luke Skywalker discovers a hidden message from a captive princess and joins a Jedi Master and two smugglers on a mission to rescue her and destroy the Empire's ultimate weapon — the Death Star.</p>
+              </article>
+
+              <article class="media-carousel__slide">
+                <div class="media-carousel__poster">
+                  <img
+                    src="../images/films-and-tv/the-empire-strikes-back.png"
+                    alt="Episode V: The Empire Strikes Back"
+                  />
+                </div>
+                <h5 class="media-carousel__name">Episode V: The Empire Strikes Back</h5>
+                <p class="media-carousel__era"><span class="media-carousel__year">1980</span><span class="media-carousel__era-sep"> · </span><span class="media-carousel__era-label">Age of Rebellion</span></p>
+                <p class="media-carousel__synopsis" hidden>The Empire hunts the fleeing Rebel Alliance across the galaxy. Luke trains with the ancient Jedi Master Yoda while his friends are pursued by Darth Vader, who reveals a shocking truth about Luke's father.</p>
+              </article>
+
+              <article class="media-carousel__slide">
+                <div class="media-carousel__poster">
+                  <img
+                    src="../images/films-and-tv/return-of-the-jedi.png"
+                    alt="Episode VI: Return of the Jedi"
+                  />
+                </div>
+                <h5 class="media-carousel__name">Episode VI: Return of the Jedi</h5>
+                <p class="media-carousel__era"><span class="media-carousel__year">1983</span><span class="media-carousel__era-sep"> · </span><span class="media-carousel__era-label">Age of Rebellion</span></p>
+                <p class="media-carousel__synopsis" hidden>Luke, Leia, and Han lead a mission to rescue Han from the crime lord Jabba the Hutt, then join the Rebel assault on the Empire's new Death Star while Luke confronts Darth Vader and the Emperor.</p>
+              </article>
+            </div>
+                </div>
+                <button type="button" class="media-carousel__btn media-carousel__btn--next" aria-label="Next titles">›</button>
+              </div>
+              <div class="media-carousel__overview-box" aria-live="polite">
+                <p class="media-carousel__overview-text"></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="media-group">
+            <h4 class="media-group__title">Prequel Trilogy (1999-2005)</h4>
+            <div class="media-carousel" data-media-carousel>
+              <div class="media-carousel__toolbar">
+                <button type="button" class="media-carousel__btn media-carousel__btn--prev" aria-label="Previous titles">‹</button>
+                <div class="media-carousel__window">
+                  <div class="media-carousel__track">
+
+              <article class="media-carousel__slide">
+                <div class="media-carousel__poster">
+                  <img src="../images/films-and-tv/phantom-menace.png" alt="Episode I: The Phantom Menace" />
+                </div>
+                <h5 class="media-carousel__name">Episode I: The Phantom Menace</h5>
+                <p class="media-carousel__era"><span class="media-carousel__year">1999</span><span class="media-carousel__era-sep"> · </span><span class="media-carousel__era-label">Fall of the Jedi</span></p>
+                <p class="media-carousel__synopsis" hidden>Two Jedi Knights discover a young boy with extraordinary Force potential on the desert planet Tatooine. Meanwhile, the Trade Federation blockades the peaceful planet of Naboo, threatening to plunge the galaxy into war.</p>
+              </article>
+
+              <article class="media-carousel__slide">
+                <div class="media-carousel__poster">
+                  <img
+                    src="../images/films-and-tv/attack-of-the-clones.png"
+                    alt="Episode II: Attack of the Clones"
+                  />
+                </div>
+                <h5 class="media-carousel__name">Episode II: Attack of the Clones</h5>
+                <p class="media-carousel__era"><span class="media-carousel__year">2002</span><span class="media-carousel__era-sep"> · </span><span class="media-carousel__era-label">Fall of the Jedi</span></p>
+                <p class="media-carousel__synopsis" hidden>A separatist movement threatens the Galactic Republic. As Senator Padmé Amidala survives assassination attempts, Obi-Wan Kenobi investigates a secret clone army while Anakin Skywalker falls in love and grows closer to the dark side.</p>
+              </article>
+
+              <article class="media-carousel__slide">
+                <div class="media-carousel__poster">
+                  <img
+                    src="../images/films-and-tv/revenge-of-the-sith.png"
+                    alt="Episode III: Revenge of the Sith"
+                  />
+                </div>
+                <h5 class="media-carousel__name">Episode III: Revenge of the Sith</h5>
+                <p class="media-carousel__era"><span class="media-carousel__year">2005</span><span class="media-carousel__era-sep"> · </span><span class="media-carousel__era-label">Fall of the Jedi</span></p>
+                <p class="media-carousel__synopsis" hidden>The Clone Wars rage across the galaxy. Chancellor Palpatine reveals his true identity as the Sith Lord Darth Sidious and corrupts Anakin Skywalker, who becomes Darth Vader as the Republic falls and the Galactic Empire rises.</p>
+              </article>
+            </div>
+                </div>
+                <button type="button" class="media-carousel__btn media-carousel__btn--next" aria-label="Next titles">›</button>
+              </div>
+              <div class="media-carousel__overview-box" aria-live="polite">
+                <p class="media-carousel__overview-text"></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="media-group">
+            <h4 class="media-group__title">Standalone Films (2016-2018)</h4>
+            <div class="media-carousel" data-media-carousel>
+              <div class="media-carousel__toolbar">
+                <button type="button" class="media-carousel__btn media-carousel__btn--prev" aria-label="Previous titles">‹</button>
+                <div class="media-carousel__window">
+                  <div class="media-carousel__track">
+
+              <article class="media-carousel__slide">
+                <div class="media-carousel__poster">
+                  <img src="../images/films-and-tv/rogue-one.png" alt="Rogue One: A Star Wars Story" />
+                </div>
+                <h5 class="media-carousel__name">Rogue One: A Star Wars Story</h5>
+                <p class="media-carousel__era"><span class="media-carousel__year">2016</span><span class="media-carousel__era-sep"> · </span><span class="media-carousel__era-label">Reign of the Empire</span></p>
+                <p class="media-carousel__synopsis" hidden>A ragtag group of Rebel spies and soldiers undertakes a desperate mission to steal the plans for the Empire's Death Star. The film leads directly into the opening moments of Episode IV.</p>
+              </article>
+
+              <article class="media-carousel__slide">
+                <div class="media-carousel__poster">
+                  <img src="../images/films-and-tv/solo.png" alt="Solo: A Star Wars Story" />
+                </div>
+                <h5 class="media-carousel__name">Solo: A Star Wars Story</h5>
+                <p class="media-carousel__era"><span class="media-carousel__year">2018</span><span class="media-carousel__era-sep"> · </span><span class="media-carousel__era-label">Reign of the Empire</span></p>
+                <p class="media-carousel__synopsis" hidden>A young Han Solo escapes his home planet, joins a gang of criminals, and teams up with his future co-pilot Chewbacca and the gambler Lando Calrissian on a dangerous heist.</p>
+              </article>
+            </div>
+                </div>
+                <button type="button" class="media-carousel__btn media-carousel__btn--next" aria-label="Next titles">›</button>
+              </div>
+              <div class="media-carousel__overview-box" aria-live="polite">
+                <p class="media-carousel__overview-text"></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="media-group">
+            <h4 class="media-group__title">Sequel Trilogy (2015-2019)</h4>
+            <div class="media-carousel" data-media-carousel>
+              <div class="media-carousel__toolbar">
+                <button type="button" class="media-carousel__btn media-carousel__btn--prev" aria-label="Previous titles">‹</button>
+                <div class="media-carousel__window">
+                  <div class="media-carousel__track">
+
+              <article class="media-carousel__slide">
+                <div class="media-carousel__poster">
+                  <img src="../images/films-and-tv/force-awakens.png" alt="Episode VII: The Force Awakens" />
+                </div>
+                <h5 class="media-carousel__name">Episode VII: The Force Awakens</h5>
+                <p class="media-carousel__era"><span class="media-carousel__year">2015</span><span class="media-carousel__era-sep"> · </span><span class="media-carousel__era-label">Rise of the First Order</span></p>
+                <p class="media-carousel__synopsis" hidden>Decades after the fall of the Empire, the First Order rises. Rey, Finn, and Poe join forces with the legendary Luke Skywalker to fight back.</p>
+              </article>
+
+              <article class="media-carousel__slide">
+                <div class="media-carousel__poster">
+                  <img src="../images/films-and-tv/last-jedi.png" alt="Episode VIII: The Last Jedi" />
+                </div>
+                <h5 class="media-carousel__name">Episode VIII: The Last Jedi</h5>
+                <p class="media-carousel__era"><span class="media-carousel__year">2017</span><span class="media-carousel__era-sep"> · </span><span class="media-carousel__era-label">Rise of the First Order</span></p>
+                <p class="media-carousel__synopsis" hidden>Rey seeks Luke Skywalker's help while the Resistance faces near-total destruction. Kylo Ren struggles with his connection to Rey and loyalty to Supreme Leader Snoke.</p>
+              </article>
+
+              <article class="media-carousel__slide">
+                <div class="media-carousel__poster">
+                  <img
+                    src="../images/films-and-tv/rise-of-skywalker.png"
+                    alt="Episode IX: The Rise of Skywalker"
+                  />
+                </div>
+                <h5 class="media-carousel__name">Episode IX: The Rise of Skywalker</h5>
+                <p class="media-carousel__era"><span class="media-carousel__year">2019</span><span class="media-carousel__era-sep"> · </span><span class="media-carousel__era-label">Rise of the First Order</span></p>
+                <p class="media-carousel__synopsis" hidden>The Resistance faces the return of Emperor Palpatine. Rey, Finn, and Poe lead a final battle against the Sith as Rey confronts her true heritage and embraces her destiny as a Jedi.</p>
+              </article>
+                  </div>
+                </div>
+                <button type="button" class="media-carousel__btn media-carousel__btn--next" aria-label="Next titles">›</button>
+              </div>
+              <div class="media-carousel__overview-box" aria-live="polite">
+                <p class="media-carousel__overview-text"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="media-part">
+          <h3 class="media-part__title">Television Series (in Release Order)</h3>
+
+          <div class="media-group">
+            <h4 class="media-group__title">Animated Series</h4>
+            <div class="media-carousel" data-media-carousel>
+              <div class="media-carousel__toolbar">
+                <button type="button" class="media-carousel__btn media-carousel__btn--prev" aria-label="Previous titles">‹</button>
+                <div class="media-carousel__window">
+                  <div class="media-carousel__track">
+
+              <article class="media-carousel__slide">
+                <div class="media-carousel__poster">
+                  <img src="../images/films-and-tv/clone-wars.jpg" alt="The Clone Wars" />
+                </div>
+                <h5 class="media-carousel__name">The Clone Wars</h5>
+                <p class="media-carousel__era"><span class="media-carousel__year">2008-2020</span><span class="media-carousel__era-sep"> · </span><span class="media-carousel__era-label">Fall of the Jedi</span></p>
+                <p class="media-carousel__synopsis" hidden>Set between Episode II and Episode III, this series follows Anakin Skywalker, Obi-Wan Kenobi, and Ahsoka Tano as they fight the Separatists. The war reveals the dark side of politics and the toll of endless combat.</p>
+              </article>
+              <article class="media-carousel__slide">
+                <div class="media-carousel__poster">
+                  <img src="../images/films-and-tv/star-wars-rebels.jpg" alt="Star Wars Rebels" />
+                </div>
+                <h5 class="media-carousel__name">Star Wars Rebels</h5>
+                <p class="media-carousel__era"><span class="media-carousel__year">2014-2018</span><span class="media-carousel__era-sep"> · </span><span class="media-carousel__era-label">Reign of the Empire</span></p>
+                <p class="media-carousel__synopsis" hidden>A small crew of rebels aboard the Ghost conducts secret missions against the Empire. Jedi survivor Ezra Bridger emerges as the conflict grows, reconnecting threads from The Clone Wars.</p>
+              </article>
+              <article class="media-carousel__slide">
+                <div class="media-carousel__poster">
+                  <img src="../images/films-and-tv/star-wars-resistance.jpg" alt="Star Wars Resistance" />
+                </div>
+                <h5 class="media-carousel__name">Star Wars Resistance</h5>
+                <p class="media-carousel__era"><span class="media-carousel__year">2018-2020</span><span class="media-carousel__era-sep"> · </span><span class="media-carousel__era-label">Rise of the First Order</span></p>
+                <p class="media-carousel__synopsis" hidden>Young pilot Kazuda Xiono spies on the First Order from the racing platform Colossus as conflict erupts before and during the sequel trilogy.</p>
+              </article>
+              <article class="media-carousel__slide">
+                <div class="media-carousel__poster">
+                  <img src="../images/films-and-tv/the-bad-batch.jpg" alt="The Bad Batch" />
+                </div>
+                <h5 class="media-carousel__name">The Bad Batch</h5>
+                <p class="media-carousel__era"><span class="media-carousel__year">2021-2024</span><span class="media-carousel__era-sep"> · </span><span class="media-carousel__era-label">Reign of the Empire</span></p>
+                <p class="media-carousel__synopsis" hidden>Immediately after Episode III, an elite squad of mutated clone troopers navigates the rise of the Empire while protecting a young clone named Omega.</p>
+              </article>
+              <article class="media-carousel__slide">
+                <div class="media-carousel__poster">
+                  <img src="../images/films-and-tv/tales-of-the-jedi.jpg" alt="Tales of the Jedi" />
+                </div>
+                <h5 class="media-carousel__name">Tales of the Jedi</h5>
+                <p class="media-carousel__era"><span class="media-carousel__year">2022-present</span><span class="media-carousel__era-sep"> · </span><span class="media-carousel__era-label">Fall of the Jedi</span></p>
+                <p class="media-carousel__synopsis" hidden>An anthology of short stories about Jedi from the prequel era, focusing on Count Dooku’s fall and Ahsoka Tano’s journey.</p>
+              </article>
+              <article class="media-carousel__slide">
+                <div class="media-carousel__poster">
+                  <img src="../images/films-and-tv/young-jedi-adventures.jpg" alt="Young Jedi Adventures" />
+                </div>
+                <h5 class="media-carousel__name">Young Jedi Adventures</h5>
+                <p class="media-carousel__era"><span class="media-carousel__year">2023-present</span><span class="media-carousel__era-sep"> · </span><span class="media-carousel__era-label">High Republic</span></p>
+                <p class="media-carousel__synopsis" hidden>Set during the High Republic, younglings train to become Jedi Knights in a show about friendship, teamwork, and the Force.</p>
+              </article>
+              <article class="media-carousel__slide">
+                <div class="media-carousel__poster">
+                  <img src="../images/films-and-tv/tales-of-the-underworld.jpg" alt="Tales of the Underworld" />
+                </div>
+                <h5 class="media-carousel__name">Tales of the Underworld</h5>
+                <p class="media-carousel__era"><span class="media-carousel__year">Upcoming</span><span class="media-carousel__era-sep"> · </span><span class="media-carousel__era-label">Fall of the Jedi</span></p>
+                <p class="media-carousel__synopsis" hidden>An anthology focusing on bounty hunters and criminals. Confirmed episodes include Cad Bane and Asajj Ventress.</p>
+              </article>
+              <article class="media-carousel__slide">
+                <div class="media-carousel__poster">
+                  <img src="../images/films-and-tv/maul-shadow-lord.jpg" alt="Maul: Shadow Lord" />
+                </div>
+                <h5 class="media-carousel__name">Maul - Shadow Lord</h5>
+                <p class="media-carousel__era"><span class="media-carousel__year">Upcoming</span><span class="media-carousel__era-sep"> · </span><span class="media-carousel__era-label">Reign of the Empire</span></p>
+                <p class="media-carousel__synopsis" hidden>An animated series centered on Darth Maul between The Clone Wars and Rebels, exploring his rise as a crime lord and his power struggle against the Empire.</p>
+              </article>
+            </div>
+                </div>
+                <button type="button" class="media-carousel__btn media-carousel__btn--next" aria-label="Next titles">›</button>
+              </div>
+              <div class="media-carousel__overview-box" aria-live="polite">
+                <p class="media-carousel__overview-text"></p>
+              </div>
+            </div>
+
+          <div class="media-group">
+            <h4 class="media-group__title">Live-Action Series</h4>
+            <div class="media-carousel" data-media-carousel>
+              <div class="media-carousel__toolbar">
+                <button type="button" class="media-carousel__btn media-carousel__btn--prev" aria-label="Previous titles">‹</button>
+                <div class="media-carousel__window">
+                  <div class="media-carousel__track">
+
+              <article class="media-carousel__slide">
+                <div class="media-carousel__poster">
+                  <img src="../images/films-and-tv/mandalorian.jpg" alt="The Mandalorian" />
+                </div>
+                <h5 class="media-carousel__name">The Mandalorian</h5>
+                <p class="media-carousel__era"><span class="media-carousel__year">2019-present</span><span class="media-carousel__era-sep"> · </span><span class="media-carousel__era-label">New Republic</span></p>
+                <p class="media-carousel__synopsis" hidden>Five years after Return of the Jedi, bounty hunter Din Djarin becomes guardian to a mysterious Force-sensitive child, Grogu, while pursued by Imperial remnants.</p>
+              </article>
+              <article class="media-carousel__slide">
+                <div class="media-carousel__poster">
+                  <img src="../images/films-and-tv/book-of-boba-fett.jpg" alt="The Book of Boba Fett" />
+                </div>
+                <h5 class="media-carousel__name">The Book of Boba Fett</h5>
+                <p class="media-carousel__era"><span class="media-carousel__year">2021</span><span class="media-carousel__era-sep"> · </span><span class="media-carousel__era-label">New Republic</span></p>
+                <p class="media-carousel__synopsis" hidden>Boba Fett takes control of the criminal underworld on Tatooine after surviving the Sarlacc pit, ruling with strategy rather than fear.</p>
+              </article>
+              <article class="media-carousel__slide">
+                <div class="media-carousel__poster">
+                  <img src="../images/films-and-tv/obi-wan-kenobi.jpg" alt="Obi-Wan Kenobi" />
+                </div>
+                <h5 class="media-carousel__name">Obi-Wan Kenobi</h5>
+                <p class="media-carousel__era"><span class="media-carousel__year">2022</span><span class="media-carousel__era-sep"> · </span><span class="media-carousel__era-label">Reign of the Empire</span></p>
+                <p class="media-carousel__synopsis" hidden>Ten years after Episode III, Obi-Wan lives in hiding on Tatooine until he must rescue young Leia and confront Darth Vader.</p>
+              </article>
+              <article class="media-carousel__slide">
+                <div class="media-carousel__poster">
+                  <img src="../images/films-and-tv/andor.jpg" alt="Andor" />
+                </div>
+                <h5 class="media-carousel__name">Andor</h5>
+                <p class="media-carousel__era"><span class="media-carousel__year">2022-present</span><span class="media-carousel__era-sep"> · </span><span class="media-carousel__era-label">Reign of the Empire</span></p>
+                <p class="media-carousel__synopsis" hidden>A Rogue One prequel following Cassian Andor in the years leading to the Rebellion, charting the slow birth of the Rebel Alliance.</p>
+              </article>
+              <article class="media-carousel__slide">
+                <div class="media-carousel__poster">
+                  <img src="../images/films-and-tv/ahsoka.jpg" alt="Ahsoka" />
+                </div>
+                <h5 class="media-carousel__name">Ahsoka</h5>
+                <p class="media-carousel__era"><span class="media-carousel__year">2023</span><span class="media-carousel__era-sep"> · </span><span class="media-carousel__era-label">New Republic</span></p>
+                <p class="media-carousel__synopsis" hidden>Former Jedi Ahsoka Tano hunts Grand Admiral Thrawn, bridging storylines from Rebels and pointing toward a larger threat.</p>
+              </article>
+              <article class="media-carousel__slide">
+                <div class="media-carousel__poster">
+                  <img src="../images/films-and-tv/acolyte.jpg" alt="The Acolyte" />
+                </div>
+                <h5 class="media-carousel__name">The Acolyte</h5>
+                <p class="media-carousel__era"><span class="media-carousel__year">2024</span><span class="media-carousel__era-sep"> · </span><span class="media-carousel__era-label">High Republic</span></p>
+                <p class="media-carousel__synopsis" hidden>About 100 years before The Phantom Menace, a former Padawan and her Jedi Master investigate crimes as dark side secrets and a hidden Sith lord emerge.</p>
+              </article>
+              <article class="media-carousel__slide">
+                <div class="media-carousel__poster">
+                  <img src="../images/films-and-tv/skeleton-crew.jpg" alt="Skeleton Crew" />
+                </div>
+                <h5 class="media-carousel__name">Skeleton Crew</h5>
+                <p class="media-carousel__era"><span class="media-carousel__year">2024-present</span><span class="media-carousel__era-sep"> · </span><span class="media-carousel__era-label">New Republic</span></p>
+                <p class="media-carousel__synopsis" hidden>A group of children lost in the galaxy must find their way home in an Amblin-style coming-of-age adventure set in the New Republic era.</p>
+              </article>
+                  </div>
+                </div>
+                <button type="button" class="media-carousel__btn media-carousel__btn--next" aria-label="Next titles">›</button>
+              </div>
+              <div class="media-carousel__overview-box" aria-live="polite">
+                <p class="media-carousel__overview-text"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="media-part">
+          <h3 class="media-part__title">Upcoming Film & TV Projects</h3>
+
+          <div class="media-group">
+            <h4 class="media-group__title">Upcoming Films</h4>
+            <div class="media-carousel" data-media-carousel>
+              <div class="media-carousel__toolbar">
+                <button type="button" class="media-carousel__btn media-carousel__btn--prev" aria-label="Previous titles">‹</button>
+                <div class="media-carousel__window">
+                  <div class="media-carousel__track">
+
+              <article class="media-carousel__slide">
+                <div class="media-carousel__poster">
+                  <img
+                    src="../images/films-and-tv/mandalorian-and-grogu.jpg"
+                    alt="The Mandalorian and Grogu"
+                  />
+                </div>
+                <h5 class="media-carousel__name">The Mandalorian and Grogu</h5>
+                <p class="media-carousel__era"><span class="media-carousel__year">TBA</span><span class="media-carousel__era-sep"> · </span><span class="media-carousel__era-label">New Republic</span></p>
+                <p class="media-carousel__synopsis" hidden>A theatrical continuation of The Mandalorian. Din Djarin and Grogu will embark on a new adventure on the big screen.</p>
+              </article>
+              <article class="media-carousel__slide">
+                <div class="media-carousel__poster">
+                  <img src="../images/films-and-tv/starfighter.jpg" alt="Starfighter" />
+                </div>
+                <h5 class="media-carousel__name">Starfighter</h5>
+                <p class="media-carousel__era"><span class="media-carousel__year">TBA (~40 ABY)</span><span class="media-carousel__era-sep"> · </span><span class="media-carousel__era-label">New Jedi Order</span></p>
+                <p class="media-carousel__synopsis" hidden>An upcoming standalone film unrelated to the Skywalker Saga or Rey’s storyline. Plot details are currently unknown.</p>
+              </article>
+              <article class="media-carousel__slide">
+                <div class="media-carousel__poster">
+                  <img src="../images/films-and-tv/dawn-of-the-jedi.jpg" alt="Untitled Dawn of the Jedi film" />
+                </div>
+                <h5 class="media-carousel__name">Untitled Dawn of the Jedi Film</h5>
+                <p class="media-carousel__era"><span class="media-carousel__year">TBA</span><span class="media-carousel__era-sep"> · </span><span class="media-carousel__era-label">Dawn of the Jedi</span></p>
+                <p class="media-carousel__synopsis" hidden>Set roughly 25,000 years before the Skywalker Saga, depicting the first Jedi and the origins of the Force as an organized practice.</p>
+              </article>
+              <article class="media-carousel__slide">
+                <div class="media-carousel__poster">
+                  <img src="../images/films-and-tv/new-rey-film.jpg" alt="Untitled Rey film" />
+                </div>
+                <h5 class="media-carousel__name">Untitled Rey Film</h5>
+                <p class="media-carousel__era"><span class="media-carousel__year">TBA (after 35 ABY)</span><span class="media-carousel__era-sep"> · </span><span class="media-carousel__era-label">New Jedi Order</span></p>
+                <p class="media-carousel__synopsis" hidden>After Episode IX, Rey builds a new Jedi Order, training a new generation while confronting whatever threats remain.</p>
+              </article>
+            </div>
+                </div>
+                <button type="button" class="media-carousel__btn media-carousel__btn--next" aria-label="Next titles">›</button>
+              </div>
+              <div class="media-carousel__overview-box" aria-live="polite">
+                <p class="media-carousel__overview-text"></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="media-group">
+            <h4 class="media-group__title">Upcoming Animated Series</h4>
+            <div class="media-carousel" data-media-carousel>
+              <div class="media-carousel__toolbar">
+                <button type="button" class="media-carousel__btn media-carousel__btn--prev" aria-label="Previous titles">‹</button>
+                <div class="media-carousel__window">
+                  <div class="media-carousel__track">
+
+              <article class="media-carousel__slide">
+                <div class="media-carousel__poster">
+                  <img src="../images/films-and-tv/tales-of-the-underworld.jpg" alt="Tales of the Underworld" />
+                </div>
+                <h5 class="media-carousel__name">Tales of the Underworld</h5>
+                <p class="media-carousel__era"><span class="media-carousel__year">TBA</span><span class="media-carousel__era-sep"> · </span><span class="media-carousel__era-label">Fall of the Jedi</span></p>
+                <p class="media-carousel__synopsis" hidden>An anthology about criminals and scoundrels. Confirmed episodes include Cad Bane (60-30 BBY) and Asajj Ventress (21-17 BBY).</p>
+              </article>
+              <article class="media-carousel__slide">
+                <div class="media-carousel__poster">
+                  <img src="../images/films-and-tv/maul-shadow-lord.jpg" alt="Maul: Shadow Lord" />
+                </div>
+                <h5 class="media-carousel__name">Maul - Shadow Lord</h5>
+                <p class="media-carousel__era"><span class="media-carousel__year">TBA</span><span class="media-carousel__era-sep"> · </span><span class="media-carousel__era-label">Reign of the Empire</span></p>
+                <p class="media-carousel__synopsis" hidden>Follows Darth Maul between his survival of The Phantom Menace and his appearances in Solo and Rebels, exploring his rise as a crime syndicate leader.</p>
+              </article>
+                  </div>
+                </div>
+                <button type="button" class="media-carousel__btn media-carousel__btn--next" aria-label="Next titles">›</button>
+              </div>
+              <div class="media-carousel__overview-box" aria-live="polite">
+                <p class="media-carousel__overview-text"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Timeline -->
+    <section id="timeline">
+      <div class="container">
+        <h2 class="section-title">Chronological Timeline</h2>
+        <p class="text-center" style="max-width: 70ch; margin: -1rem auto 2rem; color: #aaa">
+          All dates are relative to the Battle of Yavin (BBY = Before, ABY = After).
+        </p>
+        <div class="timeline-controls" aria-label="Timeline zoom controls">
+          <button type="button" class="timeline-controls__btn" id="timelineZoomOut" aria-label="Zoom out">
+            −
+          </button>
+          <input
+            id="timelineZoom"
+            class="timeline-controls__range"
+            type="range"
+            min="0.7"
+            max="2.6"
+            step="0.1"
+            value="1.0"
+            aria-label="Timeline zoom"
+          />
+          <button type="button" class="timeline-controls__btn" id="timelineZoomIn" aria-label="Zoom in">
+            +
+          </button>
+          <span class="timeline-controls__value" id="timelineZoomValue" aria-hidden="true">1.0×</span>
+        </div>
+        <div
+          class="timeline-scroll timeline-meter"
+          id="timelineScroll"
+          aria-label="Proportional timeline: bar length matches years; hover or focus an entry for dates and story notes"
+        >
+          <div class="timeline-meter__inner" id="timelineMeterInner">
+            <div class="timeline-meter__axis" id="timelineMeterAxis" aria-hidden="true"></div>
+            <div class="timeline-meter__track" id="timelineMeterTrack">
+              <div class="timeline-meter__markers" id="timelineMeterMarkers" aria-hidden="true"></div>
+              <div class="timeline-meter__bar-layer" id="timelineMeterBarLayer"></div>
+            </div>
+          </div>
+        </div>
+        <p class="timeline-hint" id="timelineHint">
+          Hover or focus a bar or marker to see dates and story context.
+        </p>
+        <div class="timeline-progress" aria-hidden="true">
+          <div class="timeline-progress__bar" id="timelineProgressBar"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Characters -->
+    <section id="characters">
+      <div class="container">
+        <h2 class="section-title">Original Trilogy Characters</h2>
+        <ul class="char-grid">
+          <li
+            class="char-card"
+            tabindex="0"
+            data-key="luke"
+            data-name="Luke Skywalker"
+            data-img="../images/characters/luke-skywalker.png"
+            data-tone="rebel"
+          >
+            <div class="char-card__frame">
+              <span class="char-card__corner char-card__corner--tl" aria-hidden="true"></span>
+              <span class="char-card__corner char-card__corner--tr" aria-hidden="true"></span>
+              <span class="char-card__corner char-card__corner--bl" aria-hidden="true"></span>
+              <span class="char-card__corner char-card__corner--br" aria-hidden="true"></span>
+              <img class="char-img" src="../images/characters/luke-skywalker.png" alt="Luke Skywalker" />
+            </div>
+            <div class="char-name"><span class="char-name__text">Luke Skywalker</span></div>
+            <p class="char-card__side">
+              <span class="char-card__side-dot" aria-hidden="true"></span>
+              <span class="char-card__side-text">Rebel Alliance</span>
+            </p>
+          </li>
+          <li
+            class="char-card"
+            tabindex="0"
+            data-key="han"
+            data-name="Han Solo"
+            data-img="../images/characters/han-solo.png"
+            data-tone="rebel"
+          >
+            <div class="char-card__frame">
+              <span class="char-card__corner char-card__corner--tl" aria-hidden="true"></span>
+              <span class="char-card__corner char-card__corner--tr" aria-hidden="true"></span>
+              <span class="char-card__corner char-card__corner--bl" aria-hidden="true"></span>
+              <span class="char-card__corner char-card__corner--br" aria-hidden="true"></span>
+              <img class="char-img" src="../images/characters/han-solo.png" alt="Han Solo" />
+            </div>
+            <div class="char-name"><span class="char-name__text">Han Solo</span></div>
+            <p class="char-card__side">
+              <span class="char-card__side-dot" aria-hidden="true"></span>
+              <span class="char-card__side-text">Rebel Alliance</span>
+            </p>
+          </li>
+          <li
+            class="char-card"
+            tabindex="0"
+            data-key="leia"
+            data-name="Leia Organa"
+            data-img="../images/characters/princess-leia.png"
+            data-tone="rebel"
+          >
+            <div class="char-card__frame">
+              <span class="char-card__corner char-card__corner--tl" aria-hidden="true"></span>
+              <span class="char-card__corner char-card__corner--tr" aria-hidden="true"></span>
+              <span class="char-card__corner char-card__corner--bl" aria-hidden="true"></span>
+              <span class="char-card__corner char-card__corner--br" aria-hidden="true"></span>
+              <img class="char-img" src="../images/characters/princess-leia.png" alt="Princess Leia Organa" />
+            </div>
+            <div class="char-name"><span class="char-name__text">Leia Organa</span></div>
+            <p class="char-card__side">
+              <span class="char-card__side-dot" aria-hidden="true"></span>
+              <span class="char-card__side-text">Rebel Alliance</span>
+            </p>
+          </li>
+          <li
+            class="char-card"
+            tabindex="0"
+            data-key="vader"
+            data-name="Darth Vader / Anakin Skywalker"
+            data-img="../images/characters/anakin.png"
+            data-tone="sith"
+          >
+            <div class="char-card__frame">
+              <span class="char-card__corner char-card__corner--tl" aria-hidden="true"></span>
+              <span class="char-card__corner char-card__corner--tr" aria-hidden="true"></span>
+              <span class="char-card__corner char-card__corner--bl" aria-hidden="true"></span>
+              <span class="char-card__corner char-card__corner--br" aria-hidden="true"></span>
+              <img class="char-img" src="../images/characters/anakin.png" alt="Darth Vader" />
+            </div>
+            <div class="char-name"><span class="char-name__text">Darth Vader</span></div>
+            <p class="char-card__side">
+              <span class="char-card__side-dot" aria-hidden="true"></span>
+              <span class="char-card__side-text">Sith</span>
+            </p>
+          </li>
+          <li
+            class="char-card"
+            tabindex="0"
+            data-key="obiwan"
+            data-name="Obi-Wan Kenobi (Ben Kenobi)"
+            data-img="../images/characters/obi-wan-kenobi.png"
+            data-tone="jedi"
+          >
+            <div class="char-card__frame">
+              <span class="char-card__corner char-card__corner--tl" aria-hidden="true"></span>
+              <span class="char-card__corner char-card__corner--tr" aria-hidden="true"></span>
+              <span class="char-card__corner char-card__corner--bl" aria-hidden="true"></span>
+              <span class="char-card__corner char-card__corner--br" aria-hidden="true"></span>
+              <img class="char-img" src="../images/characters/obi-wan-kenobi.png" alt="Obi-Wan Kenobi" />
+            </div>
+            <div class="char-name"><span class="char-name__text">Obi-Wan Kenobi</span></div>
+            <p class="char-card__side">
+              <span class="char-card__side-dot" aria-hidden="true"></span>
+              <span class="char-card__side-text">Jedi Order</span>
+            </p>
+          </li>
+          <li
+            class="char-card"
+            tabindex="0"
+            data-key="c3po"
+            data-name="C-3PO"
+            data-img="../images/characters/c-3po.png"
+            data-tone="droid"
+          >
+            <div class="char-card__frame">
+              <span class="char-card__corner char-card__corner--tl" aria-hidden="true"></span>
+              <span class="char-card__corner char-card__corner--tr" aria-hidden="true"></span>
+              <span class="char-card__corner char-card__corner--bl" aria-hidden="true"></span>
+              <span class="char-card__corner char-card__corner--br" aria-hidden="true"></span>
+              <img class="char-img" src="../images/characters/c-3po.png" alt="C-3PO" />
+            </div>
+            <div class="char-name"><span class="char-name__text">C-3PO</span></div>
+            <p class="char-card__side">
+              <span class="char-card__side-dot" aria-hidden="true"></span>
+              <span class="char-card__side-text">Droid</span>
+            </p>
+          </li>
+          <li
+            class="char-card"
+            tabindex="0"
+            data-key="r2d2"
+            data-name="R2-D2"
+            data-img="../images/characters/r2-d2.png"
+            data-tone="droid"
+          >
+            <div class="char-card__frame">
+              <span class="char-card__corner char-card__corner--tl" aria-hidden="true"></span>
+              <span class="char-card__corner char-card__corner--tr" aria-hidden="true"></span>
+              <span class="char-card__corner char-card__corner--bl" aria-hidden="true"></span>
+              <span class="char-card__corner char-card__corner--br" aria-hidden="true"></span>
+              <img class="char-img" src="../images/characters/r2-d2.png" alt="R2-D2" />
+            </div>
+            <div class="char-name"><span class="char-name__text">R2-D2</span></div>
+            <p class="char-card__side">
+              <span class="char-card__side-dot" aria-hidden="true"></span>
+              <span class="char-card__side-text">Droid</span>
+            </p>
+          </li>
+          <li
+            class="char-card"
+            tabindex="0"
+            data-key="chewbacca"
+            data-name="Chewbacca"
+            data-img="../images/characters/chewbacca.png"
+            data-tone="rebel"
+          >
+            <div class="char-card__frame">
+              <span class="char-card__corner char-card__corner--tl" aria-hidden="true"></span>
+              <span class="char-card__corner char-card__corner--tr" aria-hidden="true"></span>
+              <span class="char-card__corner char-card__corner--bl" aria-hidden="true"></span>
+              <span class="char-card__corner char-card__corner--br" aria-hidden="true"></span>
+              <img class="char-img" src="../images/characters/chewbacca.png" alt="Chewbacca" />
+            </div>
+            <div class="char-name"><span class="char-name__text">Chewbacca</span></div>
+            <p class="char-card__side">
+              <span class="char-card__side-dot" aria-hidden="true"></span>
+              <span class="char-card__side-text">Rebel Alliance</span>
+            </p>
+          </li>
+          <li
+            class="char-card"
+            tabindex="0"
+            data-key="yoda"
+            data-name="Yoda"
+            data-img="../images/characters/yoda.png"
+            data-tone="jedi"
+          >
+            <div class="char-card__frame">
+              <span class="char-card__corner char-card__corner--tl" aria-hidden="true"></span>
+              <span class="char-card__corner char-card__corner--tr" aria-hidden="true"></span>
+              <span class="char-card__corner char-card__corner--bl" aria-hidden="true"></span>
+              <span class="char-card__corner char-card__corner--br" aria-hidden="true"></span>
+              <img class="char-img" src="../images/characters/yoda.png" alt="Yoda" />
+            </div>
+            <div class="char-name"><span class="char-name__text">Yoda</span></div>
+            <p class="char-card__side">
+              <span class="char-card__side-dot" aria-hidden="true"></span>
+              <span class="char-card__side-text">Jedi Order</span>
+            </p>
+          </li>
+          <li
+            class="char-card"
+            tabindex="0"
+            data-key="lando"
+            data-name="Lando Calrissian"
+            data-img="../images/characters/lando-calrissian.png"
+            data-tone="rebel"
+          >
+            <div class="char-card__frame">
+              <span class="char-card__corner char-card__corner--tl" aria-hidden="true"></span>
+              <span class="char-card__corner char-card__corner--tr" aria-hidden="true"></span>
+              <span class="char-card__corner char-card__corner--bl" aria-hidden="true"></span>
+              <span class="char-card__corner char-card__corner--br" aria-hidden="true"></span>
+              <img class="char-img" src="../images/characters/lando-calrissian.png" alt="Lando Calrissian" />
+            </div>
+            <div class="char-name"><span class="char-name__text">Lando Calrissian</span></div>
+            <p class="char-card__side">
+              <span class="char-card__side-dot" aria-hidden="true"></span>
+              <span class="char-card__side-text">Rebel Alliance</span>
+            </p>
+          </li>
+          <li
+            class="char-card"
+            tabindex="0"
+            data-key="palpatine"
+            data-name="Palpatine / Darth Sidious"
+            data-img="../images/characters/emperor.png"
+            data-tone="sith"
+          >
+            <div class="char-card__frame">
+              <span class="char-card__corner char-card__corner--tl" aria-hidden="true"></span>
+              <span class="char-card__corner char-card__corner--tr" aria-hidden="true"></span>
+              <span class="char-card__corner char-card__corner--bl" aria-hidden="true"></span>
+              <span class="char-card__corner char-card__corner--br" aria-hidden="true"></span>
+              <img class="char-img" src="../images/characters/emperor.png" alt="Emperor Palpatine" />
+            </div>
+            <div class="char-name"><span class="char-name__text">Palpatine</span></div>
+            <p class="char-card__side">
+              <span class="char-card__side-dot" aria-hidden="true"></span>
+              <span class="char-card__side-text">Sith</span>
+            </p>
+          </li>
+          <li
+            class="char-card"
+            tabindex="0"
+            data-key="tarkin"
+            data-name="Grand Moff Tarkin"
+            data-img="../images/characters/grand-moff-tarkin.png"
+            data-tone="empire"
+          >
+            <div class="char-card__frame">
+              <span class="char-card__corner char-card__corner--tl" aria-hidden="true"></span>
+              <span class="char-card__corner char-card__corner--tr" aria-hidden="true"></span>
+              <span class="char-card__corner char-card__corner--bl" aria-hidden="true"></span>
+              <span class="char-card__corner char-card__corner--br" aria-hidden="true"></span>
+              <img class="char-img" src="../images/characters/grand-moff-tarkin.png" alt="Grand Moff Tarkin" />
+            </div>
+            <div class="char-name"><span class="char-name__text">Grand Moff Tarkin</span></div>
+            <p class="char-card__side">
+              <span class="char-card__side-dot" aria-hidden="true"></span>
+              <span class="char-card__side-text">Galactic Empire</span>
+            </p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Galaxy Map -->
+    <section id="map">
+      <div class="container">
+        <h2 class="section-title">Galaxy Map</h2>
+        <div class="map-interactive" data-map>
+          <div class="map-interactive__figure" aria-label="Galaxy map with clickable locations">
+            <div
+              class="map-interactive__viewport"
+              id="mapViewport"
+              tabindex="0"
+              role="application"
+              aria-label="Galaxy map: scroll wheel to zoom; drag to pan when zoomed"
+            >
+              <div class="map-interactive__pan" id="mapPanLayer">
+              <img
+                class="map-interactive__img"
+                src="../images/map/map-image.jpg"
+                alt="Galaxy map"
+                draggable="false"
+              />
+
+            <!-- Points (you will designate these): set data-x / data-y as percentages (0–100) -->
+            <button
+              type="button"
+              class="map-pin"
+              style="--x: 71%; --y: 76%"
+              data-x="71"
+              data-y="76"
+              data-title="Tatooine"
+              data-img="../images/map/tatooine.avif"
+              data-desc="Desert world in the Outer Rim. Home of Anakin and Luke Skywalker."
+            >
+              <span class="map-pin__dot" aria-hidden="true"></span>
+              <span class="sr-only">Tatooine</span>
+            </button>
+
+            <button
+              type="button"
+              class="map-pin"
+              style="--x: 32%; --y: 43%"
+              data-x="32"
+              data-y="43"
+              data-title="Coruscant"
+              data-img="../images/map/coruscant.jpeg"
+              data-desc="Capital planet of the Republic and later the Empire; seat of the Jedi Temple and Galactic Senate."
+            >
+              <span class="map-pin__dot" aria-hidden="true"></span>
+              <span class="sr-only">Coruscant</span>
+            </button>
+
+            <button
+              type="button"
+              class="map-pin"
+              style="--x: 52.5%; --y: 77%"
+              data-x="53"
+              data-y="77"
+              data-title="Naboo (Theed)"
+              data-img="../images/map/naboo.webp"
+              data-desc="Homeworld of Padmé Amidala. Known for Theed’s elegant architecture and pivotal prequel-era events."
+            >
+              <span class="map-pin__dot" aria-hidden="true"></span>
+              <span class="sr-only">Naboo (Theed)</span>
+            </button>
+
+            <button
+              type="button"
+              class="map-pin"
+              style="--x: 39%; --y: 43%"
+              data-x="18"
+              data-y="58"
+              data-title="Alderaan"
+              data-img="../images/map/alderaan.jpeg"
+              data-desc="Princess Leia’s homeworld and a symbol of peace in the Republic—destroyed by the Death Star to intimidate the Rebellion."
+            >
+              <span class="map-pin__dot" aria-hidden="true"></span>
+              <span class="sr-only">Alderaan</span>
+            </button>
+
+            <button
+              type="button"
+              class="map-pin"
+              style="--x: 23%; --y: 85%"
+              data-x="44"
+              data-y="62"
+              data-title="Hoth (Echo Base)"
+              data-img="../images/map/hoth.webp"
+              data-desc="Icy Outer Rim world where the Rebel Alliance established Echo Base before the Empire’s assault in The Empire Strikes Back."
+            >
+              <span class="map-pin__dot" aria-hidden="true"></span>
+              <span class="sr-only">Hoth (Echo Base)</span>
+            </button>
+
+            <button
+              type="button"
+              class="map-pin"
+              style="--x: 25%; --y: 84%"
+              data-x="52"
+              data-y="70"
+              data-title="Bespin (Cloud City)"
+              data-img="../images/map/bespin.jpeg"
+              data-desc="Gas giant with the floating mining colony Cloud City—site of Vader’s trap and a major turning point for Luke."
+            >
+              <span class="map-pin__dot" aria-hidden="true"></span>
+              <span class="sr-only">Bespin (Cloud City)</span>
+            </button>
+
+            <button
+              type="button"
+              class="map-pin"
+              style="--x: 10%; --y: 75%"
+              data-x="64"
+              data-y="66"
+              data-title="Endor (Forest Moon)"
+              data-img="../images/map/endor.jpeg"
+              data-desc="Forest moon where the Rebels struck the shield generator protecting the second Death Star, aided by the Ewoks."
+            >
+              <span class="map-pin__dot" aria-hidden="true"></span>
+              <span class="sr-only">Endor (Forest Moon)</span>
+            </button>
+
+            <button
+              type="button"
+              class="map-pin"
+              style="--x: 42%; --y: 89.5%"
+              data-x="42"
+              data-y="89.5"
+              data-title="Dagobah"
+              data-img="../images/map/dagobah.jpeg"
+              data-desc="Remote swamp world where Jedi Master Yoda lived in exile and trained Luke in the ways of the Force."
+            >
+              <span class="map-pin__dot" aria-hidden="true"></span>
+              <span class="sr-only">Dagobah</span>
+            </button>
+
+            <button
+              type="button"
+              class="map-pin"
+              style="--x: 33%; --y: 90%"
+              data-x="33"
+              data-y="90"
+              data-title="Mustafar"
+              data-img="../images/map/mustafar.jpeg"
+              data-desc="Volcanic world of intense lava rivers—site of Anakin and Obi-Wan’s duel and Anakin’s fall into Darth Vader."
+            >
+              <span class="map-pin__dot" aria-hidden="true"></span>
+              <span class="sr-only">Mustafar</span>
+            </button>
+
+            <button
+              type="button"
+              class="map-pin"
+              style="--x: 78%; --y: 69%"
+              data-x="82"
+              data-y="30"
+              data-title="Scarif (Citadel Tower)"
+              data-img="../images/map/scarif.png"
+              data-desc="Imperial archive world where the Death Star plans were stored—target of the Rebel mission that leads into Rogue One."
+            >
+              <span class="map-pin__dot" aria-hidden="true"></span>
+              <span class="sr-only">Scarif (Citadel Tower)</span>
+            </button>
+
+            <button
+              type="button"
+              class="map-pin"
+              style="--x: 60%; --y: 43%"
+              data-x="60"
+              data-y="43"
+              data-title="Kashyyyk"
+              data-img="../images/map/kashyyyk.jpeg"
+              data-desc="Wookiee homeworld of towering wroshyr trees—Chewbacca’s people and a major battleground during the Clone Wars."
+            >
+              <span class="map-pin__dot" aria-hidden="true"></span>
+              <span class="sr-only">Kashyyyk</span>
+            </button>
+              </div>
+              <div class="map-interactive__pan-hints" aria-hidden="true">
+                <span class="map-interactive__pan-hint map-interactive__pan-hint--n">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M6 9l6 6 6-6" />
+                  </svg>
+                </span>
+                <span class="map-interactive__pan-hint map-interactive__pan-hint--e">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M6 9l6 6 6-6" />
+                  </svg>
+                </span>
+                <span class="map-interactive__pan-hint map-interactive__pan-hint--s">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M6 9l6 6 6-6" />
+                  </svg>
+                </span>
+                <span class="map-interactive__pan-hint map-interactive__pan-hint--w">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M6 9l6 6 6-6" />
+                  </svg>
+                </span>
+              </div>
+            </div>
+            <div class="map-interactive__zoombar" role="toolbar" aria-label="Map zoom">
+              <button type="button" class="map-interactive__zoom-btn" id="mapZoomOut" aria-label="Zoom out">−</button>
+              <span class="map-interactive__zoom-value" id="mapZoomLabel">100%</span>
+              <button type="button" class="map-interactive__zoom-btn" id="mapZoomIn" aria-label="Zoom in">+</button>
+              <button type="button" class="map-interactive__zoom-btn map-interactive__zoom-btn--text" id="mapZoomReset" aria-label="Reset map view">Reset</button>
+            </div>
+          </div>
+
+          <aside class="map-interactive__panel" aria-live="polite">
+            <div class="map-interactive__preview">
+              <img
+                class="map-interactive__spot-img"
+                id="mapSpotImg"
+                src="../images/map/tatooine.avif"
+                alt="Tatooine"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <h3 class="map-interactive__title" id="mapTitle">Tatooine</h3>
+            <p class="map-interactive__desc" id="mapDesc">
+              Desert world in the Outer Rim. Home of Anakin and Luke Skywalker.
+            </p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- Themes -->
+    <section id="themes" class="themes-section">
+      <div class="container">
+        <h2 class="section-title">Themes of Star Wars</h2>
+        <p class="themes-section__intro">
+          The saga layers myth, religion, and Campbell’s hero’s journey—here are two threads that run through
+          the films.
+        </p>
+        <div class="themes-splits">
+          <article class="themes-split themes-split--a">
+            <div class="themes-split__accent" aria-hidden="true"></div>
+            <div class="themes-split__inner">
+              <div class="themes-split__media">
+                <img src="../images/themes-section/darth-vader.png" alt="Darth Vader" loading="lazy" />
+              </div>
+              <div class="themes-split__text">
+                <p class="themes-split__kicker">Symbols &amp; myth</p>
+                <h3 class="themes-split__title">Faith, evil, and redemption</h3>
+                <div class="themes-split__body">
+                  <p>
+                    Star Wars features elements such as knighthood, chivalry, and Jungian archetypes such as "the
+                    shadow". There are also many references to Christianity, such as in the appearance of Darth
+                    Maul, whose design draws heavily from traditional depictions of the devil. Anakin was
+                    conceived of a virgin birth, and is assumed to be the "Chosen One", a messianic individual.
+                    However, unlike Jesus, Anakin falls from grace, remaining evil as Darth Vader until Return of
+                    the Jedi. According to Adam Driver, sequel trilogy villain Kylo Ren, who idolizes Vader,
+                    believes he is "doing what he thinks is right". George Lucas has said that the theme of the
+                    saga is redemption.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="themes-split themes-split--b themes-split--reverse">
+            <div class="themes-split__accent" aria-hidden="true"></div>
+            <div class="themes-split__inner">
+              <div class="themes-split__media">
+                <img src="../images/themes-section/characters.png" alt="Star Wars characters" loading="lazy" />
+              </div>
+              <div class="themes-split__text">
+                <p class="themes-split__kicker">Joseph Campbell</p>
+                <h3 class="themes-split__title">The hero’s journey &amp; fathers</h3>
+                <div class="themes-split__body">
+                  <p>
+                    The saga draws heavily from the hero's journey, an archetypical template developed by
+                    comparative mythologist Joseph Campbell. Each character—primarily Anakin, Luke, and
+                    Rey—follows the steps of the cycle or undergoes its reversal, becoming the villain. A defining
+                    step of the journey is "Atonement with the Father". Obi-Wan's loss of a father figure could
+                    have impacted his relationship with Anakin, whom both Obi-Wan and Palpatine are fatherlike
+                    mentors to. Luke's discovery that Vader is his father has strong repercussions on the saga and
+                    is regarded as one of the most influential plot twists in cinema. Supreme Leader Snoke
+                    encourages Kylo Ren to kill his father, Han Solo. Kylo uses the fact that Rey is an orphan to
+                    tempt her into joining the dark side. According to Inverse, the final scene in The Last Jedi,
+                    which depicts servant children playing with a toy of Luke and one boy using the Force,
+                    symbolizes that "the Force can be found in people with humble beginnings."
+                  </p>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cultural Impact -->
+    <section id="impact" class="impact-section-wrap">
+      <div class="container">
+        <h2 class="section-title">Cultural Impact</h2>
+        <p class="impact-section-wrap__intro">
+          By the numbers, in the culture, and in classrooms—the footprint is enormous.
+        </p>
+
+        <div class="impact-stats" aria-label="Key franchise figures">
+          <div class="stat stat--cyan">
+            <div class="stat__glyph" aria-hidden="true"></div>
+            <div class="stat__value">$10.3B+</div>
+            <div class="stat__label">Worldwide box office</div>
+          </div>
+          <div class="stat stat--gold">
+            <div class="stat__glyph" aria-hidden="true"></div>
+            <div class="stat__value">1977</div>
+            <div class="stat__label">Original film</div>
+          </div>
+          <div class="stat stat--coral">
+            <div class="stat__glyph" aria-hidden="true"></div>
+            <div class="stat__value">3</div>
+            <div class="stat__label">In National Film Registry</div>
+          </div>
+          <div class="stat stat--violet">
+            <div class="stat__glyph" aria-hidden="true"></div>
+            <div class="stat__value">$3.875M</div>
+            <div class="stat__label">1977 painting record</div>
+          </div>
+        </div>
+
+        <div class="impact-narrative">
+          <blockquote class="impact-pull">
+            <p>
+              The Star Wars saga has had a significant impact on popular culture, with references to its
+              fictional universe deeply embedded in everyday life. Phrases like &quot;evil empire&quot; and &quot;May the
+              Force be with you&quot; have become part of the popular lexicon.
+            </p>
+          </blockquote>
+          <div class="impact-narrative__grid">
+            <p>
+              The first Star Wars film in 1977 was a cultural unifier, enjoyed by a wide spectrum of people. The
+              film can be said to have helped launch the science-fiction boom of the late 1970s and early
+              1980s, making science-fiction films a mainstream genre. The widespread impact made it a prime
+              target for parody works and homages, with popular examples including Hardware Wars, Spaceballs,
+              The Family Guy Trilogy and Robot Chicken: Star Wars.
+            </p>
+            <p>
+              In 1989, the Library of Congress selected the original Star Wars film for preservation in the U.S.
+              National Film Registry, as being &quot;culturally, historically, or aesthetically significant.&quot; The
+              Empire Strikes Back was selected in 2010, and Return of the Jedi was selected in 2021. 35 mm reels
+              of the 1997 Special Editions were the versions initially presented for preservation because of the
+              difficulty of transferring from the original prints, but it was later revealed that the Library
+              possesses a copyright deposit print of the original theatrical releases.
+            </p>
+            <p class="impact-narrative__highlight">
+              In December 2025, a 1977 painting that introduced the world to Star Wars sold for record $3.875
+              million at Heritage Auctions, becoming the most expensive piece of memorabilia in the franchise’s
+              history.
+            </p>
+          </div>
+        </div>
+
+        <h3 class="impact-pillars-heading">Where it shows up</h3>
+        <div class="impact-sections">
+          <article class="impact-section impact-section--industry">
+            <header class="impact-section__header">
+              <span class="impact-section__index" aria-hidden="true">01</span>
+              <h3 class="impact-section__title">Industry</h3>
+            </header>
+            <div class="impact-section__content">
+              <p>
+                The original Star Wars film was a huge success for 20th Century Fox and was credited for
+                reinvigorating the company: within three weeks of release, the studio’s stock price doubled to a
+                record high, and 1977 profits rose to $79 million (up from a previous annual high of $37
+                million). The franchise helped Fox to change from an almost bankrupt production company to a
+                thriving media conglomerate. With over $10.3 billion in worldwide box office receipts, Star Wars
+                is the second-highest-grossing film franchise of all time.
+              </p>
+              <p>
+                Star Wars fundamentally changed the aesthetics and narratives of Hollywood films, helping drive
+                a boom in modern special effects and establishing the summer blockbuster model (alongside Jaws).
+                It also reinforced the idea of major trilogies and merchandising as a central part of film
+                economics. Critics have debated whether this shift moved cinema away from “sophisticated”
+                standalone dramas toward spectacle-driven franchises, but its influence on filmmakers and on the
+                “used universe” aesthetic is widely recognized.
+              </p>
+            </div>
+          </article>
+
+          <article class="impact-section impact-section--fans">
+            <header class="impact-section__header">
+              <span class="impact-section__index" aria-hidden="true">02</span>
+              <h3 class="impact-section__title">Fan works</h3>
+            </header>
+            <div class="impact-section__content">
+              <p>
+                The Star Wars saga has inspired many fans to create their own non-canon material set in the Star
+                Wars galaxy. In recent years, this has ranged from writing fan fiction to creating fan films.
+              </p>
+              <p>
+                In 2002, Lucasfilm sponsored the first annual Official Star Wars Fan Film Awards, officially
+                recognizing filmmakers and the genre. Because of concerns over potential copyright and trademark
+                issues, however, the contest was initially open only to parodies, mockumentaries, and
+                documentaries. Fan fiction films set in the Star Wars universe were originally ineligible, but
+                in 2007, Lucasfilm changed the submission standards to allow in-universe fiction entries.
+                Lucasfilm has allowed but not endorsed the creation of fan fiction, as long as it does not
+                attempt to make a profit.
+              </p>
+            </div>
+          </article>
+
+          <article class="impact-section impact-section--academia">
+            <header class="impact-section__header">
+              <span class="impact-section__index" aria-hidden="true">03</span>
+              <h3 class="impact-section__title">Academia</h3>
+            </header>
+            <div class="impact-section__content">
+              <p>
+                As the characters and the storyline of the original trilogy are so well known, educators have
+                used the films in the classroom as a learning resource.
+              </p>
+              <p>
+                For example, a project in Western Australia honed elementary school students' storytelling
+                skills by role-playing action scenes from the movies and later creating props and audio/visual
+                scenery to enhance their performance. Others have used the films to encourage second-level
+                students to integrate technology in the science classroom by making prototype lightsabers.
+                Similarly, psychiatrists in New Zealand and the U.S. have advocated their use in the university
+                classroom to explain different types of psychopathology.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>Star Wars Microsite | April 2026 | Made by Emily Huang</p>
+      <p>Content sourced from public sources including Wikipedia</p>
+    </footer>
+
+    <script>
+      (() => {
+        const scroller = document.getElementById("timelineScroll");
+        const bar = document.getElementById("timelineProgressBar");
+        const inner = document.getElementById("timelineMeterInner");
+        const track = document.getElementById("timelineMeterTrack");
+        const axis = document.getElementById("timelineMeterAxis");
+        const markers = document.getElementById("timelineMeterMarkers");
+        const layer = document.getElementById("timelineMeterBarLayer");
+        if (!scroller || !bar || !inner || !track || !axis || !markers || !layer) return;
+
+        // Base density inside “busy” clusters.
+        const PX_PER_YEAR = 1.2;
+        const MIN_BAR_PX = 5;
+        const ROW_HEIGHT = 100;
+        // Compress very large empty year gaps so sparse eras don't dominate the scroll width.
+        const MAX_GAP_PX = 420; // cap pixels for any single gap between adjacent boundaries
+        const MIN_GAP_PX = 14;  // keep small separation for readability
+        /** Stronger vertical ticks at canonical era starts (BBY negative, ABY positive) */
+        const ERA_START_YEARS = new Set([-25100, -25053, -500, -100, -19, 0, 5, 28, 35]);
+
+        const TIMELINE_EVENTS = [
+          {
+            start: -25100,
+            end: -24900,
+            label: "Dawn of the Jedi",
+            desc: "The first Jedi wields the Force. An upcoming untitled film explores this mythic period.",
+          },
+          {
+            start: -25053,
+            end: -1000,
+            label: "The Old Republic",
+            desc: "The Galactic Republic is founded and the Jedi Order emerges. A schism within the Jedi leads to the creation of the Sith.",
+          },
+          {
+            start: -500,
+            end: -100,
+            label: "The High Republic",
+            desc: "Under Jedi protection, the Republic grows into a golden age — the setting for the publishing initiative and The Acolyte.",
+          },
+          {
+            start: -380,
+            end: -340,
+            label: "Quest of the Jedi (Phase II)",
+            desc: "High Republic Phase II: Quest of the Jedi — stories set roughly 380–340 BBY.",
+          },
+          {
+            start: -232,
+            end: -232,
+            label: "Light of the Jedi (Phase I)",
+            desc: "Phase I kicks off with Light of the Jedi (~232 BBY), launching the High Republic wave.",
+          },
+          {
+            start: -230,
+            end: -230,
+            label: "Young Jedi Adventures",
+            desc: "Animated series for younger audiences — Jedi younglings learning the ways of the Force.",
+          },
+          {
+            start: -230,
+            end: -190,
+            label: "Trials of the Jedi (Phase III)",
+            desc: "High Republic Phase III: Trials of the Jedi — closing storylines across the initiative.",
+          },
+          {
+            start: -148,
+            end: -132,
+            label: "The Acolyte",
+            desc: "Live-action mystery series set at the end of the High Republic era — the dark side surfaces.",
+          },
+          {
+            start: -100,
+            end: -19,
+            label: "Fall of the Jedi",
+            sith: true,
+            desc: "Palpatine (Darth Sidious) orchestrates the Clone Wars and destroys the Jedi Order from within.",
+          },
+          {
+            start: -70,
+            end: -35,
+            label: "Tales of the Jedi (Dooku)",
+            desc: "Anthology shorts — Count Dooku’s path toward the dark side.",
+          },
+          {
+            start: -60,
+            end: -30,
+            label: "Tales of the Underworld (Cad Bane)",
+            desc: "Underworld-focused stories including the bounty hunter Cad Bane.",
+          },
+          {
+            start: -32,
+            end: -32,
+            label: "Episode I — The Phantom Menace",
+            desc: "The discovery of Anakin Skywalker and the invasion of Naboo — the saga begins.",
+          },
+          {
+            start: -22,
+            end: -22,
+            label: "Episode II — Attack of the Clones",
+            desc: "The Clone Wars begin; secret armies and forbidden love set the galaxy on fire.",
+          },
+          {
+            start: -22,
+            end: -19,
+            label: "The Clone Wars",
+            desc: "The animated series spans the galactic war — Anakin, Ahsoka, and the cost of conflict.",
+          },
+          {
+            start: -21,
+            end: -17,
+            label: "Tales of the Underworld (Ventress)",
+            desc: "Asajj Ventress’s story continues in the underworld after the Clone Wars.",
+          },
+          {
+            start: -19,
+            end: 5,
+            label: "Reign of the Empire",
+            sith: true,
+            desc: "Palpatine’s Empire rules the galaxy; surviving Jedi are hunted by the Inquisitorius.",
+          },
+          {
+            start: -19,
+            end: -19,
+            label: "Episode III, The Bad Batch",
+            desc: "The Jedi fall in Revenge of the Sith; Clone Force 99 navigates the new Imperial order.",
+          },
+          {
+            start: -18,
+            end: -14,
+            label: "Jedi: Fallen Order",
+            desc: "Cal Kestis hides his powers until the Inquisitorius forces him back into the fight.",
+          },
+          {
+            start: -13,
+            end: -10,
+            label: "Solo: A Star Wars Story",
+            desc: "Han Solo’s early years — the Kessel run, Lando, and how he met Chewbacca.",
+          },
+          {
+            start: -10,
+            end: -8,
+            label: "Jedi: Survivor",
+            desc: "Cal’s story continues as the Empire tightens its grip across the galaxy.",
+          },
+          {
+            start: -9,
+            end: -9,
+            label: "Obi-Wan Kenobi",
+            desc: "Obi-Wan watches over Luke on Tatooine — and faces Darth Vader again.",
+          },
+          {
+            start: -5,
+            end: -5,
+            label: "Andor, Star Wars Rebels",
+            desc: "The Rebellion takes shape — Cassian’s path and the crew of the Ghost.",
+          },
+          {
+            start: -2,
+            end: -2,
+            label: "Vader Immortal",
+            desc: "VR experience: Mustafar, Darth Vader, and an ancient mystery beneath his castle.",
+          },
+          {
+            start: 0,
+            end: 0,
+            label: "Rogue One, Episode IV",
+            desc: "The Death Star plans are stolen; Luke Skywalker takes his first steps toward destiny.",
+          },
+          {
+            start: 0,
+            end: 5,
+            label: "Age of Rebellion",
+            desc: "The Rebel Alliance fights the Empire while Luke learns the ways of the Force.",
+          },
+          {
+            start: 3,
+            end: 3,
+            label: "Episode V — The Empire Strikes Back",
+            desc: "The Rebels flee Hoth; Luke trains with Yoda and learns a devastating truth.",
+          },
+          {
+            start: 3,
+            end: 4,
+            label: "Outlaws, Battlefront II, Squadrons",
+            desc: "Games and stories set around the original trilogy era — pilots, outlaws, and the war in the stars.",
+          },
+          {
+            start: 4,
+            end: 4,
+            label: "Episode VI — Return of the Jedi",
+            desc: "The Emperor falls at Endor; Vader is redeemed; the old Jedi prophecy is fulfilled.",
+          },
+          {
+            start: 5,
+            end: 34,
+            label: "The New Republic",
+            desc: "The New Republic tries to reunite the galaxy while Imperial remnants still threaten peace.",
+          },
+          {
+            start: 9,
+            end: 9,
+            label: "The Mandalorian, Boba Fett, Ahsoka, Skeleton Crew",
+            desc: "The New Republic era on screen — Din Djarin, Grogu, Boba Fett, Ahsoka, and the kids of Skeleton Crew.",
+          },
+          {
+            start: 28,
+            end: 35,
+            label: "Rise of the First Order",
+            sith: true,
+            desc: "The First Order rises from the Unknown Regions; the Resistance fights to protect the New Republic.",
+          },
+          {
+            start: 34,
+            end: 34,
+            label: "Resistance, Episodes VII–VIII",
+            desc: "Star Wars Resistance and the sequel trilogy — Starkiller Base, the chase, and Luke’s exile.",
+          },
+          {
+            start: 35,
+            end: 35,
+            label: "Episode IX — The Rise of Skywalker",
+            desc: "The final battle against Palpatine; Rey and the Resistance end the Sith Eternal threat.",
+          },
+          {
+            start: 35,
+            end: 60,
+            label: "New Jedi Order",
+            desc: "Rey builds a new Jedi Order in upcoming films — including an untitled chapter and new threats.",
+          },
+          {
+            start: 40,
+            end: 40,
+            label: "Starfighter (upcoming)",
+            desc: "Upcoming film set around 40 ABY — new heroes in the post–Episode IX galaxy.",
+          },
+        ];
+
+        const formatYear = (y) => {
+          const n = Math.round(y);
+          if (n < 0) return `${Math.abs(n)} BBY`;
+          if (n === 0) return "0 BBY";
+          return `${n} ABY`;
+        };
+
+        const formatRange = (s, e) => {
+          if (s === e) return formatYear(s);
+          return `${formatYear(s)} – ${formatYear(e)}`;
+        };
+
+        const overlaps = (a, b) => {
+          const a0 = a.start;
+          const a1 = a.end === a.start ? a.start + 1e-9 : a.end;
+          const b0 = b.start;
+          const b1 = b.end === b.start ? b.start + 1e-9 : b.end;
+          return a0 < b1 && b0 < a1;
+        };
+
+        const assignRows = (events) => {
+          const sorted = [...events].sort((a, b) => a.start - b.start || a.end - b.end);
+          const rows = [];
+          for (const ev of sorted) {
+            let r = 0;
+            for (; r < rows.length; r++) {
+              if (!rows[r].some((o) => overlaps(ev, o))) break;
+            }
+            if (r === rows.length) rows.push([]);
+            ev.row = r;
+            rows[r].push(ev);
+          }
+          return rows.length;
+        };
+
+        let minT = Infinity;
+        let maxT = -Infinity;
+        TIMELINE_EVENTS.forEach((ev) => {
+          minT = Math.min(minT, ev.start, ev.end);
+          maxT = Math.max(maxT, ev.start, ev.end);
+        });
+        const pad = (maxT - minT) * 0.015;
+        minT -= pad;
+        maxT += pad;
+        const span = maxT - minT;
+
+        const clamp = (n, a, b) => Math.max(a, Math.min(b, n));
+
+        const buildCompressedScale = (events, zoom) => {
+          const boundarySet = new Set([minT, maxT]);
+          events.forEach((ev) => {
+            boundarySet.add(ev.start);
+            boundarySet.add(ev.end);
+          });
+          ERA_START_YEARS.forEach((y) => {
+            if (y >= minT && y <= maxT) boundarySet.add(y);
+          });
+          const boundaries = Array.from(boundarySet).sort((a, b) => a - b);
+          const segs = [];
+          let acc = 0;
+          for (let i = 0; i < boundaries.length - 1; i++) {
+            const a = boundaries[i];
+            const b = boundaries[i + 1];
+            const years = Math.max(0, b - a);
+            // linear for small spans, capped for huge spans
+            const px = clamp(years * PX_PER_YEAR, MIN_GAP_PX, MAX_GAP_PX) * zoom;
+            segs.push({ a, b, years, px, x0: acc });
+            acc += px;
+          }
+          const totalPx = Math.max(320, acc);
+          const yearToX = (t) => {
+            if (t <= boundaries[0]) return 0;
+            if (t >= boundaries[boundaries.length - 1]) return totalPx;
+            // find segment containing t (linear scan is fine at this small size)
+            for (const s of segs) {
+              if (t >= s.a && t <= s.b) {
+                const u = s.years <= 0 ? 0 : (t - s.a) / s.years;
+                return s.x0 + u * s.px;
+              }
+            }
+            return 0;
+          };
+          return { boundaries, segs, totalPx, yearToX };
+        };
+
+        const zoomEl = document.getElementById("timelineZoom");
+        const zoomOutBtn = document.getElementById("timelineZoomOut");
+        const zoomInBtn = document.getElementById("timelineZoomIn");
+        const zoomValueEl = document.getElementById("timelineZoomValue");
+
+        const getZoom = () => {
+          const z = zoomEl ? Number(zoomEl.value) : 1;
+          return Number.isFinite(z) ? z : 1;
+        };
+
+        const layout = () => {
+          const events = TIMELINE_EVENTS.map((e) => ({ ...e }));
+          const numRows = assignRows(events);
+          const zoom = getZoom();
+          const scale = buildCompressedScale(events, zoom);
+          const widthPx = scale.totalPx;
+          inner.style.width = `${widthPx}px`;
+          inner.style.minWidth = `${widthPx}px`;
+
+          if (zoomValueEl) zoomValueEl.textContent = `${zoom.toFixed(1)}×`;
+
+          const trackH = Math.max(120, numRows * ROW_HEIGHT + 8);
+          track.style.minHeight = `${trackH}px`;
+
+          layer.innerHTML = "";
+          layer.style.minHeight = `${trackH}px`;
+
+          events.forEach((ev) => {
+            const isPoint = ev.start === ev.end;
+            const x0 = scale.yearToX(ev.start);
+            const x1 = scale.yearToX(ev.end);
+            const leftPx = x0;
+            const wPx = isPoint ? MIN_BAR_PX : Math.max(Math.abs(x1 - x0), MIN_BAR_PX);
+
+            const art = document.createElement("div");
+            art.className = "timeline-item";
+            if (ev.sith) art.classList.add("timeline-item--sith");
+            if (isPoint) art.classList.add("timeline-item--point");
+            art.style.top = `${ev.row * ROW_HEIGHT}px`;
+            /* Full row hit target: bars are only ~28px tall but rows are ROW_HEIGHT — without this, most hovers miss. */
+            art.style.minHeight = `${ROW_HEIGHT}px`;
+            const rangeStr = formatRange(ev.start, ev.end);
+            art.dataset.range = rangeStr;
+            art.dataset.title = ev.label;
+            if (ev.desc) art.dataset.desc = ev.desc;
+            else delete art.dataset.desc;
+            art.tabIndex = 0;
+            art.setAttribute("role", "button");
+            art.setAttribute("aria-label", `${rangeStr}. ${ev.label}.${ev.desc ? ` ${ev.desc}` : ""}`);
+
+            if (isPoint) {
+              art.style.left = `${leftPx}px`;
+              art.style.transform = "translateX(-50%)";
+              art.innerHTML = `<div class="timeline-item__head">
+                  <div class="timeline-item__marker" aria-hidden="true"></div>
+                </div>`;
+            } else {
+              art.style.left = `${leftPx}px`;
+              art.style.width = `${wPx}px`;
+              art.innerHTML = `<div class="timeline-item__head">
+                  <div class="timeline-item__bar"></div>
+                </div>`;
+            }
+
+            layer.appendChild(art);
+          });
+
+          markers.innerHTML = "";
+          scale.boundaries.forEach((t) => {
+            const tick = document.createElement("div");
+            tick.className = "timeline-meter__tick";
+            if (ERA_START_YEARS.has(t)) tick.classList.add("timeline-meter__tick--era");
+            tick.style.left = `${scale.yearToX(t)}px`;
+            markers.appendChild(tick);
+          });
+
+          axis.innerHTML = "";
+          const steps = 10;
+          for (let i = 0; i <= steps; i++) {
+            const t = minT + (span * i) / steps;
+            const lab = document.createElement("span");
+            lab.className = "timeline-meter__axis-tick";
+            lab.style.left = `${((t - minT) / span) * 100}%`;
+            lab.textContent = formatYear(t);
+            axis.appendChild(lab);
+          }
+        };
+
+        // Tooltip
+        const tooltip = document.createElement("div");
+        tooltip.className = "timeline-tooltip";
+        tooltip.setAttribute("role", "tooltip");
+        tooltip.hidden = true;
+        document.body.appendChild(tooltip);
+
+        const showTip = (el) => {
+          const range = el?.dataset?.range || "";
+          const title = el?.dataset?.title || "";
+          const desc = el?.dataset?.desc || "";
+          if (!range && !title && !desc) return;
+          tooltip.innerHTML = "";
+          tooltip.classList.toggle("timeline-tooltip--sith", el.classList.contains("timeline-item--sith"));
+          if (range) {
+            const r = document.createElement("div");
+            r.className = "timeline-tooltip__range";
+            r.textContent = range;
+            tooltip.appendChild(r);
+          }
+          if (title) {
+            const t = document.createElement("div");
+            t.className = "timeline-tooltip__title";
+            t.textContent = title;
+            tooltip.appendChild(t);
+          }
+          if (desc) {
+            const d = document.createElement("div");
+            d.className = "timeline-tooltip__desc";
+            d.textContent = desc;
+            tooltip.appendChild(d);
+          }
+          tooltip.hidden = false;
+        };
+        const hideTip = () => {
+          tooltip.hidden = true;
+          tooltip.innerHTML = "";
+          tooltip.classList.remove("timeline-tooltip--sith");
+        };
+        const clampTipToViewport = () => {
+          const pad = 8;
+          const r = tooltip.getBoundingClientRect();
+          const vw = window.innerWidth;
+          const vh = window.innerHeight;
+          let dx = 0;
+          let dy = 0;
+          if (r.right > vw - pad) dx = vw - pad - r.right;
+          if (r.left < pad) dx = pad - r.left;
+          if (r.bottom > vh - pad) dy = vh - pad - r.bottom;
+          if (r.top < pad) dy = pad - r.top;
+          if (dx !== 0 || dy !== 0) {
+            const curL = parseFloat(tooltip.style.left);
+            const curT = parseFloat(tooltip.style.top);
+            tooltip.style.left = `${(Number.isFinite(curL) ? curL : 0) + dx}px`;
+            tooltip.style.top = `${(Number.isFinite(curT) ? curT : 0) + dy}px`;
+          }
+        };
+
+        const positionTipNearEl = (el) => {
+          const br = el.getBoundingClientRect();
+          tooltip.style.left = `${br.left + 12}px`;
+          tooltip.style.top = `${br.bottom + 8}px`;
+          clampTipToViewport();
+        };
+        const moveTip = (e) => {
+          const item = e.target?.closest?.(".timeline-item");
+          if (item && tooltip.hidden) showTip(item);
+          if (tooltip.hidden) return;
+          const padX = 14;
+          const padY = 14;
+          tooltip.style.left = `${e.clientX + padX}px`;
+          tooltip.style.top = `${e.clientY + padY}px`;
+          clampTipToViewport();
+        };
+
+        layer.addEventListener("pointerover", (e) => {
+          const item = e.target?.closest?.(".timeline-item");
+          if (!item) return;
+          showTip(item);
+          moveTip(e);
+        });
+        layer.addEventListener("pointerout", (e) => {
+          const item = e.target?.closest?.(".timeline-item");
+          if (!item) return;
+          const rel = e.relatedTarget;
+          if (rel && item.contains(rel)) return;
+          hideTip();
+        });
+        layer.addEventListener("pointermove", moveTip, { passive: true });
+
+        layer.addEventListener("focusin", (e) => {
+          const item = e.target?.closest?.(".timeline-item");
+          if (!item) return;
+          showTip(item);
+          positionTipNearEl(item);
+        });
+        layer.addEventListener("focusout", (e) => {
+          const item = e.target?.closest?.(".timeline-item");
+          if (!item) return;
+          const rel = e.relatedTarget;
+          if (rel && rel.closest && rel.closest(".timeline-item")) return;
+          hideTip();
+        });
+
+        const updateProgress = () => {
+          const max = scroller.scrollWidth - scroller.clientWidth;
+          const pct = max <= 0 ? 0 : (scroller.scrollLeft / max) * 100;
+          bar.style.width = `${Math.max(0, Math.min(100, pct)).toFixed(2)}%`;
+        };
+
+        const applyZoom = () => {
+          // Keep view anchored at the same relative position while zooming
+          const max = scroller.scrollWidth - scroller.clientWidth;
+          const pct = max <= 0 ? 0 : scroller.scrollLeft / max;
+          layout();
+          const max2 = scroller.scrollWidth - scroller.clientWidth;
+          scroller.scrollLeft = max2 * pct;
+          updateProgress();
+        };
+
+        zoomEl?.addEventListener("input", applyZoom, { passive: true });
+        zoomOutBtn?.addEventListener("click", () => {
+          if (!zoomEl) return;
+          zoomEl.value = String(Math.max(Number(zoomEl.min || 0.7), getZoom() - 0.1));
+          applyZoom();
+        });
+        zoomInBtn?.addEventListener("click", () => {
+          if (!zoomEl) return;
+          zoomEl.value = String(Math.min(Number(zoomEl.max || 2.6), getZoom() + 0.1));
+          applyZoom();
+        });
+
+        applyZoom();
+        scroller.addEventListener("scroll", () => {
+          hideTip();
+          updateProgress();
+        }, { passive: true });
+        window.addEventListener("resize", () => {
+          applyZoom();
+        });
+        updateProgress();
+      })();
+    </script>
+
+    <script>
+      (() => {
+        const root = document.querySelector("[data-map]");
+        if (!root) return;
+        const title = root.querySelector("#mapTitle");
+        const desc = root.querySelector("#mapDesc");
+        const spotImg = root.querySelector("#mapSpotImg");
+        const viewport = root.querySelector("#mapViewport");
+        const panLayer = root.querySelector("#mapPanLayer");
+        const mapImg = panLayer?.querySelector(".map-interactive__img");
+        const btnZoomIn = root.querySelector("#mapZoomIn");
+        const btnZoomOut = root.querySelector("#mapZoomOut");
+        const btnZoomReset = root.querySelector("#mapZoomReset");
+        const zoomLabel = root.querySelector("#mapZoomLabel");
+        const pins = Array.from(root.querySelectorAll(".map-pin"));
+        if (!title || !desc || !viewport || !panLayer || pins.length === 0) return;
+
+        let scale = 1;
+        let tx = 0;
+        let ty = 0;
+        const minScale = 1;
+        const maxScale = 4;
+        const zoomStep = 1.2;
+
+        let dragPointerId = null;
+        let dragStartX = 0;
+        let dragStartY = 0;
+        let dragStartTx = 0;
+        let dragStartTy = 0;
+        let dragMoved = false;
+        let suppressPinClick = false;
+
+        const clampPan = () => {
+          scale = Math.min(maxScale, Math.max(minScale, scale));
+          const vw = viewport.clientWidth;
+          const vh = viewport.clientHeight;
+          const w = panLayer.offsetWidth * scale;
+          const h = panLayer.offsetHeight * scale;
+          if (w <= vw) tx = 0;
+          else tx = Math.min(0, Math.max(vw - w, tx));
+          if (h <= vh) ty = 0;
+          else ty = Math.min(0, Math.max(vh - h, ty));
+        };
+
+        const applyMapTransform = () => {
+          clampPan();
+          panLayer.style.transform = `matrix(${scale}, 0, 0, ${scale}, ${tx}, ${ty})`;
+          if (zoomLabel) zoomLabel.textContent = `${Math.round(scale * 100)}%`;
+          const vw = viewport.clientWidth;
+          const vh = viewport.clientHeight;
+          const w = panLayer.offsetWidth * scale;
+          const h = panLayer.offsetHeight * scale;
+          const canPan = w > vw + 0.5 || h > vh + 0.5;
+          const showGrab = scale > 1.02 || canPan;
+          viewport.classList.toggle("map-interactive__viewport--zoomed", showGrab);
+
+          const eps = 2;
+          const hintN = viewport.querySelector(".map-interactive__pan-hint--n");
+          const hintE = viewport.querySelector(".map-interactive__pan-hint--e");
+          const hintS = viewport.querySelector(".map-interactive__pan-hint--s");
+          const hintW = viewport.querySelector(".map-interactive__pan-hint--w");
+          if (hintN)
+            hintN.classList.toggle("map-interactive__pan-hint--visible", h > vh + eps && ty < -eps);
+          if (hintS)
+            hintS.classList.toggle("map-interactive__pan-hint--visible", h > vh + eps && ty > vh - h + eps);
+          if (hintW)
+            hintW.classList.toggle("map-interactive__pan-hint--visible", w > vw + eps && tx < -eps);
+          if (hintE)
+            hintE.classList.toggle("map-interactive__pan-hint--visible", w > vw + eps && tx > vw - w + eps);
+        };
+
+        const zoomAtViewportCenter = (nextScale) => {
+          const rect = viewport.getBoundingClientRect();
+          const cx = rect.width / 2;
+          const cy = rect.height / 2;
+          const prev = scale;
+          const s = Math.min(maxScale, Math.max(minScale, nextScale));
+          if (s === prev) return;
+          const px = (cx - tx) / prev;
+          const py = (cy - ty) / prev;
+          scale = s;
+          tx = cx - px * scale;
+          ty = cy - py * scale;
+          applyMapTransform();
+        };
+
+        const setActive = (pin) => {
+          pins.forEach((p) => p.classList.toggle("is-active", p === pin));
+          const t = pin?.dataset?.title || "Location";
+          const d = pin?.dataset?.desc || "";
+          const imgSrc = pin?.dataset?.img?.trim() || "";
+          title.textContent = t;
+          desc.textContent = d;
+          if (spotImg) {
+            if (imgSrc) {
+              spotImg.src = imgSrc;
+              spotImg.alt = t;
+            } else {
+              spotImg.removeAttribute("src");
+              spotImg.alt = "";
+            }
+          }
+        };
+
+        viewport.addEventListener(
+          "wheel",
+          (e) => {
+            e.preventDefault();
+            const factor = 1 - e.deltaY * 0.0015;
+            zoomAtViewportCenter(scale * factor);
+          },
+          { passive: false }
+        );
+
+        viewport.addEventListener("pointerdown", (e) => {
+          if (e.button !== 0) return;
+          // Pins are inside the viewport; capturing the pointer here breaks their click.
+          if (e.target.closest(".map-pin")) return;
+          dragPointerId = e.pointerId;
+          dragMoved = false;
+          dragStartX = e.clientX;
+          dragStartY = e.clientY;
+          dragStartTx = tx;
+          dragStartTy = ty;
+          viewport.setPointerCapture(e.pointerId);
+          viewport.classList.add("map-interactive__viewport--dragging");
+        });
+
+        viewport.addEventListener("pointermove", (e) => {
+          if (dragPointerId !== e.pointerId) return;
+          const dx = e.clientX - dragStartX;
+          const dy = e.clientY - dragStartY;
+          if (Math.hypot(dx, dy) > 4) dragMoved = true;
+          const vw = viewport.clientWidth;
+          const vh = viewport.clientHeight;
+          const w = panLayer.offsetWidth * scale;
+          const h = panLayer.offsetHeight * scale;
+          if (w > vw) tx = dragStartTx + dx;
+          if (h > vh) ty = dragStartTy + dy;
+          applyMapTransform();
+        });
+
+        const endDrag = (e) => {
+          if (dragPointerId !== e.pointerId) return;
+          viewport.releasePointerCapture(e.pointerId);
+          dragPointerId = null;
+          viewport.classList.remove("map-interactive__viewport--dragging");
+          if (dragMoved) {
+            suppressPinClick = true;
+            window.setTimeout(() => {
+              suppressPinClick = false;
+            }, 0);
+          }
+        };
+
+        viewport.addEventListener("pointerup", endDrag);
+        viewport.addEventListener("pointercancel", endDrag);
+
+        btnZoomIn?.addEventListener("click", () => zoomAtViewportCenter(scale * zoomStep));
+        btnZoomOut?.addEventListener("click", () => zoomAtViewportCenter(scale / zoomStep));
+        btnZoomReset?.addEventListener("click", () => {
+          scale = 1;
+          tx = 0;
+          ty = 0;
+          applyMapTransform();
+        });
+
+        pins.forEach((pin) => {
+          pin.addEventListener("click", (ev) => {
+            if (suppressPinClick) {
+              ev.preventDefault();
+              ev.stopPropagation();
+              return;
+            }
+            setActive(pin);
+          });
+          pin.addEventListener("keydown", (e) => {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              setActive(pin);
+            }
+          });
+        });
+
+        window.addEventListener("resize", () => {
+          applyMapTransform();
+        });
+
+        mapImg?.addEventListener("load", () => {
+          applyMapTransform();
+        });
+
+        setActive(pins[0]);
+        applyMapTransform();
+      })();
+    </script>
+
+    <div class="char-modal" id="charModal" hidden aria-hidden="true">
+      <div class="char-modal__backdrop" id="charModalBackdrop"></div>
+      <div class="char-modal__panel" role="dialog" aria-modal="true" aria-labelledby="charModalTitle">
+        <button class="char-modal__close" id="charModalClose" type="button" aria-label="Close">×</button>
+        <img class="char-modal__img" id="charModalImg" src="" alt="" />
+        <div class="char-modal__copy">
+          <h3 class="char-modal__title" id="charModalTitle"></h3>
+          <div class="char-modal__desc-block">
+            <p class="char-modal__meta" id="charModalMeta">
+              <span class="char-modal__side-dot" aria-hidden="true"></span>
+              <span class="char-modal__side-label" id="charModalSideLabel"></span>
+            </p>
+            <p class="char-modal__lead" id="charModalLead" hidden></p>
+            <p class="char-modal__desc" id="charModalDesc"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      (() => {
+        const modal = document.getElementById("charModal");
+        const modalImg = document.getElementById("charModalImg");
+        const modalTitle = document.getElementById("charModalTitle");
+        const modalDesc = document.getElementById("charModalDesc");
+        const modalLead = document.getElementById("charModalLead");
+        const modalSideLabel = document.getElementById("charModalSideLabel");
+        const closeBtn = document.getElementById("charModalClose");
+        const backdrop = document.getElementById("charModalBackdrop");
+        const panel = modal?.querySelector(".char-modal__panel");
+
+        if (!modal || !modalImg || !modalTitle || !modalDesc || !closeBtn || !backdrop || !panel) return;
+
+        const DESCRIPTIONS = {
+          luke: `Portrayed by: Mark Hamill (all three films)
+
+Luke Skywalker is a young adult raised by his aunt and uncle on the desert planet of Tatooine. He dreams of something more than his current life as a moisture farmer and yearns for adventure beyond the horizon. After discovering a hidden message from a captive princess and meeting the aging Jedi Master Obi-Wan Kenobi, Luke learns about the Force and the legacy of the Jedi Knights. He becomes a pilot in the Rebel Alliance and an apprentice Jedi, training first with Obi-Wan and later with the ancient Master Yoda. Despite the shocking revelation that Darth Vader is his father, Luke refuses to fall to the dark side and ultimately redeems Anakin Skywalker, becoming one of the last living Jedi Knights. Lucas sought actors who could project intelligence and integrity for the role, and Hamill was cast after reading the script with sincere conviction, beating out actors including William Katt, Robby Benson, and Kurt Russell.`,
+
+          han: `Portrayed by: Harrison Ford (all three films)
+
+Han Solo is a cynical smuggler and the captain of the Millennium Falcon, a beat-up but remarkably fast freighter. Initially motivated only by money and self-preservation, Han agrees to transport Luke, Obi-Wan, and the droids to Alderaan in exchange for payment. Over the course of the trilogy, he develops a conscience, returns to save Luke during the attack on the Death Star, and becomes a general in the Rebel Alliance. He is also Princess Leia's primary love interest. Lucas initially rejected Ford for the role because he wanted new faces (Ford had previously worked with Lucas on American Graffiti). However, after Ford assisted with auditions by reading lines with other actors, Lucas was won over by his portrayal. Other actors considered for the role included Kurt Russell, Nick Nolte, Sylvester Stallone, Bill Murray, Christopher Walken, Burt Reynolds, Jack Nicholson, James Caan, Robert De Niro, Al Pacino, Steve Martin, and Chevy Chase.`,
+
+          leia: `Portrayed by: Carrie Fisher (all three films)
+
+Leia Organa is the princess of the planet Alderaan, a member of the Imperial Senate, and secretly one of the leaders of the Rebel Alliance. She is captured by Darth Vader while carrying the stolen plans to the Death Star, which she hides inside the astromech droid R2-D2. Leia is brave, sharp-tongued, and resourceful, taking charge of her own rescue and later leading Rebel forces in battle. She becomes Han Solo's love interest and is ultimately revealed to be Luke Skywalker's twin sister — the second child of Anakin Skywalker hidden from the Emperor. Many young Hollywood actresses auditioned for the role, including Amy Irving, Terri Nunn, Cindy Williams, Linda Purl, Karen Allen, and Jodie Foster. Fisher was cast under the condition that she lose 10 pounds for the role.`,
+
+          vader: `Portrayed by: David Prowse (in the suit), James Earl Jones (voice), Sebastian Shaw (unmasked in Return of the Jedi)
+
+Darth Vader is a powerful Sith Lord and the primary enforcer for the Galactic Empire. He was formerly Anakin Skywalker, a Jedi Knight and Obi-Wan Kenobi's apprentice who was seduced by the dark side of the Force. Vader is a towering, black-armored figure who uses fear, intimidation, and Force-based brutality to maintain Imperial control. His true identity is revealed to Luke during their duel on Cloud City, leading to the saga's central redemption arc. Lucas dismissed Prowse for the character's voice due to his West Country English accent, which led to him being nicknamed \"Darth Farmer\" by the other cast members. James Earl Jones provided the iconic voice (uncredited until 1983). Lucas originally intended for Orson Welles to voice the character but determined Welles' voice would be too familiar to audiences. In Return of the Jedi, after Anakin is redeemed by his son, Sebastian Shaw portrays the character when the helmet is removed and appears as the Force spirit of Anakin (later replaced with Hayden Christensen in the Special Edition).`,
+
+          obiwan: `Portrayed by: Alec Guinness (all three films)
+
+Obi-Wan Kenobi, also known as Ben Kenobi or \"Old Ben,\" is an aging Jedi Master and veteran of the Clone Wars. Living as a hermit in the deserts of Tatooine, he watches over young Luke Skywalker from a distance. When Luke discovers Leia's message, Obi-Wan introduces him to the Force and begins his Jedi training. He sacrifices himself in a duel with Darth Vader aboard the Death Star, allowing Luke and the others to escape, and later returns as a Force spirit to guide Luke further. Lucas decided Obi-Wan should be played by an established actor, and before Guinness was cast, Japanese actor Toshiro Mifune was considered for the role. Mifune turned down the offer because he was concerned about how the film would look and that it would cheapen the image of samurai. Guinness negotiated a deal for 2.25% of the gross royalties, which made him quite wealthy in later life. He agreed to take the part on the condition that he would not have to do any publicity. Lucas credited Guinness with inspiring the cast and crew to work harder, saying he contributed significantly to the completion of filming.`,
+
+          c3po: `Portrayed by: Anthony Daniels (all three films)
+
+C-3PO is a protocol droid designed to assist humans with etiquette, translation, and customs. He is \"fluent in over six million forms of communication\" and tends toward fussiness, worry, and formality. Throughout the trilogy, he serves as a constant companion to the heroes, often providing comic relief with his panicked commentary. Daniels auditioned for and was cast as C-3PO after he saw a Ralph McQuarrie drawing of the character and was struck by the vulnerability in the robot's face. Initially, Lucas did not intend to use Daniels' voice for C-3PO — thirty well-established voice actors read for the role, but one of them recommended Daniels' voice instead. Mel Blanc was considered for the role, but according to Daniels, Blanc told Lucas that Daniels was better for the part. Richard Dreyfuss was also considered.`,
+
+          r2d2: `Portrayed by: Kenny Baker (in the suit, all three films)
+
+R2-D2 is an astromech droid designed to repair starships and store navigational data. He is brave, resourceful, and far more capable than his beeps and squeaks suggest. Artoo carries the stolen Death Star plans and Princess Leia's secret message for Obi-Wan, setting the entire saga in motion. He serves as C-3PO's companion and a loyal ally to Luke, Han, and Leia. Baker, who was 3 feet 8 inches tall, learned that the film crew was looking for a small person to fit inside a robot suit and was cast immediately after meeting Lucas. He initially turned down the role three times, hesitant to appear in a film where his face would not be shown, but eventually accepted. R2-D2's recognizable beeps and squeaks were made by sound designer Ben Burtt imitating \"baby noises,\" recording the voice as it was heard on an intercom, and creating the final mix using a synthesizer.`,
+
+          chewbacca: `Portrayed by: Peter Mayhew (all three films)
+
+Chewbacca is a Wookiee warrior from the planet Kashyyyk and Han Solo's loyal sidekick and first mate aboard the Millennium Falcon. Despite his fierce appearance and raw strength, Chewbacca is deeply loyal, brave, and kind-hearted. He serves as Han's moral compass and is a formidable fighter in battle, wielding a bowcaster as his weapon of choice. Mayhew, who stood 7 feet 3 inches tall, learned of a casting call for Star Wars and auditioned. When he stood up to greet Lucas, the director immediately said, \"I think we've found him.\" As a result of his height, Mayhew was eligible for either the role of Chewbacca or Darth Vader, ultimately choosing the former because he wanted to play a hero in the story. Mayhew modeled his performance of Chewbacca after the mannerisms of animals he saw at public zoos.`,
+
+          yoda: `Portrayed by: Frank Oz (voice and puppetry, The Empire Strikes Back and Return of the Jedi)
+
+Yoda is a wise, centuries-old Jedi Master of an unknown diminutive alien species. He lives in exile on the swampy planet of Dagobah after the rise of the Empire. When Luke Skywalker arrives seeking training, Yoda initially appears as a strange, harmless creature, testing Luke's patience before revealing his true identity as the Jedi Grand Master. Yoda speaks in a distinctive inverted syntax and teaches that the Force flows from all living things. He warns Luke of the dark side's seductive nature and famously declares, \"Do or do not. There is no try.\" After his death, Yoda also returns as a Force spirit to impart final wisdom. Frank Oz, best known as a Muppets performer, brought Yoda to life through masterful puppetry and voice work.`,
+
+          lando: `Portrayed by: Billy Dee Williams (The Empire Strikes Back and Return of the Jedi)
+
+Lando Calrissian is the charismatic administrator of Cloud City, a floating mining colony on the planet Bespin. He is an old friend and occasional rival of Han Solo, as well as a gambler and smooth-talker who is not always trustworthy but ultimately has a good heart. Lando is forced to betray Han to Darth Vader to protect Cloud City, but he immediately regrets his decision and helps Leia, Chewbacca, and the droids escape. He redeems himself by leading the attack on the second Death Star as a general in the Rebel Alliance, piloting the Millennium Falcon during the final battle. Williams brought charm, wit, and elegance to the role, making Lando one of the most beloved supporting characters in the saga.`,
+
+          palpatine: `Portrayed by: Elaine Baker (physical, Empire Strikes Back theatrical release), Clive Revill (voice, Empire Strikes Back theatrical release), Ian McDiarmid (Return of the Jedi and all subsequent versions)
+
+Palpatine, also known as Darth Sidious, is the founder and supreme ruler of the Galactic Empire and Darth Vader's Sith master. He is a master manipulator who rose from being a Senator to Chancellor to Emperor by orchestrating the Clone Wars and painting the Jedi as traitors. In the original trilogy, he appears as a hooded, wrinkled figure who delights in cruelty and the dark side. He tempts Luke to strike him down in anger, hoping to complete the young Jedi's fall to the dark side. McDiarmid fully took over the role in Return of the Jedi, and the 2004 release of the Special Editions replaced the version in The Empire Strikes Back with a new performance by McDiarmid to maintain internal consistency.`,
+
+          tarkin: `Portrayed by: Peter Cushing (A New Hope)
+
+Grand Moff Tarkin is the Imperial commander of the Death Star and a high-ranking official within the Galactic Empire. He is cold, calculating, and utterly ruthless, believing that fear of overwhelming force — not diplomacy — is the best way to maintain control. Tarkin holds Princess Leia captive and orders the destruction of her home planet, Alderaan, as a demonstration of the Death Star's power. He is one of the few Imperial officers who speaks to Darth Vader as an equal rather than a subordinate. Lucas originally offered the role to Christopher Lee, who declined. Lucas had initially considered Cushing for the role of Obi-Wan Kenobi but believed that \"his lean features\" would be better employed as Tarkin instead. Lucas commended Cushing's performance, saying he would be \"fondly remembered for the next 350 years at least.\"`,
+        };
+
+        let lastFocused = null;
+        let lastCardRect = null;
+
+        const open = (card) => {
+          lastFocused = document.activeElement;
+          lastCardRect = card?.getBoundingClientRect?.() || null;
+
+          modalImg.src = card.dataset.img || "";
+          modalImg.alt = card.dataset.name || "Character";
+          modalTitle.textContent = card.dataset.name || "";
+
+          const tone = card.dataset.tone || "rebel";
+          panel.dataset.charTone = tone;
+
+          if (modalSideLabel) {
+            modalSideLabel.textContent = card.querySelector(".char-card__side-text")?.textContent?.trim() || "";
+          }
+
+          const fullText = DESCRIPTIONS[card.dataset.key] || card.dataset.desc || "";
+          const blocks = fullText.split(/\n\n+/);
+          const firstBlock = blocks[0]?.trim() || "";
+          const isPortrayed = /^portrayed by:/i.test(firstBlock);
+          if (modalLead && blocks.length > 1 && isPortrayed) {
+            modalLead.textContent = firstBlock;
+            modalLead.hidden = false;
+            modalDesc.textContent = blocks.slice(1).join("\n\n").trim();
+          } else {
+            if (modalLead) {
+              modalLead.textContent = "";
+              modalLead.hidden = true;
+            }
+            modalDesc.textContent = fullText;
+          }
+
+          // Show immediately, then animate the panel from the clicked card.
+          modal.hidden = false;
+          modal.setAttribute("aria-hidden", "false");
+          document.body.classList.add("modal-open");
+
+          // Prep initial state for animation
+          backdrop.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 220, easing: "ease-out", fill: "both" });
+
+          const panelRect = panel.getBoundingClientRect();
+          if (lastCardRect && panelRect.width > 0 && panelRect.height > 0) {
+            const dx = lastCardRect.left + lastCardRect.width / 2 - (panelRect.left + panelRect.width / 2);
+            const dy = lastCardRect.top + lastCardRect.height / 2 - (panelRect.top + panelRect.height / 2);
+            const sx = Math.max(0.06, Math.min(1, lastCardRect.width / panelRect.width));
+            const sy = Math.max(0.06, Math.min(1, lastCardRect.height / panelRect.height));
+            panel.animate(
+              [
+                { transform: `translate(${dx}px, ${dy}px) scale(${sx}, ${sy})`, opacity: 0.35 },
+                { transform: "translate(0px, 0px) scale(1, 1)", opacity: 1 },
+              ],
+              { duration: 320, easing: "cubic-bezier(0.2, 0.95, 0.2, 1)", fill: "both" }
+            );
+          } else {
+            panel.animate([{ transform: "scale(0.96)", opacity: 0 }, { transform: "scale(1)", opacity: 1 }], {
+              duration: 240,
+              easing: "ease-out",
+              fill: "both",
+            });
+          }
+
+          window.setTimeout(() => closeBtn.focus(), 250);
+        };
+
+        const close = () => {
+          const doHide = () => {
+            modal.hidden = true;
+            modal.setAttribute("aria-hidden", "true");
+            document.body.classList.remove("modal-open");
+            if (lastFocused && typeof lastFocused.focus === "function") lastFocused.focus();
+          };
+
+          const panelRect = panel.getBoundingClientRect();
+          if (lastCardRect && panelRect.width > 0 && panelRect.height > 0) {
+            const dx = lastCardRect.left + lastCardRect.width / 2 - (panelRect.left + panelRect.width / 2);
+            const dy = lastCardRect.top + lastCardRect.height / 2 - (panelRect.top + panelRect.height / 2);
+            const sx = Math.max(0.06, Math.min(1, lastCardRect.width / panelRect.width));
+            const sy = Math.max(0.06, Math.min(1, lastCardRect.height / panelRect.height));
+            backdrop.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 180, easing: "ease-in", fill: "both" });
+            const anim = panel.animate(
+              [
+                { transform: "translate(0px, 0px) scale(1, 1)", opacity: 1 },
+                { transform: `translate(${dx}px, ${dy}px) scale(${sx}, ${sy})`, opacity: 0 },
+              ],
+              { duration: 240, easing: "cubic-bezier(0.4, 0, 0.6, 1)", fill: "both" }
+            );
+            anim.addEventListener("finish", doHide, { once: true });
+            window.setTimeout(doHide, 260);
+            return;
+          }
+
+          doHide();
+        };
+
+        document.querySelectorAll(".char-card[data-name]").forEach((card) => {
+          card.addEventListener("click", () => open(card));
+          card.addEventListener("keydown", (e) => {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              open(card);
+            }
+          });
+        });
+
+        closeBtn.addEventListener("click", close);
+        backdrop.addEventListener("click", close);
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape" && !modal.hidden) close();
+        });
+      })();
+    </script>
+
+    <script>
+      (() => {
+        const hero = document.getElementById("hero");
+        const premise = document.getElementById("premise");
+        const logoShell = document.querySelector(".hero-logo-shell");
+        const nav = document.querySelector("nav.nav-main");
+        const mainTitleAudio = document.getElementById("mainTitleAudio");
+        const siteBoot = document.getElementById("siteBoot");
+        const siteBootBarFill = document.getElementById("siteBootBarFill");
+        const siteBootStatus = document.getElementById("siteBootStatus");
+        const siteBootEnter = document.getElementById("siteBootEnter");
+        const siteBootBar = document.querySelector(".site-boot__bar");
+        const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        let mainTitlePlayed = false;
+        let heroIntroLatched = false;
+        let logoIntroSeen = false;
+
+        const playMainTitle = () => {
+          if (!mainTitleAudio || reduced) return;
+          mainTitleAudio.currentTime = 0;
+          mainTitleAudio.volume = 0.52;
+          const p = mainTitleAudio.play();
+          if (p !== undefined) p.catch(() => {});
+        };
+
+        const setStarWarsVars = (t) => {
+          const root = document.documentElement.style;
+          if (reduced) {
+            root.setProperty("--sw-intro-opacity", "0");
+            root.setProperty("--sw-titles-top", "42%");
+            root.setProperty("--sw-titles-opacity", "0.9");
+            return;
+          }
+          const p = Math.max(0, Math.min(1, t));
+          root.setProperty("--sw-intro-opacity", "0");
+
+          let titlesTopPct = 100;
+          let titlesOp = 0;
+          const titlesPhaseStart = 0;
+          if (p >= titlesPhaseStart) {
+            const u = Math.min(1, (p - titlesPhaseStart) / Math.max(0.001, 1 - titlesPhaseStart));
+            titlesTopPct = 100 - u * 520;
+            titlesOp = u < 0.96 ? 1 : Math.max(0, 1 - (u - 0.96) / 0.04);
+          }
+
+          root.setProperty("--sw-titles-top", `${titlesTopPct}%`);
+          root.setProperty("--sw-titles-opacity", String(titlesOp));
+        };
+
+        const setHeroIntroVars = () => {
+          if (!hero) return;
+          const heroTop = hero.offsetTop;
+          const range = Math.max(1, hero.offsetHeight - window.innerHeight);
+          const y = window.scrollY;
+          let heroT = (y - heroTop) / range;
+          heroT = Math.max(0, Math.min(1, heroT));
+
+          /* Scrolling back to the top: hide starfield image and replay intro from a clean state */
+          const atHeroTop = heroT <= 0.02;
+          if (atHeroTop && !reduced) {
+            heroIntroLatched = false;
+            logoIntroSeen = false;
+            mainTitlePlayed = false;
+            hero.classList.remove("hero--show-logo", "hero--show-cta", "hero--ready");
+            document.body.classList.remove("hero-ready");
+            hero.dataset.heroPhase = "scroll";
+            if (logoShell) logoShell.classList.remove("hero-logo-shell--fixed");
+            if (mainTitleAudio) {
+              mainTitleAudio.pause();
+              mainTitleAudio.currentTime = 0;
+            }
+          }
+
+          document.documentElement.style.setProperty("--hero-intro-t", String(heroT));
+
+          let flashOp = 0;
+          if (heroT < 0.1) flashOp = heroT / 0.1;
+          else if (heroT < 0.3) flashOp = 1;
+          else if (heroT < 0.44) flashOp = Math.max(0, 1 - (heroT - 0.3) / 0.14);
+          else flashOp = 0;
+          document.documentElement.style.setProperty("--hero-flash-opacity", String(flashOp));
+
+          let bgOp = 0;
+          if (heroT < 0.44) bgOp = 0;
+          else if (heroT < 0.6) bgOp = (heroT - 0.44) / 0.16;
+          else bgOp = 1;
+          document.documentElement.style.setProperty("--hero-bg-opacity", String(bgOp));
+          document.documentElement.style.setProperty("--hero-vignette-opacity", String(bgOp));
+
+          if (reduced) return;
+
+          const logoThreshold = 0.62;
+          if (heroT >= logoThreshold) {
+            hero.classList.add("hero--show-logo");
+            logoIntroSeen = true;
+            if (!mainTitlePlayed) {
+              mainTitlePlayed = true;
+              playMainTitle();
+            }
+          } else if (!logoIntroSeen) {
+            hero.classList.remove("hero--show-logo");
+          }
+
+          if (heroT >= 0.78 || heroIntroLatched) {
+            hero.classList.add("hero--show-cta");
+          } else {
+            hero.classList.remove("hero--show-cta");
+          }
+
+          if (heroT >= 0.9) heroIntroLatched = true;
+          if (heroIntroLatched) {
+            document.body.classList.add("hero-ready");
+            hero.classList.add("hero--ready");
+            hero.dataset.heroPhase = "ready";
+          }
+        };
+
+        const setPremiseVars = () => {
+          if (!premise) return;
+          const start = premise.offsetTop;
+          const h = premise.offsetHeight;
+          const vh = window.innerHeight;
+          const y = window.scrollY;
+          const scrollRange = Math.max(1, h - vh);
+          let t = (y - start) / scrollRange;
+          t = Math.max(0, Math.min(1, t));
+
+          document.documentElement.style.setProperty("--premise-progress", String(t));
+          /* Black cover over hero starfield; ramps up quickly */
+          document.documentElement.style.setProperty("--premise-veil", String(Math.min(1, t * 1.35)));
+          setStarWarsVars(t);
+
+          /* Hero logo: shrink to almost nothing, fade out, as premise scroll progresses */
+          const logoS = Math.max(0.02, 1 - t * 2.4);
+          document.documentElement.style.setProperty("--logo-scroll-scale", String(logoS));
+          document.documentElement.style.setProperty(
+            "--hero-logo-opacity",
+            String(Math.max(0, 1 - t * 2.2))
+          );
+
+          if (logoShell && document.body.classList.contains("hero-ready")) {
+            const releaseLogo = start + h - vh * 0.35;
+            if (y > 14 && y < releaseLogo) {
+              logoShell.classList.add("hero-logo-shell--fixed");
+            } else {
+              logoShell.classList.remove("hero-logo-shell--fixed");
+            }
+          }
+        };
+
+        /** After the premise crawl ends, force the fixed hero background off. */
+        const updateHeroFixedBackground = () => {
+          if (!premise) return;
+          const y = window.scrollY;
+          const vh = window.innerHeight;
+          const premiseEnd = premise.offsetTop + premise.offsetHeight - vh;
+          document.body.classList.toggle("hero-fixed-hidden", y > premiseEnd + 8);
+        };
+
+        /** Nav stays hidden until the premise crawl begins (or you're past it). */
+        const updateNavVisibility = () => {
+          if (!nav) return;
+          const y = window.scrollY;
+          const premiseStart = premise ? premise.offsetTop : Infinity;
+          const startedPremise = y >= premiseStart + 8;
+
+          if (reduced && document.body.classList.contains("hero-ready")) {
+            nav.classList.toggle("nav--visible", startedPremise);
+            return;
+          }
+
+          nav.classList.toggle("nav--visible", startedPremise);
+        };
+
+        const skipIntro = () => {
+          if (!hero || document.body.classList.contains("modal-open")) return;
+          if (document.body.classList.contains("hero-ready")) return;
+          heroIntroLatched = true;
+          logoIntroSeen = true;
+          mainTitlePlayed = true;
+          document.documentElement.style.setProperty("--hero-flash-opacity", "0");
+          document.documentElement.style.setProperty("--hero-intro-t", "1");
+          document.documentElement.style.setProperty("--hero-bg-opacity", "1");
+          document.documentElement.style.setProperty("--hero-vignette-opacity", "1");
+          hero.classList.add("hero--show-logo", "hero--show-cta", "hero--ready");
+          document.body.classList.add("hero-ready");
+          hero.dataset.heroPhase = "ready";
+          if (premise) {
+            window.scrollTo({ top: premise.offsetTop, behavior: "auto" });
+          }
+          setHeroIntroVars();
+          setPremiseVars();
+          updateNavVisibility();
+        };
+
+        const beginHeroIntro = () => {
+          if (!hero) return;
+          if (reduced) {
+            document.documentElement.style.setProperty("--hero-flash-opacity", "0");
+            document.documentElement.style.setProperty("--hero-bg-opacity", "1");
+            document.documentElement.style.setProperty("--hero-vignette-opacity", "1");
+            heroIntroLatched = true;
+            logoIntroSeen = true;
+            if (!mainTitlePlayed) {
+              mainTitlePlayed = true;
+              playMainTitle();
+            }
+            hero.classList.add("hero--show-logo", "hero--show-cta", "hero--ready");
+            document.body.classList.add("hero-ready");
+            hero.dataset.heroPhase = "ready";
+            setHeroIntroVars();
+            setPremiseVars();
+            updateNavVisibility();
+            return;
+          }
+          document.documentElement.style.setProperty("--hero-bg-opacity", "0");
+          document.documentElement.style.setProperty("--hero-vignette-opacity", "0");
+          hero.dataset.heroPhase = "scroll";
+          setHeroIntroVars();
+          setPremiseVars();
+          updateNavVisibility();
+        };
+
+        document.addEventListener("keydown", (e) => {
+          if (e.key !== "Escape") return;
+          if (document.body.classList.contains("modal-open")) return;
+          skipIntro();
+        });
+
+        const loadImage = (src) =>
+          new Promise((resolve) => {
+            const img = new Image();
+            img.onload = () => resolve();
+            img.onerror = () => resolve();
+            img.src = src;
+          });
+
+        const loadMainTitleAudioReady = () =>
+          new Promise((resolve) => {
+            if (!mainTitleAudio) {
+              resolve();
+              return;
+            }
+            const done = () => resolve();
+            if (mainTitleAudio.readyState >= 3) {
+              done();
+              return;
+            }
+            mainTitleAudio.addEventListener("canplaythrough", done, { once: true });
+            mainTitleAudio.addEventListener("error", done, { once: true });
+          });
+
+        const setBootProgress = (pct) => {
+          if (!siteBootBarFill || !siteBootBar) return;
+          const clamped = Math.max(0, Math.min(100, pct));
+          siteBootBarFill.style.width = `${clamped}%`;
+          siteBootBar.setAttribute("aria-valuenow", String(Math.round(clamped)));
+        };
+
+        let bootStepsDone = 0;
+        const bootTotalSteps = 4;
+        const bumpBoot = () => {
+          bootStepsDone += 1;
+          setBootProgress((bootStepsDone / bootTotalSteps) * 100);
+          if (bootStepsDone >= bootTotalSteps && siteBootStatus && siteBootEnter) {
+            siteBootStatus.textContent = "Ready";
+            siteBootEnter.hidden = false;
+            siteBootEnter.focus();
+          }
+        };
+
+        const startBootLoad = () => {
+          loadImage("../images/hero.png").then(() => bumpBoot());
+          loadImage("../images/logo.png").then(() => bumpBoot());
+          loadMainTitleAudioReady().then(() => bumpBoot());
+          if (document.readyState === "complete") {
+            bumpBoot();
+          } else {
+            window.addEventListener("load", () => bumpBoot(), { once: true });
+          }
+        };
+
+        const dismissSiteBoot = () => {
+          if (!siteBoot) {
+            document.body.classList.remove("boot-lock");
+            beginHeroIntro();
+            return;
+          }
+          let finished = false;
+          const finish = () => {
+            if (finished) return;
+            finished = true;
+            siteBoot.remove();
+            document.body.classList.remove("boot-lock");
+            beginHeroIntro();
+          };
+          siteBoot.classList.add("site-boot--hidden");
+          siteBoot.addEventListener(
+            "transitionend",
+            (e) => {
+              if (e.propertyName === "opacity") finish();
+            },
+            { once: true }
+          );
+          window.setTimeout(finish, 700);
+        };
+
+        if (siteBootEnter) {
+          siteBootEnter.addEventListener("click", dismissSiteBoot);
+        }
+
+        if (document.readyState === "loading") {
+          document.addEventListener("DOMContentLoaded", startBootLoad);
+        } else {
+          startBootLoad();
+        }
+
+        let premiseRaf = 0;
+        const onScrollFrame = () => {
+          if (premiseRaf) return;
+          premiseRaf = window.requestAnimationFrame(() => {
+            premiseRaf = 0;
+            setHeroIntroVars();
+            setPremiseVars();
+            updateHeroFixedBackground();
+            updateNavVisibility();
+          });
+        };
+
+        const onResize = () => {
+          setHeroIntroVars();
+          setPremiseVars();
+          updateHeroFixedBackground();
+          updateNavVisibility();
+        };
+
+        window.addEventListener("scroll", onScrollFrame, { passive: true });
+        window.addEventListener("resize", onResize, { passive: true });
+        setHeroIntroVars();
+        setPremiseVars();
+        updateHeroFixedBackground();
+        updateNavVisibility();
+
+      })();
+    </script>
+
+    <script>
+      (() => {
+        const nav = document.querySelector("nav.nav-main");
+        const links = Array.from(document.querySelectorAll('nav a[href^="#"]'));
+        if (!nav || links.length === 0) return;
+
+        const linkById = new Map();
+        const sections = [];
+
+        for (const link of links) {
+          const id = (link.getAttribute("href") || "").slice(1);
+          if (!id) continue;
+          const section = document.getElementById(id);
+          if (!section) continue;
+          linkById.set(id, link);
+          sections.push(section);
+        }
+
+        if (sections.length === 0) return;
+
+        const setActive = (id) => {
+          for (const link of links) {
+            link.classList.remove("active");
+            link.removeAttribute("aria-current");
+          }
+          const active = linkById.get(id);
+          if (!active) return;
+          active.classList.add("active");
+          active.setAttribute("aria-current", "page");
+        };
+
+        const getNavHeight = () => {
+          if (!nav.classList.contains("nav--visible")) return 0;
+          return Math.ceil(nav.getBoundingClientRect().height);
+        };
+
+        let raf = 0;
+        const updateFromScroll = () => {
+          raf = 0;
+          const navHeight = getNavHeight();
+          const y = window.scrollY + navHeight + 16;
+          let current = sections[0].id;
+          for (const s of sections) {
+            if (s.offsetTop <= y) current = s.id;
+          }
+          setActive(current);
+        };
+
+        const onScroll = () => {
+          if (raf) return;
+          raf = window.requestAnimationFrame(updateFromScroll);
+        };
+
+        // Initialize on load (handles refresh mid-page)
+        window.addEventListener("scroll", onScroll, { passive: true });
+        window.addEventListener("load", updateFromScroll, { once: true });
+        window.addEventListener("resize", updateFromScroll, { passive: true });
+        updateFromScroll();
+      })();
+    </script>
+
+    <script>
+      (() => {
+        const wrap = (i, n) => ((i % n) + n) % n;
+
+        // Build one continuous scroll strip from the existing grouped markup.
+        const continuous = document.getElementById("mediaContinuous");
+        const trackOut = document.getElementById("mediaContinuousTrack");
+        const prev = document.getElementById("mediaPrev");
+        const next = document.getElementById("mediaNext");
+        const detail = document.getElementById("mediaDetail");
+        const detailTitle = document.getElementById("mediaDetailTitle");
+        const detailMeta = document.getElementById("mediaDetailMeta");
+        const detailDesc = document.getElementById("mediaDetailDesc");
+        const legacy = document.getElementById("mediaLegacy");
+        if (continuous && trackOut && legacy) {
+          const groups = Array.from(legacy.querySelectorAll(".media-group"));
+          groups.forEach((g) => {
+            const label = g.querySelector(".media-group__title")?.textContent?.trim();
+            if (label) {
+              const chip = document.createElement("div");
+              chip.className = "media-continuous__label";
+              chip.textContent = label;
+              trackOut.appendChild(chip);
+            }
+            g.querySelectorAll(".media-carousel__slide").forEach((slide) => {
+              trackOut.appendChild(slide.cloneNode(true));
+            });
+          });
+
+          const slides = Array.from(trackOut.querySelectorAll(".media-carousel__slide"));
+          let active = Math.max(0, Math.min(slides.length - 1, 0));
+
+          const getSynopsis = (slide) =>
+            (slide.querySelector(".media-carousel__synopsis")?.textContent || "").trim();
+          const getName = (slide) => (slide.querySelector(".media-carousel__name")?.textContent || "").trim();
+          const getEra = (slide) => (slide.querySelector(".media-carousel__era")?.textContent || "").trim();
+
+          const setActive = (i, { scrollIntoView = true } = {}) => {
+            if (slides.length === 0) return;
+            active = ((i % slides.length) + slides.length) % slides.length;
+            slides.forEach((s, idx) => s.classList.toggle("is-active", idx === active));
+            const s = slides[active];
+            const name = getName(s);
+            const era = getEra(s);
+            const syn = getSynopsis(s);
+            if (detailTitle) detailTitle.textContent = name || "Title";
+            if (detailMeta) detailMeta.textContent = era || "";
+            if (detailDesc) detailDesc.textContent = syn || "";
+            if (scrollIntoView) s.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+          };
+
+          slides.forEach((slide, idx) => {
+            slide.tabIndex = 0;
+            slide.addEventListener("click", () => setActive(idx));
+            slide.addEventListener("keydown", (e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                setActive(idx);
+              }
+            });
+          });
+
+          prev?.addEventListener("click", () => setActive(active - 1));
+          next?.addEventListener("click", () => setActive(active + 1));
+
+          // Initialize detail with the first slide
+          if (detail) setActive(active, { scrollIntoView: false });
+        }
+
+        document.querySelectorAll("[data-media-carousel]").forEach((root) => {
+          if (root.closest(".media-legacy")?.hasAttribute("hidden")) return;
+          const track = root.querySelector(".media-carousel__track");
+          const win = root.querySelector(".media-carousel__window");
+          const overviewEl = root.querySelector(".media-carousel__overview-text");
+          const prevBtn = root.querySelector(".media-carousel__btn--prev");
+          const nextBtn = root.querySelector(".media-carousel__btn--next");
+          if (!track || !win) return;
+
+          const slides = () => Array.from(track.querySelectorAll(".media-carousel__slide"));
+          let active = 0;
+
+          const applyClasses = () => {
+            const list = slides();
+            const n = list.length;
+            list.forEach((s) => {
+              s.classList.remove(
+                "media-carousel__slide--side",
+                "media-carousel__slide--center",
+                "media-carousel__slide--left",
+                "media-carousel__slide--right"
+              );
+            });
+            root.classList.toggle("media-carousel--single", n === 1);
+            if (n === 0) return;
+            if (n === 1) {
+              list[0].classList.add("media-carousel__slide--center");
+              return;
+            }
+            if (n === 2) {
+              const leftI = wrap(active - 1, n);
+              list[leftI].classList.add("media-carousel__slide--side", "media-carousel__slide--left");
+              list[active].classList.add("media-carousel__slide--center");
+              return;
+            }
+            const leftI = wrap(active - 1, n);
+            const rightI = wrap(active + 1, n);
+            list[leftI].classList.add("media-carousel__slide--side", "media-carousel__slide--left");
+            list[active].classList.add("media-carousel__slide--center");
+            list[rightI].classList.add("media-carousel__slide--side", "media-carousel__slide--right");
+          };
+
+          const positionTrack = () => {
+            const list = slides();
+            const n = list.length;
+            const V = win.clientWidth;
+            if (n === 0 || V === 0) return;
+            if (n === 1) {
+              track.style.transform = "translateX(0px)";
+              return;
+            }
+            const slideW = V / 3;
+            const offset = V / 2 - slideW * (active + 0.5);
+            track.style.transform = `translateX(${offset}px)`;
+          };
+
+          const setOverview = () => {
+            const list = slides();
+            if (!overviewEl || list.length === 0) return;
+            const syn = list[active]?.querySelector(".media-carousel__synopsis");
+            overviewEl.textContent = syn ? syn.textContent.trim() : "";
+          };
+
+          const update = () => {
+            applyClasses();
+            positionTrack();
+            setOverview();
+          };
+
+          const go = (delta) => {
+            const n = slides().length;
+            if (n <= 1) return;
+            active = wrap(active + delta, n);
+            update();
+          };
+
+          prevBtn?.addEventListener("click", () => go(-1));
+          nextBtn?.addEventListener("click", () => go(1));
+
+          let tx = 0;
+          win.addEventListener(
+            "touchstart",
+            (e) => {
+              tx = e.changedTouches[0].screenX;
+            },
+            { passive: true }
+          );
+          win.addEventListener(
+            "touchend",
+            (e) => {
+              const dx = e.changedTouches[0].screenX - tx;
+              if (dx > 50) go(-1);
+              else if (dx < -50) go(1);
+            },
+            { passive: true }
+          );
+
+          let r = 0;
+          window.addEventListener(
+            "resize",
+            () => {
+              if (r) return;
+              r = window.requestAnimationFrame(() => {
+                r = 0;
+                positionTrack();
+              });
+            },
+            { passive: true }
+          );
+
+          active = 0;
+          update();
+        });
+      })();
+    </script>
+  </body>
+</html>
