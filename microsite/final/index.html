@@ -66,6 +66,11 @@
       <a href="#impact">Cultural Impact</a>
     </nav>
 
+    <button id="muteBtn" class="mute-btn" aria-label="Mute sound" title="Mute sound">
+      <svg class="icon-volume-up" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
+      <svg class="icon-volume-mute" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
+    </button>
+
     <!-- Hero: scroll-driven “A long time ago…” → logo + Main_Title → then premise crawl -->
     <section id="hero" class="hero" data-hero-phase="idle">
       <audio id="mainTitleAudio" class="hero__main-title-audio" preload="auto" playsinline>
@@ -197,8 +202,14 @@
         </div>
 
         <div class="media-detail" id="mediaDetail" aria-live="polite">
-          <h3 class="media-detail__title" id="mediaDetailTitle">Click a poster</h3>
-          <p class="media-detail__meta" id="mediaDetailMeta">Then its description will appear here.</p>
+          <div class="media-detail__head">
+            <img class="media-detail__thumb" id="mediaDetailThumb" alt="" loading="lazy" hidden />
+            <div class="media-detail__copy">
+              <p class="media-detail__kicker" id="mediaDetailKicker">Selected</p>
+              <h3 class="media-detail__title" id="mediaDetailTitle">Click a poster</h3>
+              <p class="media-detail__meta" id="mediaDetailMeta">Then its description will appear here.</p>
+            </div>
+          </div>
           <p class="media-detail__desc" id="mediaDetailDesc"></p>
         </div>
 
@@ -2813,6 +2824,8 @@ Grand Moff Tarkin is the Imperial commander of the Death Star and a high-ranking
         const prev = document.getElementById("mediaPrev");
         const next = document.getElementById("mediaNext");
         const detail = document.getElementById("mediaDetail");
+        const detailThumb = document.getElementById("mediaDetailThumb");
+        const detailKicker = document.getElementById("mediaDetailKicker");
         const detailTitle = document.getElementById("mediaDetailTitle");
         const detailMeta = document.getElementById("mediaDetailMeta");
         const detailDesc = document.getElementById("mediaDetailDesc");
@@ -2839,6 +2852,7 @@ Grand Moff Tarkin is the Imperial commander of the Death Star and a high-ranking
             (slide.querySelector(".media-carousel__synopsis")?.textContent || "").trim();
           const getName = (slide) => (slide.querySelector(".media-carousel__name")?.textContent || "").trim();
           const getEra = (slide) => (slide.querySelector(".media-carousel__era")?.textContent || "").trim();
+          const getImg = (slide) => slide.querySelector(".media-carousel__poster img");
 
           const setActive = (i, { scrollIntoView = true } = {}) => {
             if (slides.length === 0) return;
@@ -2848,9 +2862,22 @@ Grand Moff Tarkin is the Imperial commander of the Death Star and a high-ranking
             const name = getName(s);
             const era = getEra(s);
             const syn = getSynopsis(s);
+            const img = getImg(s);
             if (detailTitle) detailTitle.textContent = name || "Title";
             if (detailMeta) detailMeta.textContent = era || "";
             if (detailDesc) detailDesc.textContent = syn || "";
+            if (detailKicker) detailKicker.textContent = name ? "Selected" : "Details";
+            if (detailThumb) {
+              const src = img?.getAttribute("src") || "";
+              const alt = img?.getAttribute("alt") || name || "Selected title poster";
+              if (src) {
+                detailThumb.src = src;
+                detailThumb.alt = alt;
+                detailThumb.hidden = false;
+              } else {
+                detailThumb.hidden = true;
+              }
+            }
             if (scrollIntoView) s.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
           };
 
@@ -2986,6 +3013,28 @@ Grand Moff Tarkin is the Imperial commander of the Death Star and a high-ranking
           update();
         });
       })();
+
+      // Mute functionality
+      const muteBtn = document.getElementById("muteBtn");
+      const mainTitleAudio = document.getElementById("mainTitleAudio");
+      const iconVolumeUp = muteBtn.querySelector(".icon-volume-up");
+      const iconVolumeMute = muteBtn.querySelector(".icon-volume-mute");
+
+      muteBtn.addEventListener("click", () => {
+        if (mainTitleAudio.muted) {
+          mainTitleAudio.muted = false;
+          iconVolumeUp.style.display = "block";
+          iconVolumeMute.style.display = "none";
+          muteBtn.setAttribute("aria-label", "Mute sound");
+          muteBtn.setAttribute("title", "Mute sound");
+        } else {
+          mainTitleAudio.muted = true;
+          iconVolumeUp.style.display = "none";
+          iconVolumeMute.style.display = "block";
+          muteBtn.setAttribute("aria-label", "Unmute sound");
+          muteBtn.setAttribute("title", "Unmute sound");
+        }
+      });
     </script>
   </body>
 </html>
